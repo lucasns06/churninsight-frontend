@@ -3,13 +3,9 @@ ChurnInsight — Plataforma de Previsão de Churn<br>
 <img src="https://img.shields.io/badge/Status-Em%20desenvolvimento-yellow" width="180" height="30" />
 </h1>
 
----
-
 <h1 align="center">
 Front End
 </h1>
-
----
 
 <h2 align="center">📑 Sumário</h2>
 
