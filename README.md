@@ -1,16 +1,101 @@
-# React + Vite
+<h1 id="inicio" align="center">
+ChurnInsight — Plataforma de Previsão de Churn<br>
+<img src="https://img.shields.io/badge/Status-Em%20desenvolvimento-yellow" width="180" height="30" />
+</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+<h1 align="center">
+Front End
+</h1>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+<h2 align="center">📑 Sumário</h2>
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [Visão Geral do Projeto](#visao-geral)
+- [Tecnologias Utilizadas](#tecnologias)
+- [Estrutura do Projeto](#estrutura)
+- [Pré Requisitos](#pre-requisitos)
+- [Como Executar o Projeto](#como-executar)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+<h2 id="visao-geral" align="center">Visão Geral do Projeto</h2>
+
+O **ChurnInsight** é uma solução desenvolvida durante o **Hackathon da Alura** com o objetivo de prever o risco de **cancelamento de clientes (churn)** em serviços recorrentes, como bancos digitais, plataformas de assinatura e soluções SaaS.
+
+A plataforma integra **Data Science** e **Backend** para transformar dados de clientes em **insights acionáveis**, permitindo que empresas antecipem riscos de evasão e tomem decisões baseadas em dados.
+
+Este repositório corresponde ao **Front-End da aplicação**, desenvolvido como um **MVP funcional**, com foco em clareza, usabilidade e integração com a API de previsão.
+
+#### Repositórios
+
+- [Backend](https://github.com/renancvitor/churninsight-backend-h12-25b)
+- [Data-Science](https://github.com/LeticiaPaesano/Churn_Hackathon)
+
+
+
+
+<p align="right"><a href="#inicio">⬆️ Voltar ao início</a></p>
+
+---
+
+
+<h2 id="tecnologias" align="center">Tecnologias Utilizadas</h2>
+
+### Front End
+- ⚛️ React
+- 🟨 JavaScript
+- 🎞️ GSAP
+- 🎨 Tailwind CSS
+- 🔌 Axios
+- 🧩 daisyUI
+- ⚡ Vite
+
+<p align="right"><a href="#inicio">⬆️ Voltar ao início</a></p>
+
+---
+
+<h2 id="estrutura" align="center">Estrutura do Projeto</h2>
+
+
+```plaintext
+churninsight-frontend/
+ └── src/
+      ├── assets/
+      ├── components/
+      ├── pages/
+      ├── services/
+```
+
+<p align="right"><a href="#inicio">⬆️ Voltar ao início</a></p>
+
+---
+
+<h2 id="pre-requisitos" align="center">Pré-requisitos</h2>
+
+Antes de executar o projeto, é necessário ter o Node.js instalado no sistema.
+O Node.js inclui o NPM (Node Package Manager) e o NPX, que são utilizados para instalar dependências e executar o projeto.
+
+👉 Download: https://nodejs.org
+
+Versão recomendada: LTS
+
+---
+
+<h2 id="como-executar" align="center">Como Executar o Projeto</h2>
+
+Instalar as dependências
+```bash
+npm install
+```
+Rodar
+```bash
+npx vite
+```
+
+<p align="right"><a href="#inicio">⬆️ Voltar ao início</a></p>
+
+---
+
