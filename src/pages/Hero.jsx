@@ -8,7 +8,7 @@ export default function Hero() {
         bg-[radial-gradient(ellipse_at_top,_rgba(56,189,248,0.18),_transparent_60%)]"
             />
             <div className="mx-auto max-w-4xl px-6 py-16">
-                <div className="relative isolate overflow-hidden backdrop-blur-md rounded-3xl px-8 py-14 flex flex-col text-center justify-center items-center inset-ring inset-ring-white/10">
+                <div className="relative isolate overflow-hidden backdrop-blur-sm rounded-3xl px-8 py-14 flex flex-col text-center justify-center items-center inset-ring inset-ring-white/10">
 
                     <h1 className="w-fit font-bold text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight mb-6 bg-linear-to-r from-[#0077FF] to-[#39EA29] bg-clip-text text-transparent ">
                         CHURN INSIGHT
