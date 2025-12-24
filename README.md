@@ -38,15 +38,17 @@ Este repositório corresponde ao **Front-End da aplicação**, desenvolvido como
 ---
 
 
-<h2 id="tecnologias" align="center">Tecnologias Utilizadas</h2>
+<h2 id="tecnologias" align="center">Tecnologias Utilizadas e Versões</h2>
 
 ### Front End
-- ⚛️ React
+- ⚛️ React - V19
 - 🟨 JavaScript
 - 🎞️ GSAP
-- 🎨 Tailwind CSS
+- 🎨 Tailwind CSS - V4
+- 🎨 Headlessui - V2
+- 🎨 Heroicons - V2
+- 🎨 Tsparticles - V3
 - 🔌 Axios
-- 🧩 daisyUI
 - ⚡ Vite
 
 <p align="right"><a href="#inicio">⬆️ Voltar ao início</a></p>
