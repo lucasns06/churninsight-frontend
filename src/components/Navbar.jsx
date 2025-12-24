@@ -4,7 +4,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 const navigation = [
   { name: 'Previsão', href: '#', current: false },
   { name: 'Dashboard', href: '#', current: false },
-  { name: 'Membros', href: '#', current: false }
+  { name: 'Membros', href: '/membros', current: false }
 ]
 
 function classNames(...classes) {
@@ -29,14 +29,13 @@ export default function Navbar() {
             </DisclosureButton>
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex shrink-0 items-center">
+            <a href='/' className="flex shrink-0 items-center">
               <img
                 alt="logo"
                 src="logo.svg"
                 className="h-4 w-auto"
               />
-            </div>
-
+            </a>
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <div className="hidden sm:ml-6 sm:block">
