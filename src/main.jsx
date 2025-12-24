@@ -13,7 +13,7 @@ createRoot(document.getElementById('root')).render(
       <Navbar />
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/membros" element={<Membros />} />x
+        <Route path="/membros" element={<Membros />} />
       </Routes>
       <Footer />
     </BrowserRouter>
