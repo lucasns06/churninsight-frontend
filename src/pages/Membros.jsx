@@ -1,7 +1,9 @@
 function Membros() {
-    <div>
-        
-    </div>
+    return(
+        <div>
+            <p>Membros</p>
+        </div>
+    )
 }
 
 export default Membros;
