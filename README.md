@@ -45,8 +45,10 @@ Este repositório corresponde ao **Front-End da aplicação**, desenvolvido como
 - 🟨 JavaScript
 - 🎞️ GSAP
 - 🎨 Tailwind CSS
+- 🎨 Headlessui
+- 🎨 Heroicons
+- 🎨 Tsparticles
 - 🔌 Axios
-- 🧩 daisyUI
 - ⚡ Vite
 
 <p align="right"><a href="#inicio">⬆️ Voltar ao início</a></p>
