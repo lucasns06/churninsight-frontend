@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ParticlesBackground from "../components/ParticlesBackground";
 
 export default function Hero() {
@@ -22,12 +23,12 @@ export default function Hero() {
                     </p>
 
                     <div className="mt-10 flex items-center justify-center gap-x-6">
-                        <a
-                            href="/previsao"
+                        <Link
+                            to="/previsao"
                             className="rounded-md bg-linear-to-r from-[#0077FF] to-[#39EA29] px-4 py-2.5 text-xl font-semibold text-white hover:scale-110 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                         >
                             Prever
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

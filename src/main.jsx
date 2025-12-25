@@ -11,13 +11,11 @@ import Previsao from './pages/Previsao.jsx';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <Navbar />
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/membros" element={<Membros />} />
-        <Route path="/previsao" element={<Previsao />} />
+        <Route path="/membros" element={<><Navbar /><Membros /><Footer /></>} />
+        <Route path="/previsao" element={<><Navbar /><Previsao /><Footer /></>} />
       </Routes>
-      <Footer />
     </BrowserRouter>
   </StrictMode>
 )
