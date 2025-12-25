@@ -10,8 +10,8 @@ const Previsao = () => {
                     <p className="text-center text-3xl w-sm font-bold py-2">Entrada</p>
                     <form
                         onSubmit={(e) => {
-                            e.preventDefault() 
-                            setOpen(true)       
+                            e.preventDefault()
+                            setOpen(true)
                         }}
                     >
                         <div class="mb-6">
