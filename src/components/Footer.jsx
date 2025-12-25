@@ -38,13 +38,13 @@ const Footer = () => {
                         <h2 class="mb-6 text-sm font-semibold text-heading uppercase">Páginas</h2>
                         <ul class="text-body font-medium">
                             <li class="mb-4">
-                                <a href="#" class="hover:underline">Previsão</a>
+                                <a href="/previsao" class="hover:underline">Previsão</a>
                             </li>
                             <li class="mb-4">
                                 <a href="#" class="hover:underline">Dashboard</a>
                             </li>
                             <li>
-                                <a href="#" class="hover:underline">Membros</a>
+                                <a href="/membros" class="hover:underline">Membros</a>
                             </li>
                         </ul>
                     </div>
