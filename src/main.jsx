@@ -7,6 +7,7 @@ import Membros from './pages/Membros.jsx';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import Previsao from './pages/Previsao.jsx';
+import NotFound from './pages/NotFound.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -15,6 +16,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/" element={<App />} />
         <Route path="/membros" element={<><Navbar /><Membros /><Footer /></>} />
         <Route path="/previsao" element={<><Navbar /><Previsao /><Footer /></>} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
