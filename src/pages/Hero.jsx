@@ -4,8 +4,7 @@ export default function Hero() {
     return (
         <div className="bg-image flex items-center justify-center relative overflow-hidden">
             <ParticlesBackground />
-            <div className="absolute inset-0 z-[1] pointer-events-none
-        bg-[radial-gradient(ellipse_at_top,_rgba(56,189,248,0.18),_transparent_60%)]"
+            <div className="absolute inset-0 z-1 pointer-events-none bg-[radial-gradient(ellipse_at_top,rgba(56,189,248,0.18),transparent_60%)]"
             />
             <div className="mx-auto max-w-4xl px-6 py-16">
                 <div className="relative isolate overflow-hidden backdrop-blur-sm rounded-3xl px-8 py-14 flex flex-col text-center justify-center items-center inset-ring inset-ring-white/10">
@@ -24,7 +23,7 @@ export default function Hero() {
 
                     <div className="mt-10 flex items-center justify-center gap-x-6">
                         <a
-                            href="#"
+                            href="/previsao"
                             className="rounded-md bg-linear-to-r from-[#0077FF] to-[#39EA29] px-4 py-2.5 text-xl font-semibold text-white hover:scale-110 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                         >
                             Prever
