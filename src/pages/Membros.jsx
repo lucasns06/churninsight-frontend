@@ -3,7 +3,7 @@ function Membros() {
     const cards = [
         {
             id: 1,
-            fotoUrl: "pessoa.png",
+            fotoUrl: "/src/assets/membros/lucas.jpg",
             nome: "Lucas Nascimento",
             cargo: "Back end e Front end",
             github: "",
@@ -11,7 +11,7 @@ function Membros() {
         },
         {
             id: 2,
-            fotoUrl: "pessoa.png",
+            fotoUrl: "/src/assets/membros/renan.jpg",
             nome: "Renan Vitor",
             cargo: "Back end",
             github: "",
@@ -19,7 +19,7 @@ function Membros() {
         },
         {
             id: 3,
-            fotoUrl: "pessoa.png",
+            fotoUrl: "/src/assets/membros/gabriel.jpg",
             nome: "Gabriel Ferreira",
             cargo: "Back end",
             github: "",
@@ -27,7 +27,7 @@ function Membros() {
         },
         {
             id: 4,
-            fotoUrl: "pessoa.png",
+            fotoUrl: "/src/assets/membros/vitor.jpg",
             nome: "Vitor Amancio",
             cargo: "Back end",
             github: "",
@@ -35,7 +35,7 @@ function Membros() {
         },
         {
             id: 5,
-            fotoUrl: "pessoa.png",
+            fotoUrl: "/src/assets/membros/josemar.jpg",
             nome: "Josemar Sebastião",
             cargo: "Data science",
             github: "",
@@ -43,7 +43,7 @@ function Membros() {
         },
         {
             id: 6,
-            fotoUrl: "pessoa.png",
+            fotoUrl: "/src/assets/membros/mauricio.png",
             nome: "Mauricio De Oliveira",
             cargo: "Data science",
             github: "",
@@ -51,14 +51,12 @@ function Membros() {
         },
         {
             id: 7,
-            fotoUrl: "pessoa.png",
+            fotoUrl: "/src/assets/membros/leticia.png",
             nome: "Letícia Paesano",
             cargo: "Data science",
             github: "",
             linkedin: ""
         }
-
-
     ]
     return (
         <div className="sm:h-auto xl:h-screen p-4 bg-[#e3e5f0]">
