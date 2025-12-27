@@ -2,9 +2,26 @@ import { useState } from 'react'
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/16/solid'
 const Previsao = () => {
-    const [open, setOpen] = useState(false)
-    const [pais, setPais] = useState('')
-    const [sexo, setSexo] = useState('')
+    const [open, setOpen] = useState(false);
+    const [score, setScore] = useState('');
+    const [pais, setPais] = useState('');
+    const [sexo, setSexo] = useState('');
+    const [idade, setIdade] = useState('');
+    const [tempoTrabalho, setTempoTrabalho] = useState('');
+    const [saldo, setSaldo] = useState('');
+    const [salarioEstimado, setSalarioEstimado] = useState('');
+
+    function testar(){
+        console.log({
+            "score": score,
+            "pais": pais,
+            "sexo": sexo,
+            "idade": idade,
+            "tempo de trabalho": tempoTrabalho,
+            "saldo": saldo,
+            "salario estimado": salarioEstimado
+        })
+    }
     return (
         <div className="tela bg-[#e3e5f0] flex flex-col justify-center items-center px-2 py-8 sm:py-4">
             <div className="flex flex-col justify-center items-center md:flex-row">
@@ -13,11 +30,13 @@ const Previsao = () => {
                         onSubmit={(e) => {
                             e.preventDefault()
                             setOpen(true)
+
+                            testar()
                         }}
                     >
                         <div class="mb-6">
                             <label class="block mb-2.5 text-sm font-medium text-heading">Score do cartão de crédito</label>
-                            <input type="number" placeholder='Score do cartão de crédito' class="rounded-md bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:outline-green-400 block w-full px-3 py-2.5 shadow-sm placeholder:text-body" required />
+                            <input value={score} onChange={(e) => setScore(e.target.value)} type="number" placeholder='Score do cartão de crédito' class="rounded-md bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:outline-green-400 block w-full px-3 py-2.5 shadow-sm placeholder:text-body" required />
                         </div>
                         <div className="mb-6 sm:col-span-3">
                             <label htmlFor="pais" className="block mb-2.5 text-sm font-medium text-heading text-black">
@@ -71,19 +90,19 @@ const Previsao = () => {
                         {/* ---- */}
                         <div class="mb-6">
                             <label class="block mb-2.5 text-sm font-medium text-heading">Idade</label>
-                            <input type="number" placeholder='Idade' class="rounded-md bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:outline-green-400 block w-full px-3 py-2.5 shadow-sm placeholder:text-body" required />
+                            <input value={idade} onChange={(e) => setIdade(e.target.value)} type="number" placeholder='Idade' class="rounded-md bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:outline-green-400 block w-full px-3 py-2.5 shadow-sm placeholder:text-body" required />
                         </div>
                         <div class="mb-6">
                             <label class="block mb-2.5 text-sm font-medium text-heading">Tempo de trabalho (meses)</label>
-                            <input type="number" placeholder='Tempo de trabalho (meses)' class="rounded-md bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:outline-green-400 block w-full px-3 py-2.5 shadow-sm placeholder:text-body" required />
+                            <input value={tempoTrabalho} onChange={(e) => setTempoTrabalho(e.target.value)} type="number" placeholder='Tempo de trabalho (meses)' class="rounded-md bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:outline-green-400 block w-full px-3 py-2.5 shadow-sm placeholder:text-body" required />
                         </div>
                         <div class="mb-6">
                             <label class="block mb-2.5 text-sm font-medium text-heading">Saldo</label>
-                            <input type="number" placeholder='Saldo' class="rounded-md bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:outline-green-400 block w-full px-3 py-2.5 shadow-sm placeholder:text-body" required />
+                            <input value={saldo} onChange={(e) => setSaldo(e.target.value)} type="number" placeholder='Saldo' class="rounded-md bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:outline-green-400 block w-full px-3 py-2.5 shadow-sm placeholder:text-body" required />
                         </div>
                         <div class="mb-6">
                             <label class="block mb-2.5 text-sm font-medium text-heading">Salário estimado</label>
-                            <input type="number" placeholder='Salário estimado' class="rounded-md bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:outline-green-400 block w-full px-3 py-2.5 shadow-sm placeholder:text-body" required />
+                            <input value={salarioEstimado} onChange={(e) => setSalarioEstimado(e.target.value)} type="number" placeholder='Salário estimado' class="rounded-md bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:outline-green-400 block w-full px-3 py-2.5 shadow-sm placeholder:text-body" required />
                         </div>
                         <div className="flex justify-center">
                             <div>
