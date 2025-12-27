@@ -60,7 +60,13 @@ function Membros() {
     ]
     return (
         <div className="sm:h-auto xl:h-screen p-4 bg-[#e3e5f0]">
-            <h1 className="text-4xl font-bold text-center mb-4">Nosso time</h1>
+            <div className="mb-8 mt-2">
+                <h1 className="text-4xl text-center mb-4">Nosso Time</h1>
+                <div className="w-full flex justify-center">
+                    <div className="w-32 h-1 bg-black"></div>
+                </div>
+            </div>
+
             <div className="flex flex-wrap justify-center gap-4">
                 {cards.map((cards) => (
                     <div class="bg-white relative bg-neutral-primary-soft max-w-xs w-full p-6 rounded-2xl shadow-md hover:scale-105 transition-all">
