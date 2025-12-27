@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/16/solid'
+import api from '../services/Api';
 const Previsao = () => {
     const [open, setOpen] = useState(false);
     const [score, setScore] = useState('');
@@ -11,16 +12,44 @@ const Previsao = () => {
     const [saldo, setSaldo] = useState('');
     const [salarioEstimado, setSalarioEstimado] = useState('');
 
-    function testar(){
+    const paisMap = {
+        França: "France",
+        Alemanha: "Germany",
+        Espanha: "Spain"
+    };
+    const sexoMap = {
+        Feminino: "Female",
+        Masculino: "Male"
+    };
+
+    function testar() {
         console.log({
             "score": score,
-            "pais": pais,
-            "sexo": sexo,
+            pais: paisMap[pais],
+            "sexo": sexoMap[sexo],
             "idade": idade,
             "tempo de trabalho": tempoTrabalho,
             "saldo": saldo,
             "salario estimado": salarioEstimado
         })
+    }
+
+    async function prever() {
+        api.post('/api/previsao', {
+            CreditScore: score,
+            Geography: paisMap[pais],
+            Gender: sexoMap[sexo],
+            Age: idade,
+            Tenure: tempoTrabalho,
+            Balance: saldo,
+            EstimatedSalary: salarioEstimado
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
     return (
         <div className="tela bg-[#e3e5f0] flex flex-col justify-center items-center px-2 py-8 sm:py-4">
@@ -30,8 +59,8 @@ const Previsao = () => {
                         onSubmit={(e) => {
                             e.preventDefault()
                             setOpen(true)
-
                             testar()
+                            prever()
                         }}
                     >
                         <div class="mb-6">
@@ -52,7 +81,7 @@ const Previsao = () => {
                                     required
                                     className="border border-default-medium col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-black outline-1 -outline-offset-1 outline-white/10 *:bg-white focus:outline-2 focus:-outline-offset-2 focus:outline-green-400 shadow-sm sm:text-sm/6"
                                 >
-                                    <option value="" disabled hidden></option>   
+                                    <option value="" disabled hidden></option>
                                     <option>França</option>
                                     <option>Alemanha</option>
                                     <option>Espanha</option>
@@ -77,7 +106,7 @@ const Previsao = () => {
                                     required
                                     className="border border-default-medium col-start-1 row-start-1 w-full appearance-none rounded-md bg-white/5 py-1.5 pr-8 pl-3 text-base text-black outline-1 -outline-offset-1 outline-white/10 *:bg-white focus:outline-2 focus:-outline-offset-2 focus:outline-green-400 shadow-sm sm:text-sm/6"
                                 >
-                                    <option value="" disabled hidden></option> 
+                                    <option value="" disabled hidden></option>
                                     <option>Feminino</option>
                                     <option>Masculino</option>
                                 </select>
