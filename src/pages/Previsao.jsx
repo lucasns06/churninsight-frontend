@@ -80,8 +80,8 @@ const Previsao = () => {
                             <input type="number" placeholder='Tempo de trabalho (meses)' class="rounded-md bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:outline-green-400 block w-full px-3 py-2.5 shadow-sm placeholder:text-body" required />
                         </div>
                         <div class="mb-6">
-                            <label class="block mb-2.5 text-sm font-medium text-heading">Balance</label>
-                            <input type="number" placeholder='Balance' class="rounded-md bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:outline-green-400 block w-full px-3 py-2.5 shadow-sm placeholder:text-body" required />
+                            <label class="block mb-2.5 text-sm font-medium text-heading">Saldo</label>
+                            <input type="number" placeholder='Saldo' class="rounded-md bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:outline-green-400 block w-full px-3 py-2.5 shadow-sm placeholder:text-body" required />
                         </div>
                         <div class="mb-6">
                             <label class="block mb-2.5 text-sm font-medium text-heading">Salário estimado</label>
