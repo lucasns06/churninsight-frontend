@@ -1,16 +1,14 @@
 import { useState } from 'react'
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import { ChevronDownIcon } from '@heroicons/react/16/solid'
 const Previsao = () => {
     const [open, setOpen] = useState(false)
     const [pais, setPais] = useState('')
     const [sexo, setSexo] = useState('')
     return (
-        <div className="min-h-screen bg-[#e3e5f0] flex flex-col justify-center items-center px-2 py-8 sm:py-4">
+        <div className="tela bg-[#e3e5f0] flex flex-col justify-center items-center px-2 py-8 sm:py-4">
             <div className="flex flex-col justify-center items-center md:flex-row">
                 <div className="bg-white w-sm rounded-2xl p-4 shadow-2xl">
-                    <p className="text-center text-3xl font-bold py-2">Entrada</p>
                     <form
                         onSubmit={(e) => {
                             e.preventDefault()

@@ -9,3 +9,6 @@
     background-size: cover;
     min-height: 100vh;
 }
+.tela{
+    min-height: calc(100vh - 64px);
+}
