@@ -6,56 +6,56 @@ function Membros() {
             fotoUrl: "/src/assets/membros/lucas.jpg",
             nome: "Lucas Nascimento",
             cargo: "Back end e Front end",
-            github: "",
-            linkedin: ""
+            github: "https://github.com/lucasns06",
+            linkedin: "https://www.linkedin.com/in/lucasns06/"
         },
         {
             id: 2,
             fotoUrl: "/src/assets/membros/renan.jpg",
             nome: "Renan Vitor",
             cargo: "Back end",
-            github: "",
-            linkedin: ""
+            github: "https://github.com/renancvitor",
+            linkedin: "https://www.linkedin.com/in/renan-vitor-developer/"
         },
         {
             id: 3,
             fotoUrl: "/src/assets/membros/gabriel.jpg",
             nome: "Gabriel Ferreira",
             cargo: "Back end",
-            github: "",
-            linkedin: ""
+            github: "https://github.com/gabrielbkx",
+            linkedin: "https://www.linkedin.com/in/gabrielolif/"
         },
         {
             id: 4,
             fotoUrl: "/src/assets/membros/vitor.jpg",
             nome: "Vitor Amancio",
             cargo: "Back end",
-            github: "",
-            linkedin: ""
+            github: "https://github.com/Vitor333104",
+            linkedin: "https://www.linkedin.com/in/vitormxn/"
         },
         {
             id: 5,
             fotoUrl: "/src/assets/membros/josemar.jpg",
             nome: "Josemar Sebastião",
             cargo: "Data science",
-            github: "",
-            linkedin: ""
+            github: "https://github.com/JosemarDS",
+            linkedin: "https://www.linkedin.com/in/josemar-sebastiao/"
         },
         {
             id: 6,
             fotoUrl: "/src/assets/membros/mauricio.png",
             nome: "Mauricio De Oliveira",
             cargo: "Data science",
-            github: "",
-            linkedin: ""
+            github: "https://github.com/mauricioliveir",
+            linkedin: "https://www.linkedin.com/in/monitormauricio/"
         },
         {
             id: 7,
             fotoUrl: "/src/assets/membros/leticia.png",
             nome: "Letícia Paesano",
             cargo: "Data science",
-            github: "",
-            linkedin: ""
+            github: "https://github.com/LeticiaPaesano",
+            linkedin: "https://www.linkedin.com/in/leticiapaesano"
         }
     ]
     return (
