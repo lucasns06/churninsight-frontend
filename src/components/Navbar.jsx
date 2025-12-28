@@ -52,7 +52,7 @@ export default function Navbar() {
                       aria-current={item.current ? 'page' : undefined}
 
                       className={classNames(
-                        isActive ? 'bg-gray-950/50 text-white' : 'text-gray-700 hover:bg-black/5 ',
+                        isActive ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-black/5 ',
                         'rounded-md px-3 py-2 text-base font-medium',
                       )}
                     >
