@@ -1,12 +1,12 @@
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { ArrowTrendingUpIcon, Bars3Icon, ChartBarIcon, UserCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 
 const navigation = [
-  { name: 'Previsão', href: '/previsao' },
-  { name: 'Dashboard', href: '#' },
-  { name: 'Equipe', href: '/membros' }
+  { name: 'Previsão', href: '/previsao', icon: ArrowTrendingUpIcon },
+  { name: 'Dashboard', href: '#', icon: ChartBarIcon },
+  { name: 'Equipe', href: '/membros', icon: UserCircleIcon }
 ]
 
 function classNames(...classes) {
@@ -56,7 +56,10 @@ export default function Navbar() {
                         'rounded-md px-3 py-2 text-base font-medium',
                       )}
                     >
-                      {item.name}
+                      <div className='flex gap-2'>
+                        <item.icon className="w-4" />
+                        {item.name}
+                      </div>
                     </Link>
                   )
                 })}
@@ -79,12 +82,15 @@ export default function Navbar() {
                 aria-current={isActive ? 'page' : undefined}
                 className={classNames(
                   isActive
-                    ? 'bg-gray-950/50 text-white'
+                    ? 'bg-blue-600 text-white'
                     : 'text-gray-700 hover:bg-white/5 hover:text-blue-400',
                   'block rounded-md px-3 py-2 text-base font-medium',
                 )}
               >
-                {item.name}
+                <div className='flex gap-2'>
+                  <item.icon className="w-4" />
+                  {item.name}
+                </div>
               </DisclosureButton>
             )
           })}

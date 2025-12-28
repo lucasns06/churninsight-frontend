@@ -1,11 +1,11 @@
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { ArrowTrendingUpIcon, Bars3Icon, ChartBarIcon, UserCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 
 const navigation = [
-  { name: 'Previsão', href: '/previsao', current: false },
-  { name: 'Dashboard', href: '#', current: false },
-  { name: 'Equipe', href: '/membros', current: false }
+  { name: 'Previsão', href: '/previsao', icon: ArrowTrendingUpIcon },
+  { name: 'Dashboard', href: '#', icon: ChartBarIcon },
+  { name: 'Equipe', href: '/membros', icon: UserCircleIcon }
 ]
 
 function classNames(...classes) {
@@ -42,7 +42,7 @@ export default function HeroNavbar() {
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
                 {navigation.map((item) => (
-                  <Link 
+                  <Link
                     key={item.name}
                     to={item.href}
                     aria-current={item.current ? 'page' : undefined}
@@ -51,7 +51,10 @@ export default function HeroNavbar() {
                       'rounded-md px-3 py-2 text-base font-medium',
                     )}
                   >
-                    {item.name}
+                    <div className='flex gap-2'>
+                      <item.icon className="w-4 text-white" />
+                      {item.name}
+                    </div>
                   </Link>
                 ))}
               </div>
@@ -73,7 +76,10 @@ export default function HeroNavbar() {
                 'block rounded-md px-3 py-2 text-base font-medium',
               )}
             >
-              {item.name}
+              <div className='flex gap-2'>
+                <item.icon className="w-4 text-white" />
+                {item.name}
+              </div>
             </DisclosureButton>
           ))}
         </div>
