@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/16/solid'
+import { ChevronDownIcon, ClockIcon, CreditCardIcon, CurrencyDollarIcon, GlobeAltIcon, UserCircleIcon, UserIcon } from '@heroicons/react/16/solid'
 import api from '../services/Api';
+import { CalendarDateRangeIcon } from '@heroicons/react/16/solid';
 const Previsao = () => {
     const [open, setOpen] = useState(false);
     const [score, setScore] = useState('');
@@ -54,8 +55,8 @@ const Previsao = () => {
     return (
         <div className="tela bg-[#e3e5f0] flex flex-col justify-center items-center px-2 py-8 sm:py-4">
             <div className="bg-white rounded-2xl p-4 shadow-2xl max-w-xl">
-            <h1 className='text-3xl'>Dados do Cliente</h1>
-            <h1 className='text-base mb-4'>Insira as informações para realizar a análise preditiva</h1>
+                <h1 className='text-3xl'>Dados do Cliente</h1>
+                <h1 className='text-base mb-4'>Insira as informações para realizar a análise preditiva</h1>
                 <form
                     onSubmit={(e) => {
                         e.preventDefault()
@@ -67,13 +68,25 @@ const Previsao = () => {
                     <div className='grid grid-cols-1 md:grid-cols-2 md:gap-4 w-full'>
                         <div className='w-full'>
                             <div class="mb-6">
-                                <label class="mb-2.5 text-sm font-medium text-heading">Score de crédito</label>
+                                <div className='flex items-center'>
+                                    <CreditCardIcon
+                                        aria-hidden="true"
+                                        className="pointer-events-none mr-1 col-start-1 row-start-1 size-5 self-center justify-self-end text-blue-600 sm:size-4"
+                                    />
+                                    <label class="text-sm font-medium text-heading">Score de crédito</label>
+                                </div>
                                 <input value={score} onChange={(e) => setScore(e.target.value)} type="number" placeholder='Score de crédito' class="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
                             </div>
                             <div className="mb-6 sm:col-span-3">
-                                <label htmlFor="pais" className="mb-2.5 text-sm font-medium text-heading text-black">
-                                    País
-                                </label>
+                                <div className='flex items-center'>
+                                    <GlobeAltIcon
+                                        aria-hidden="true"
+                                        className="pointer-events-none mr-1 col-start-1 row-start-1 size-5 self-center justify-self-end text-blue-600 sm:size-4 "
+                                    />
+                                    <label htmlFor="pais" className="text-sm font-medium text-heading text-black">
+                                        País
+                                    </label>
+                                </div>
                                 <div className="mt-2 grid grid-cols-1">
                                     <select
                                         id="pais"
@@ -96,9 +109,15 @@ const Previsao = () => {
                                 </div>
                             </div>
                             <div className="mb-6 sm:col-span-3">
-                                <label htmlFor="sexo" className="mb-2.5 text-sm font-medium text-heading text-black">
-                                    Sexo
-                                </label>
+                                <div className='flex items-center'>
+                                    <UserIcon
+                                        aria-hidden="true"
+                                        className="pointer-events-none mr-1 col-start-1 row-start-1 size-5 self-center justify-self-end text-blue-600 sm:size-4"
+                                    />
+                                    <label htmlFor="sexo" className="text-sm font-medium text-heading text-black">
+                                        Sexo
+                                    </label>
+                                </div>
                                 <div className="mt-2 grid grid-cols-1">
                                     <select
                                         id="sexo"
@@ -122,30 +141,55 @@ const Previsao = () => {
                         </div>
                         <div className='w-full'>
                             <div class="mb-6">
-                                <label class="mb-2.5 text-sm font-medium text-heading">Idade</label>
+                                <div className='flex items-center'>
+                                    <CalendarDateRangeIcon
+                                        aria-hidden="true"
+                                        className="pointer-events-none mr-1 col-start-1 row-start-1 size-5 self-center justify-self-end text-blue-600 sm:size-4"
+                                    />
+                                    <label class="text-sm font-medium text-heading">Idade</label>
+                                </div>
+
                                 <input value={idade} onChange={(e) => setIdade(e.target.value)} type="number" placeholder='Idade' class="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
                             </div>
                             <div class="mb-6">
-                                <label for="trabalho" class="mb-2.5 text-sm font-medium text-heading">Tempo de trabalho (meses)</label>
+                                <div className='flex items-center'>
+                                    <ClockIcon
+                                        aria-hidden="true"
+                                        className="pointer-events-none mr-1 col-start-1 row-start-1 size-5 self-center justify-self-end text-blue-600 sm:size-4"
+                                    />
+                                    <label for="trabalho" class="text-sm font-medium text-heading">Tempo de trabalho (meses)</label>
+                                </div>
                                 <input id='trabalho' value={tempoTrabalho} onChange={(e) => setTempoTrabalho(e.target.value)} type="number" placeholder='Tempo de trabalho (meses)' class="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
                             </div>
                             <div class="mb-6">
-                                <label for="saldo" class="mb-2.5 text-sm font-medium text-heading">Saldo</label>
+                                <div className='flex items-center'>
+                                    <CurrencyDollarIcon
+                                        aria-hidden="true"
+                                        className="pointer-events-none mr-1 col-start-1 row-start-1 size-5 self-center justify-self-end text-blue-600 sm:size-4"
+                                    />
+                                    <label for="saldo" class="text-sm font-medium text-heading">Saldo</label>
+                                </div>
                                 <input id='saldo' value={saldo} onChange={(e) => setSaldo(e.target.value)} type="number" placeholder='Saldo' class="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
                             </div>
                         </div>
                     </div>
                     <div class="mb-6">
-                        <label for="salario" class="mb-2.5 text-sm font-medium text-heading">Salário estimado</label>
+                        <div className='flex items-center'>
+                            <CurrencyDollarIcon
+                                aria-hidden="true"
+                                className="pointer-events-none mr-1 col-start-1 row-start-1 size-5 self-center justify-self-end text-blue-600 sm:size-4"
+                            />
+                            <label for="salario" class="text-sm font-medium text-heading">Salário estimado</label>
+                        </div>
                         <input id="salario" value={salarioEstimado} onChange={(e) => setSalarioEstimado(e.target.value)} type="number" placeholder='Salário estimado' class="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
                     </div>
                     <div className="flex justify-center">
                         <div>
                             <button
                                 type="submit"
-                                className="text-white hover:cursor-pointer hover:scale-105 bg-linear-to-r from-[#0077FF] to-[#39EA29] shadow-sm font-medium leading-5 rounded-sm text-xl px-4 py-2.5 focus:outline-none"
+                                className="text-white hover:cursor-pointer hover:scale-105 bg-linear-to-r from-[#0077FF] to-[#39EA29] shadow-sm font-medium leading-5 rounded-sm text-ms px-4 py-2.5 focus:outline-none"
                             >
-                                Prever
+                                Analisar Risco de churn
                             </button>
                             <Dialog open={open} onClose={setOpen} className="relative z-10">
                                 <DialogBackdrop
