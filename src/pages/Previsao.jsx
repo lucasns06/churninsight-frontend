@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
-import { ChevronDownIcon, ClockIcon, CreditCardIcon, CurrencyDollarIcon, GlobeAltIcon, UserCircleIcon, UserIcon } from '@heroicons/react/16/solid'
+import { ArrowTrendingUpIcon, ChevronDownIcon, ClockIcon, CreditCardIcon, CurrencyDollarIcon, GlobeAltIcon, UserCircleIcon, UserIcon } from '@heroicons/react/16/solid'
 import api from '../services/Api';
 import { CalendarDateRangeIcon } from '@heroicons/react/16/solid';
 const Previsao = () => {
@@ -54,6 +54,10 @@ const Previsao = () => {
     }
     return (
         <div className="tela bg-[#e3e5f0] flex flex-col justify-center items-center px-2 py-8 sm:py-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600 text-primary-foreground mb-6 border border-blue-800">
+                <ArrowTrendingUpIcon className="w-4 h-4 text-white" />
+                <span className="text-sm font-medium text-white">Previsão de Churn</span>
+            </div>
             <div className="bg-white rounded-2xl p-4 shadow-2xl max-w-xl">
                 <h1 className='text-3xl'>Dados do Cliente</h1>
                 <h1 className='text-base mb-4'>Insira as informações para realizar a análise preditiva</h1>
