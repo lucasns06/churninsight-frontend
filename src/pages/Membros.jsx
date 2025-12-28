@@ -62,7 +62,7 @@ function Membros() {
     ]
     return (
         <div className="sm:h-auto xl:h-screen pb-4 py-2 bg-[#e3e5f0]">
-                <h1 className="text-4xl text-center my-4">Nosso Time</h1>
+                <h1 className="text-4xl text-center my-4">Nossa Equipe</h1>
             <div className="flex flex-wrap justify-center gap-4">
                 {cardsBack.map((cards) => (
                     <div class="bg-white relative bg-neutral-primary-soft max-w-2xs w-full p-6 rounded-2xl shadow-md hover:scale-105 transition-all">
