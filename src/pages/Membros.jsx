@@ -61,7 +61,7 @@ function Membros() {
         }
     ]
     return (
-        <div className="sm:h-auto xl:h-screen pb-4 py-2 bg-[#e3e5f0]">
+        <div className="sm:h-auto xl:min-h-screen pb-4 py-2 bg-[#e3e5f0]">
                 <h1 className="text-4xl text-center my-4">Nossa Equipe</h1>
             <div className="flex flex-wrap justify-center gap-4">
                 {cardsBack.map((cards) => (
