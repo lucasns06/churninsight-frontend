@@ -53,10 +53,10 @@ const Previsao = () => {
             });
     }
     return (
-        <div className="tela bg-[#e3e5f0] flex flex-col justify-center items-center px-2 py-8 sm:py-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600 text-primary-foreground mb-6 border border-blue-800">
-                <ArrowTrendingUpIcon className="w-4 h-4 text-white" />
-                <span className="text-sm font-medium text-white">Previsão de Churn</span>
+        <div className="tela flex flex-col justify-center items-center px-2 py-8 sm:py-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/30 text-primary-foreground mb-6 border border-blue-500/40">
+                <ArrowTrendingUpIcon className="w-4 h-4 text-blue-700" />
+                <span className="text-sm font-medium text-blue-700">Previsão de Churn</span>
             </div>
             <div className="bg-white rounded-2xl p-4 shadow-2xl max-w-xl">
                 <h1 className='text-3xl'>Dados do Cliente</h1>

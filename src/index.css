@@ -11,4 +11,5 @@
 }
 .tela{
     min-height: calc(100vh - 64px);
+    background-color: #eef1fd;
 }
