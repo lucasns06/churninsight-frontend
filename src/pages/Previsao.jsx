@@ -71,6 +71,7 @@ const Previsao = () => {
             });
 
     }
+    // eslint-disable-next-line no-unused-vars
     async function apiTeste() {
         api.get('/health')
             .then(function (response) {
@@ -88,7 +89,7 @@ const Previsao = () => {
     }
     return (
         <div className="tela flex flex-col justify-center items-center px-2 py-8 sm:py-4">
-            <button className='text-4xl hover:cursor-pointer mb-4' onClick={() => apiTeste()}>Testar</button>
+            {/* <button className='text-4xl hover:cursor-pointer mb-4' onClick={() => apiTeste()}>Testar</button> */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/30 text-primary-foreground mb-6 border border-blue-500/40">
                 <ArrowTrendingUpIcon className="w-4 h-4 text-blue-700" />
                 <span className="text-sm font-medium text-blue-700">Previsão de Churn</span>
