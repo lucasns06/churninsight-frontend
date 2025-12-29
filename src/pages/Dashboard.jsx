@@ -56,12 +56,12 @@ const Dashboard = () => {
                 })}
             </div>
             <div className="flex flex-wrap justify-center gap-4 mt-4">
-                <div className="bg-white p-4 w-2xl rounded-md border border-gray-400/50">
+                <div className="bg-white p-4 w-2xl rounded-md border border-gray-400/50 shadow-md">
                     <h1 className="text-4xl font-bold">Nivel de risco por idade</h1>
                     <h2 className="text-2xl">Quantidade de nivel de risco por idade</h2>
 
                 </div>
-                <div className="bg-white p-4 w-2xl rounded-md border border-gray-400/50">
+                <div className="bg-white p-4 w-2xl rounded-md border border-gray-400/50 shadow-md">
                     <h1 className="text-4xl font-bold">Distribuição por Risco</h1>
                     <h2 className="text-2xl">Quantidade de clientes por nivel de risco</h2>
                     <div className="h-75">
@@ -90,17 +90,17 @@ const Dashboard = () => {
                                 />
                             </RechartsPie>
                         </ResponsiveContainer>
-                        <div className="flex justify-center gap-6 mt-4 ">
-                            {riskDistribution.map((item) => (
-                                <div key={item.name} className="flex items-center gap-2">
-                                    <div
-                                        className="w-3 h-3 rounded-full"
-                                        style={{ backgroundColor: item.color }}
-                                    />
-                                    <span className="text-sm text-muted-foreground">{item.name}</span>
-                                </div>
-                            ))}
-                        </div>
+                    </div>
+                    <div className="flex justify-center gap-6 mt-4 ">
+                        {riskDistribution.map((item) => (
+                            <div key={item.name} className="flex items-center gap-2">
+                                <div
+                                    className="w-3 h-3 rounded-full"
+                                    style={{ backgroundColor: item.color }}
+                                />
+                                <span className="text-sm text-muted-foreground">{item.name}</span>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
