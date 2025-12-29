@@ -5,6 +5,7 @@ import api from '../services/Api';
 import { CalendarDateRangeIcon } from '@heroicons/react/16/solid';
 const Previsao = () => {
     const [loading, setLoading] = useState(false);
+    const [erro, setErro] = useState(false);
     //entrada
     const [open, setOpen] = useState(false);
     const [score, setScore] = useState('');
@@ -63,6 +64,7 @@ const Previsao = () => {
             .catch(function (error) {
                 console.log(error.response?.data);
                 console.log(error.response?.status);
+                setErro(true);
             })
             .finally(function () {
                 setLoading(false);
@@ -77,6 +79,12 @@ const Previsao = () => {
             .catch(function (error) {
                 console.log(error);
             });
+    }
+    async function voltar() {
+        setOpen(false);
+        setTimeout(() => {
+            setErro(false);
+        }, 500); 
     }
     return (
         <div className="tela flex flex-col justify-center items-center px-2 py-8 sm:py-4">
@@ -241,61 +249,80 @@ const Previsao = () => {
                                                             Resultado
                                                         </DialogTitle>
                                                         <div className="mt-2 text-xl">
-                                                            {loading ? (
-                                                                <div className="flex flex-col items-center gap-3">
-                                                                    <svg
-                                                                        className="animate-spin h-10 w-10 text-blue-600"
-                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                        fill="none"
-                                                                        viewBox="0 0 24 24"
-                                                                    >
-                                                                        <circle
-                                                                            className="opacity-25"
-                                                                            cx="12"
-                                                                            cy="12"
-                                                                            r="10"
-                                                                            stroke="currentColor"
-                                                                            strokeWidth="4"
-                                                                        />
-                                                                        <path
-                                                                            className="opacity-75"
-                                                                            fill="currentColor"
-                                                                            d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-                                                                        />
-                                                                    </svg>
+                                                            {erro ? (
+                                                                <div>
+                                                                    <p className='font-4xl'>ERRO</p>
+                                                                </div>
+                                                            ) :
+                                                                (
+                                                                    <div>
+                                                                        {loading ? (
+                                                                            <div className="flex flex-col items-center gap-3">
+                                                                                <svg
+                                                                                    className="animate-spin h-10 w-10 text-blue-600"
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    fill="none"
+                                                                                    viewBox="0 0 24 24"
+                                                                                >
+                                                                                    <circle
+                                                                                        className="opacity-25"
+                                                                                        cx="12"
+                                                                                        cy="12"
+                                                                                        r="10"
+                                                                                        stroke="currentColor"
+                                                                                        strokeWidth="4"
+                                                                                    />
+                                                                                    <path
+                                                                                        className="opacity-75"
+                                                                                        fill="currentColor"
+                                                                                        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                                                                                    />
+                                                                                </svg>
 
-                                                                    <p className="text-gray-700 text-lg">
-                                                                        Analisando dados do cliente...
-                                                                    </p>
-                                                                </div>
-                                                            ) : (
-                                                                <div className="text-xl">
-                                                                    <p className="text-gray-900">
-                                                                        <span className='font-bold'>Previsão:</span> {previsao}
-                                                                    </p>
-                                                                    <p className="text-gray-900">
-                                                                        <span className='font-bold'>Probabilidade:</span> {probabilidade}
-                                                                    </p>
-                                                                    <p className="text-gray-900">
-                                                                        <span className='font-bold'>Nível de risco:</span> {nivelRisco}
-                                                                    </p>
-                                                                    <p className="text-gray-900">
-                                                                        <span className='font-bold'>Recomendação:</span> {recomendacao}
-                                                                    </p>
-                                                                </div>
-                                                            )}
+                                                                                <p className="text-gray-700 text-lg">
+                                                                                    Analisando dados do cliente...
+                                                                                </p>
+                                                                            </div>
+                                                                        ) : (
+                                                                            <div className="text-xl">
+                                                                                <p className="text-gray-900">
+                                                                                    <span className='font-bold'>Previsão:</span> {previsao}
+                                                                                </p>
+                                                                                <p className="text-gray-900">
+                                                                                    <span className='font-bold'>Probabilidade:</span> {probabilidade}
+                                                                                </p>
+                                                                                <p className="text-gray-900">
+                                                                                    <span className='font-bold'>Nível de risco:</span> {nivelRisco}
+                                                                                </p>
+                                                                                <p className="text-gray-900">
+                                                                                    <span className='font-bold'>Recomendação:</span> {recomendacao}
+                                                                                </p>
+                                                                            </div>
+                                                                        )}
+                                                                    </div>
+                                                                )}
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div className="bg-gray-700/25 px-4 py-3 flex justify-center">
-                                                <button
-                                                    type="button"
-                                                    onClick={() => setOpen(false)}
-                                                    className="inline-flex w-full justify-center rounded-md bg-green-500 px-3 py-2 text-sm font-semibold text-white hover:bg-green-400 hover:cursor-pointer sm:w-auto"
-                                                >
-                                                    Certo!
-                                                </button>
+                                                {erro ? (
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => voltar()}
+                                                        className="inline-flex w-full justify-center rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white hover:bg-red-400 hover:cursor-pointer sm:w-auto"
+                                                    >
+                                                        Voltar
+                                                    </button>
+                                                ) : (
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => setOpen(false)}
+                                                        className="inline-flex w-full justify-center rounded-md bg-green-500 px-3 py-2 text-sm font-semibold text-white hover:bg-green-400 hover:cursor-pointer sm:w-auto"
+                                                    >
+                                                        Certo!
+                                                    </button>
+                                                )}
                                             </div>
                                         </DialogPanel>
                                     </div>
