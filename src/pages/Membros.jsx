@@ -65,7 +65,7 @@ function Membros() {
                 <h1 className="text-4xl text-center my-4">Nossa Equipe</h1>
             <div className="flex flex-wrap justify-center gap-4">
                 {cardsBack.map((cards) => (
-                    <div class="bg-white relative bg-neutral-primary-soft max-w-2xs w-full p-6 rounded-2xl shadow-md hover:scale-105 transition-all">
+                    <div class="bg-white relative bg-neutral-primary-soft max-w-2xs w-full p-6 rounded-2xl shadow-md border border-white hover:-translate-y-2 hover:border-blue-500/50 hover:shadow-xl transition-all">
                         <div class="flex flex-col items-center">
                             <img class="w-24 h-24 mb-6 rounded-full" src={cards.fotoUrl} alt="person" />
                             <h5 class="mb-0.5 text-xl font-semibold tracking-tight text-heading">{cards.nome}</h5>
@@ -98,7 +98,7 @@ function Membros() {
                 </div>
             <div className="flex flex-wrap justify-center gap-4">
                 {cardsData.map((cards) => (
-                    <div class="bg-white relative bg-neutral-primary-soft max-w-2xs w-full p-6 rounded-2xl shadow-md hover:scale-105 transition-all">
+                    <div class="bg-white relative bg-neutral-primary-soft max-w-2xs w-full p-6 rounded-2xl shadow-md border border-white hover:-translate-y-2 hover:border-blue-500/50 hover:shadow-xl transition-all">
                         <div class="flex flex-col items-center">
                             <img class="w-24 h-24 mb-6 rounded-full" src={cards.fotoUrl} alt="person" />
                             <h5 class="mb-0.5 text-xl font-semibold tracking-tight text-heading">{cards.nome}</h5>
