@@ -7,7 +7,7 @@ const Previsao = () => {
     const [loading, setLoading] = useState(false);
     const [erro, setErro] = useState(false);
     //entrada
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
     const [score, setScore] = useState('');
     const [pais, setPais] = useState('');
     const [sexo, setSexo] = useState('');
