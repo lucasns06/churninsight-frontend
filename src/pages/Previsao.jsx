@@ -26,7 +26,7 @@ const Previsao = () => {
     function testar() {
         console.log({
             "score": score,
-            pais: paisMap[pais],
+            "pais": paisMap[pais],
             "sexo": sexoMap[sexo],
             "idade": idade,
             "tempo de trabalho": tempoTrabalho,
@@ -52,8 +52,18 @@ const Previsao = () => {
                 console.log(error);
             });
     }
+    async function apiTeste() {
+        api.get('/health')
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
     return (
         <div className="tela flex flex-col justify-center items-center px-2 py-8 sm:py-4">
+            <button className='text-4xl hover:cursor-pointer mb-4' onClick={() => apiTeste()}>Testar</button>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/30 text-primary-foreground mb-6 border border-blue-500/40">
                 <ArrowTrendingUpIcon className="w-4 h-4 text-blue-700" />
                 <span className="text-sm font-medium text-blue-700">Previsão de Churn</span>
