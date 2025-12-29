@@ -65,6 +65,7 @@ churninsight-frontend/
       ├── components/
       ├── pages/
       ├── services/
+      ├── App.jsx
 ```
 
 <p align="right"><a href="#inicio">⬆️ Voltar ao início</a></p>
