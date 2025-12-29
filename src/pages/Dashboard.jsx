@@ -1,35 +1,8 @@
-import { ArrowTrendingDownIcon, ChartBarIcon, ExclamationTriangleIcon, UserCircleIcon } from "@heroicons/react/24/outline";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart as RechartsPie, Pie, Cell } from "recharts";
+import { ChartBarIcon } from "@heroicons/react/24/outline";
+import { Tooltip, ResponsiveContainer, PieChart as RechartsPie, Pie, Cell, BarChart } from "recharts";
+import { estatisticaCard, riskDistribution} from "../components/graficosData";
+import CustomContentOfTooltip from "../components/CustomContentOfTooltip";
 
-const estatisticaCard = [
-    {
-        id: 1,
-        titulo: "Total avaliados",
-        metrica: 750,
-        icone: UserCircleIcon,
-        corIcone: "bg-blue-500/30 text-blue-500"
-    },
-    {
-        id: 2,
-        titulo: "Taxa de Churn",
-        metrica: 23 + "%",
-        icone: ArrowTrendingDownIcon,
-        corIcone: "bg-red-500/30 text-red-500"
-    },
-    {
-        id: 3,
-        titulo: "Clientes em Risco",
-        metrica: 120,
-        icone: ExclamationTriangleIcon,
-        corIcone: "bg-red-500/30 text-red-500"
-    }
-]
-
-const riskDistribution = [
-    { name: "Baixo Risco", value: 450, color: "#628ff0" },
-    { name: "Médio Risco", value: 180, color: "gray" },
-    { name: "Alto Risco", value: 120, color: "#f06262" },
-];
 
 const Dashboard = () => {
     return (
@@ -57,9 +30,9 @@ const Dashboard = () => {
             </div>
             <div className="flex flex-wrap justify-center gap-4 mt-4">
                 <div className="bg-white p-4 w-2xl rounded-md border border-gray-400/50 shadow-md">
-                    <h1 className="text-4xl font-bold">Nivel de risco por idade</h1>
-                    <h2 className="text-2xl">Quantidade de nivel de risco por idade</h2>
-
+                    <h1 className="text-4xl font-bold">Probabilidade por Perfil</h1>
+                    <h2 className="text-2xl">Probabilidade de churn por perfil</h2>
+                    <CustomContentOfTooltip/>
                 </div>
                 <div className="bg-white p-4 w-2xl rounded-md border border-gray-400/50 shadow-md">
                     <h1 className="text-4xl font-bold">Distribuição por Risco</h1>
@@ -104,7 +77,7 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 export default Dashboard;
