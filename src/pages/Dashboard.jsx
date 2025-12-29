@@ -7,6 +7,8 @@ import CustomContentOfTooltip from "../components/CustomContentOfTooltip";
 const Dashboard = () => {
     return (
         <div className="tela px-6 py-8 text-center">
+            <h3 className="text-2xl text-red-500 mb-6">Os dados por enquanto não são reais!!</h3>
+
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/30 text-primary-foreground mb-6 border border-blue-500/40">
                 <ChartBarIcon className="w-4 h-4 text-blue-700" />
                 <span className="text-sm font-medium text-blue-700">Dashboard Analítico</span>
