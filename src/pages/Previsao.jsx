@@ -4,6 +4,8 @@ import { ArrowTrendingUpIcon, ChevronDownIcon, ClockIcon, CreditCardIcon, Curren
 import api from '../services/Api';
 import { CalendarDateRangeIcon } from '@heroicons/react/16/solid';
 const Previsao = () => {
+    const [loading, setLoading] = useState(false);
+    //entrada
     const [open, setOpen] = useState(false);
     const [score, setScore] = useState('');
     const [pais, setPais] = useState('');
@@ -12,6 +14,11 @@ const Previsao = () => {
     const [tempoTrabalho, setTempoTrabalho] = useState('');
     const [saldo, setSaldo] = useState('');
     const [salarioEstimado, setSalarioEstimado] = useState('');
+    //saida
+    const [previsao, setPrevisao] = useState('');
+    const [probabilidade, setProbabilidade] = useState('');
+    const [nivelRisco, setNivelRisco] = useState('');
+    const [recomendacao, setRecomendacao] = useState('');
 
     const paisMap = {
         França: "France",
@@ -36,6 +43,7 @@ const Previsao = () => {
     }
 
     async function prever() {
+        setLoading(true);
         api.post('/api/previsao', {
             CreditScore: score,
             Geography: paisMap[pais],
@@ -46,11 +54,20 @@ const Previsao = () => {
             EstimatedSalary: salarioEstimado
         })
             .then(function (response) {
-                console.log(response);
+                console.log(response.data);
+                setPrevisao(response.data.previsao);
+                setNivelRisco(response.data.nivel_risco);
+                setProbabilidade(response.data.probabilidade);
+                setRecomendacao(response.data.recomendacao);
             })
             .catch(function (error) {
-                console.log(error);
+                console.log(error.response?.data);
+                console.log(error.response?.status);
+            })
+            .finally(function () {
+                setLoading(false);
             });
+
     }
     async function apiTeste() {
         api.get('/health')
@@ -220,22 +237,53 @@ const Previsao = () => {
                                             <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                                                 <div className="sm:flex sm:items-start">
                                                     <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                                                        <DialogTitle as="h3" className="text-base font-semibold text-black">
+                                                        <DialogTitle as="h3" className="text-2xl font-semibold text-black text-center">
                                                             Resultado
                                                         </DialogTitle>
-                                                        <div className="mt-2">
-                                                            <p className="text-sm text-gray-900">
-                                                                Previsão:
-                                                            </p>
-                                                            <p className="text-sm text-gray-900">
-                                                                Probabilidade:
-                                                            </p>
-                                                            <p className="text-sm text-gray-900">
-                                                                Nivel de risco:
-                                                            </p>
-                                                            <p className="text-sm text-gray-900">
-                                                                Recomendação:
-                                                            </p>
+                                                        <div className="mt-2 text-xl">
+                                                            {loading ? (
+                                                                <div className="flex flex-col items-center gap-3">
+                                                                    <svg
+                                                                        className="animate-spin h-10 w-10 text-blue-600"
+                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                        fill="none"
+                                                                        viewBox="0 0 24 24"
+                                                                    >
+                                                                        <circle
+                                                                            className="opacity-25"
+                                                                            cx="12"
+                                                                            cy="12"
+                                                                            r="10"
+                                                                            stroke="currentColor"
+                                                                            strokeWidth="4"
+                                                                        />
+                                                                        <path
+                                                                            className="opacity-75"
+                                                                            fill="currentColor"
+                                                                            d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                                                                        />
+                                                                    </svg>
+
+                                                                    <p className="text-gray-700 text-lg">
+                                                                        Analisando dados do cliente...
+                                                                    </p>
+                                                                </div>
+                                                            ) : (
+                                                                <div className="text-xl">
+                                                                    <p className="text-gray-900">
+                                                                        <span className='font-bold'>Previsão:</span> {previsao}
+                                                                    </p>
+                                                                    <p className="text-gray-900">
+                                                                        <span className='font-bold'>Probabilidade:</span> {probabilidade}
+                                                                    </p>
+                                                                    <p className="text-gray-900">
+                                                                        <span className='font-bold'>Nível de risco:</span> {nivelRisco}
+                                                                    </p>
+                                                                    <p className="text-gray-900">
+                                                                        <span className='font-bold'>Recomendação:</span> {recomendacao}
+                                                                    </p>
+                                                                </div>
+                                                            )}
                                                         </div>
                                                     </div>
                                                 </div>
