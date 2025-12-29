@@ -7,7 +7,7 @@ const Previsao = () => {
     const [loading, setLoading] = useState(false);
     const [erro, setErro] = useState(false);
     //entrada
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
     const [score, setScore] = useState('');
     const [pais, setPais] = useState('');
     const [sexo, setSexo] = useState('');
@@ -238,7 +238,7 @@ const Previsao = () => {
                                 />
 
                                 <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-                                    <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                                    <div className="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
                                         <DialogPanel
                                             transition
                                             className="relative transform overflow-hidden rounded-lg bg-blue-50 text-left shadow-xl outline -outline-offset-1 outline-white/10 transition-all data-closed:translate-y-4 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in  data-closed:sm:translate-y-0 data-closed:sm:scale-95"
