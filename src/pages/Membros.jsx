@@ -1,9 +1,17 @@
+import lucas from "/src/assets/membros/lucas.jpg";
+import renan from "/src/assets/membros/renan.jpg";
+import gabriel from "/src/assets/membros/gabriel.jpg";
+import vitor from "/src/assets/membros/vitor.jpg";
+import josemar from "/src/assets/membros/josemar.jpg";
+import mauricio from "/src/assets/membros/mauricio.png";
+import leticia from "/src/assets/membros/leticia.png";
+
 function Membros() {
 
     const cardsBack = [
         {
             id: 1,
-            fotoUrl: "/src/assets/membros/lucas.jpg",
+            fotoUrl: lucas,
             nome: "Lucas Nascimento",
             cargo: "Back end e Front end",
             github: "https://github.com/lucasns06",
@@ -11,7 +19,7 @@ function Membros() {
         },
         {
             id: 2,
-            fotoUrl: "/src/assets/membros/renan.jpg",
+            fotoUrl: renan,
             nome: "Renan Vitor",
             cargo: "Back end",
             github: "https://github.com/renancvitor",
@@ -19,7 +27,7 @@ function Membros() {
         },
         {
             id: 3,
-            fotoUrl: "/src/assets/membros/gabriel.jpg",
+            fotoUrl: gabriel,
             nome: "Gabriel Ferreira",
             cargo: "Back end",
             github: "https://github.com/gabrielbkx",
@@ -27,7 +35,7 @@ function Membros() {
         },
         {
             id: 4,
-            fotoUrl: "/src/assets/membros/vitor.jpg",
+            fotoUrl: vitor,
             nome: "Vitor Amancio",
             cargo: "Back end",
             github: "https://github.com/Vitor333104",
@@ -37,7 +45,7 @@ function Membros() {
     const cardsData = [
         {
             id: 1,
-            fotoUrl: "/src/assets/membros/josemar.jpg",
+            fotoUrl: josemar,
             nome: "Josemar Sebastião",
             cargo: "Data science",
             github: "https://github.com/JosemarDS",
@@ -45,7 +53,7 @@ function Membros() {
         },
         {
             id: 2,
-            fotoUrl: "/src/assets/membros/mauricio.png",
+            fotoUrl: mauricio,
             nome: "Mauricio De Oliveira",
             cargo: "Data science",
             github: "https://github.com/mauricioliveir",
@@ -53,7 +61,7 @@ function Membros() {
         },
         {
             id: 3,
-            fotoUrl: "/src/assets/membros/leticia.png",
+            fotoUrl: leticia,
             nome: "Letícia Paesano",
             cargo: "Data science",
             github: "https://github.com/LeticiaPaesano",
@@ -65,7 +73,7 @@ function Membros() {
                 <h1 className="text-4xl text-center my-4">Nossa Equipe</h1>
             <div className="flex flex-wrap justify-center gap-4">
                 {cardsBack.map((cards) => (
-                    <div class="bg-white relative bg-neutral-primary-soft max-w-2xs w-full p-6 rounded-2xl shadow-md border border-white hover:-translate-y-2 hover:border-blue-500/50 hover:shadow-xl transition-all">
+                    <div key={cards.id} class="bg-white relative bg-neutral-primary-soft max-w-2xs w-full p-6 rounded-2xl shadow-md border border-white hover:-translate-y-2 hover:border-blue-500/50 hover:shadow-xl transition-all">
                         <div class="flex flex-col items-center">
                             <img class="w-24 h-24 mb-6 rounded-full" src={cards.fotoUrl} alt="person" />
                             <h5 class="mb-0.5 text-xl font-semibold tracking-tight text-heading">{cards.nome}</h5>
@@ -98,7 +106,7 @@ function Membros() {
                 </div>
             <div className="flex flex-wrap justify-center gap-4">
                 {cardsData.map((cards) => (
-                    <div class="bg-white relative bg-neutral-primary-soft max-w-2xs w-full p-6 rounded-2xl shadow-md border border-white hover:-translate-y-2 hover:border-blue-500/50 hover:shadow-xl transition-all">
+                    <div key={cards.id} class="bg-white relative bg-neutral-primary-soft max-w-2xs w-full p-6 rounded-2xl shadow-md border border-white hover:-translate-y-2 hover:border-blue-500/50 hover:shadow-xl transition-all">
                         <div class="flex flex-col items-center">
                             <img class="w-24 h-24 mb-6 rounded-full" src={cards.fotoUrl} alt="person" />
                             <h5 class="mb-0.5 text-xl font-semibold tracking-tight text-heading">{cards.nome}</h5>
