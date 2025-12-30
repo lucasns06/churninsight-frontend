@@ -55,17 +55,17 @@ Este repositório corresponde ao **Front-End da aplicação**, desenvolvido como
 
 ---
 
-<h2 id="estrutura" align="center">Estrutura do Projeto</h2>
+<h2 id="estrutura" align="center">📁 Estrutura do Projeto</h2>
 
 
 ```plaintext
 churninsight-frontend/
  └── src/
-      ├── assets/
-      ├── components/
-      ├── pages/
-      ├── services/
-      ├── App.jsx
+      ├── assets/      # Imagens e ícones
+      ├── components/  # Componentes reutilizáveis
+      ├── pages/       # Páginas da aplicação
+      ├── services/    # Comunicação com a API
+      ├── App.jsx      # Página princípal
 ```
 
 <p align="right"><a href="#inicio">⬆️ Voltar ao início</a></p>
