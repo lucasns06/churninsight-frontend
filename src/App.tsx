@@ -1,5 +1,5 @@
-import HeroNavbar from "./components/navbar/HeroNavbar.tsx"
-import HeroFooter from "./components/footer/HeroFooter.js"
+import HeroNavbar from "./components/navbar/HeroNavbar"
+import HeroFooter from "./components/footer/HeroFooter"
 import Hero from "./pages/Hero.js"
 
 
