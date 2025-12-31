@@ -9,11 +9,11 @@ const navigation = [
   { name: 'Equipe', href: '/membros', icon: UserCircleIcon }
 ]
 
-function classNames(...classes) {
+function classNames(...classes: (string | false | null | undefined)[]): string {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Navbar() {
+export default function Navbar(): React.ReactNode {
   const location = useLocation()
   return (
     <Disclosure
@@ -49,7 +49,7 @@ export default function Navbar() {
                     <Link
                       key={item.name}
                       to={item.href}
-                      aria-current={item.current ? 'page' : undefined}
+                      aria-current={isActive ? 'page' : undefined}
 
                       className={classNames(
                         isActive ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-black/5 ',

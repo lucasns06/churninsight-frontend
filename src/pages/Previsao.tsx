@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
-import { ArrowTrendingUpIcon, ChevronDownIcon, ClockIcon, CreditCardIcon, CurrencyDollarIcon, GlobeAltIcon, UserCircleIcon, UserIcon } from '@heroicons/react/16/solid'
+import { ArrowTrendingUpIcon, ChevronDownIcon, ClockIcon, CreditCardIcon, CurrencyDollarIcon, GlobeAltIcon, UserIcon } from '@heroicons/react/16/solid'
 import api from '../services/Api';
 import { CalendarDateRangeIcon } from '@heroicons/react/16/solid';
 const Previsao = () => {
@@ -21,12 +21,13 @@ const Previsao = () => {
     const [nivelRisco, setNivelRisco] = useState('');
     const [recomendacao, setRecomendacao] = useState('');
 
-    const paisMap = {
+    const paisMap: Record<string, string>  = {
         França: "France",
         Alemanha: "Germany",
         Espanha: "Spain"
     };
-    const sexoMap = {
+
+    const sexoMap: Record<string, string> = {
         Feminino: "Female",
         Masculino: "Male"
     };
@@ -85,7 +86,7 @@ const Previsao = () => {
         setOpen(false);
         setTimeout(() => {
             setErro(false);
-        }, 500); 
+        }, 500);
     }
     return (
         <div className="tela flex flex-col justify-center items-center px-2 py-8 sm:py-4">
@@ -107,15 +108,15 @@ const Previsao = () => {
                 >
                     <div className='grid grid-cols-1 md:grid-cols-2 md:gap-4 w-full'>
                         <div className='w-full'>
-                            <div class="mb-6">
+                            <div className="mb-6">
                                 <div className='flex items-center'>
                                     <CreditCardIcon
                                         aria-hidden="true"
                                         className="pointer-events-none mr-1 col-start-1 row-start-1 size-5 self-center justify-self-end text-blue-600 sm:size-4"
                                     />
-                                    <label class="text-sm font-medium text-heading">Score de crédito</label>
+                                    <label className="text-sm font-medium text-heading">Score de crédito</label>
                                 </div>
-                                <input value={score} onChange={(e) => setScore(e.target.value)} type="number" placeholder='Score de crédito' class="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
+                                <input value={score} onChange={(e) => setScore(e.target.value)} type="number" placeholder='Score de crédito' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
                             </div>
                             <div className="mb-6 sm:col-span-3">
                                 <div className='flex items-center'>
@@ -180,48 +181,48 @@ const Previsao = () => {
                             </div>
                         </div>
                         <div className='w-full'>
-                            <div class="mb-6">
+                            <div className="mb-6">
                                 <div className='flex items-center'>
                                     <CalendarDateRangeIcon
                                         aria-hidden="true"
                                         className="pointer-events-none mr-1 col-start-1 row-start-1 size-5 self-center justify-self-end text-blue-600 sm:size-4"
                                     />
-                                    <label class="text-sm font-medium text-heading">Idade</label>
+                                    <label className="text-sm font-medium text-heading">Idade</label>
                                 </div>
 
-                                <input value={idade} onChange={(e) => setIdade(e.target.value)} type="number" placeholder='Idade' class="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
+                                <input value={idade} onChange={(e) => setIdade(e.target.value)} type="number" placeholder='Idade' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
                             </div>
-                            <div class="mb-6">
+                            <div className="mb-6">
                                 <div className='flex items-center'>
                                     <ClockIcon
                                         aria-hidden="true"
                                         className="pointer-events-none mr-1 col-start-1 row-start-1 size-5 self-center justify-self-end text-blue-600 sm:size-4"
                                     />
-                                    <label for="trabalho" class="text-sm font-medium text-heading">Tempo de trabalho (meses)</label>
+                                    <label htmlFor="trabalho" className="text-sm font-medium text-heading">Tempo de trabalho (meses)</label>
                                 </div>
-                                <input id='trabalho' value={tempoTrabalho} onChange={(e) => setTempoTrabalho(e.target.value)} type="number" placeholder='Tempo de trabalho (meses)' class="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
+                                <input id='trabalho' value={tempoTrabalho} onChange={(e) => setTempoTrabalho(e.target.value)} type="number" placeholder='Tempo de trabalho (meses)' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
                             </div>
-                            <div class="mb-6">
+                            <div className="mb-6">
                                 <div className='flex items-center'>
                                     <CurrencyDollarIcon
                                         aria-hidden="true"
                                         className="pointer-events-none mr-1 col-start-1 row-start-1 size-5 self-center justify-self-end text-blue-600 sm:size-4"
                                     />
-                                    <label for="saldo" class="text-sm font-medium text-heading">Saldo</label>
+                                    <label htmlFor="saldo" className="text-sm font-medium text-heading">Saldo</label>
                                 </div>
-                                <input id='saldo' value={saldo} onChange={(e) => setSaldo(e.target.value)} type="number" placeholder='Saldo' class="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
+                                <input id='saldo' value={saldo} onChange={(e) => setSaldo(e.target.value)} type="number" placeholder='Saldo' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
                             </div>
                         </div>
                     </div>
-                    <div class="mb-6">
+                    <div className="mb-6">
                         <div className='flex items-center'>
                             <CurrencyDollarIcon
                                 aria-hidden="true"
                                 className="pointer-events-none mr-1 col-start-1 row-start-1 size-5 self-center justify-self-end text-blue-600 sm:size-4"
                             />
-                            <label for="salario" class="text-sm font-medium text-heading">Salário estimado</label>
+                            <label htmlFor="salario" className="text-sm font-medium text-heading">Salário estimado</label>
                         </div>
-                        <input id="salario" value={salarioEstimado} onChange={(e) => setSalarioEstimado(e.target.value)} type="number" placeholder='Salário estimado' class="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
+                        <input id="salario" value={salarioEstimado} onChange={(e) => setSalarioEstimado(e.target.value)} type="number" placeholder='Salário estimado' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
                     </div>
                     <div className="flex justify-center">
                         <div>

@@ -8,10 +8,6 @@ const navigation = [
   { name: 'Equipe', href: '/membros', icon: UserCircleIcon }
 ]
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
 export default function HeroNavbar() {
   return (
     <Disclosure
@@ -45,11 +41,8 @@ export default function HeroNavbar() {
                   <Link
                     key={item.name}
                     to={item.href}
-                    aria-current={item.current ? 'page' : undefined}
-                    className={classNames(
-                      item.current ? 'bg-gray-950/50 text-white' : 'text-white hover:bg-white/5 hover:text-blue-400',
-                      'rounded-md px-3 py-2 text-base font-medium',
-                    )}
+                    aria-current='page'
+                    className='text-white hover:bg-white/5 hover:text-blue-400 rounded-md px-3 py-2 text-base font-medium'
                   >
                     <div className='flex gap-2'>
                       <item.icon className="w-4 text-white" />
@@ -70,11 +63,8 @@ export default function HeroNavbar() {
               key={item.name}
               as="a"
               href={item.href}
-              aria-current={item.current ? 'page' : undefined}
-              className={classNames(
-                item.current ? 'bg-gray-950/50 text-white' : 'text-white hover:bg-white/5 hover:text-blue-400',
-                'block rounded-md px-3 py-2 text-base font-medium',
-              )}
+              aria-current='page'
+              className='text-white hover:bg-white/5 hover:text-blue-400 block rounded-md px-3 py-2 text-base font-medium'
             >
               <div className='flex gap-2'>
                 <item.icon className="w-4 text-white" />

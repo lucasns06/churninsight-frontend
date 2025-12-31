@@ -1,5 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
+import {
+  type Container,
+  type ISourceOptions,
+  MoveDirection,
+  OutMode,
+} from "@tsparticles/engine";
 // import { loadAll } from "@tsparticles/all"; // if you are going to use `loadAll`, install the "@tsparticles/all" package too.
 // import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
 import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
@@ -23,18 +29,18 @@ const ParticlesBackground = () => {
     });
   }, []);
 
-  const particlesLoaded = (container) => {
+  const particlesLoaded = async (container?: Container): Promise<void> => {
     console.log(container);
   };
 
-  const options = useMemo(
+  const options: ISourceOptions = useMemo(
     () => ({
       fullScreen: {
-        enable: false, 
+        enable: false,
       },
-background: {
+      background: {
         color: {
-          value: "#020617", 
+          value: "#020617",
         },
       },
 
@@ -42,7 +48,7 @@ background: {
 
       particles: {
         color: {
-          value: "#0077FF", 
+          value: ["#0077FF", "#cce6ff", "#99ccff"],
         },
 
         links: {
@@ -51,11 +57,11 @@ background: {
 
         move: {
           enable: true,
-          direction: "top",
+          direction: MoveDirection.top,
           speed: 1,
           straight: false,
           outModes: {
-            default: "out",
+            default: OutMode.out,
           },
         },
 
@@ -67,7 +73,13 @@ background: {
         },
 
         opacity: {
-          value: 0.6,
+          value: { min: 0.3, max: 0.9 },
+          animation: {
+            enable: true,
+            speed: 0.8,
+            minimumValue: 0.2,
+            sync: false,
+          },
         },
 
         shape: {
@@ -76,6 +88,12 @@ background: {
 
         size: {
           value: { min: 1, max: 3 },
+          animation: {
+            enable: true,
+            speed: 2,
+            minimumValue: 0.8,
+            sync: false,
+          },
         },
       },
 

@@ -1,16 +1,16 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import ReactDOM from "react-dom/client";
 import './index.css'
-import App from './App.jsx'
+import App from './App'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Membros from './pages/Membros.jsx';
-import Navbar from './components/Navbar.jsx';
-import Footer from './components/Footer.jsx';
-import Previsao from './pages/Previsao.jsx';
-import Dashboard from './pages/Dashboard.jsx';
-import NotFound from './pages/NotFound.jsx';
+import Membros from './pages/Membros';
+import Navbar from './components/navbar/Navbar';
+import Footer from './components/footer/Footer';
+import Previsao from './pages/Previsao';
+import Dashboard from './pages/Dashboard';
+import NotFound from './pages/NotFound';
 
-createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>

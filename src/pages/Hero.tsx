@@ -10,10 +10,6 @@ export default function Hero() {
             />
             <div className="mx-auto max-w-4xl px-6 py-16">
                 <div className="relative isolate overflow-hidden backdrop-blur-sm rounded-3xl px-8 py-14 flex flex-col text-center justify-center items-center ">
-
-                    {/* <h1 className="w-fit font-bold text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight mb-6 bg-linear-to-r from-[#0077FF] to-[#39EA29] bg-clip-text text-transparent ">
-                        CHURN INSIGHT
-                    </h1> */}
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/25  text-primary-foreground mb-6 border border-blue-600/30">
                         <ArrowTrendingUpIcon className="w-4 h-4 text-white" />
                         <span className="text-sm font-medium text-white">Previsão de Churn</span>
