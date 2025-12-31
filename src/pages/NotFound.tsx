@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import ParticlesBackground from '../components/ParticlesBackground'
+import ParticlesBackground from '../components/effects/ParticlesBackground'
 
 const NotFound = () => {
   return (

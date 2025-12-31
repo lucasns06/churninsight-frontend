@@ -4,8 +4,8 @@ import './index.css'
 import App from './App'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Membros from './pages/Membros';
-import Navbar from './components/navbar/Navbar';
-import Footer from './components/footer/Footer';
+import Navbar from './components/layout/navbar/Navbar';
+import Footer from './components/layout/footer/Footer';
 import Previsao from './pages/Previsao';
 import Dashboard from './pages/Dashboard';
 import NotFound from './pages/NotFound';

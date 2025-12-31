@@ -46,7 +46,7 @@ const Previsao = () => {
 
     async function prever() {
         setLoading(true);
-        api.post('/api/previsao', {
+        api.post('', {
             CreditScore: score,
             Geography: paisMap[pais],
             Gender: sexoMap[sexo],

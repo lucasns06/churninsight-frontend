@@ -1,4 +1,4 @@
-import { cardsBack, cardsData } from '../components/membros/dados';
+import { cardsBack, cardsData } from '../constants/dadosMembros';
 
 const Membros = () =>{
     return (

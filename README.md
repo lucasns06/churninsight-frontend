@@ -61,11 +61,14 @@ Este repositório corresponde ao **Front-End da aplicação**, desenvolvido como
 ```plaintext
 churninsight-frontend/
  └── src/
-      ├── assets/      # Imagens e ícones
-      ├── components/  # Componentes reutilizáveis
-      ├── pages/       # Páginas da aplicação
-      ├── services/    # Comunicação com a API
-      ├── App.jsx      # Página princípal
+      ├── assets/         # Imagens e ícones
+      ├── components/     # Componentes reutilizáveis (UI)
+      |     ├── effects/  # Particulas
+      |     ├──  layout/  # Navbar, Footer    
+      ├── constants/      # Dados estáticos
+      ├── pages/          # Páginas
+      ├── services/       # Comunicação com a API
+      ├── App.tsx         # Página princípal
 ```
 
 <p align="right"><a href="#inicio">⬆️ Voltar ao início</a></p>

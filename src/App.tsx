@@ -1,6 +1,6 @@
-import HeroNavbar from "./components/navbar/HeroNavbar"
-import HeroFooter from "./components/footer/HeroFooter"
-import Hero from "./pages/Hero.js"
+import HeroNavbar from "./components/layout/navbar/HeroNavbar"
+import HeroFooter from "./components/layout/footer/HeroFooter"
+import Hero from "./pages/Hero"
 
 
 function App() {

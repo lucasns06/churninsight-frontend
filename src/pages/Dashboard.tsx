@@ -112,7 +112,7 @@ const Dashboard = () => {
                     )
                 })}
             </div>
-            <div className="flex flex-wrap justify-center gap-4 mt-4">
+            <div className="flex flex-wrap-reverse justify-center gap-4 mt-4">
                 <div className="bg-white p-4 w-2xl rounded-md border border-gray-400/50 shadow-md">
                     <h1 className="text-4xl font-bold">Probabilidade por Perfil</h1>
                     <h2 className="text-2xl">Probabilidade de churn por perfil</h2>
