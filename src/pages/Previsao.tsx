@@ -21,7 +21,9 @@ const Previsao = () => {
     const [nivelRisco, setNivelRisco] = useState('');
     const [recomendacao, setRecomendacao] = useState('');
 
-    const paisMap: Record<string, string>  = {
+    const probabilidadeFormatada = (parseFloat(probabilidade) * 100) + '%';
+
+    const paisMap: Record<string, string> = {
         França: "France",
         Alemanha: "Germany",
         Espanha: "Spain"
@@ -105,7 +107,7 @@ const Previsao = () => {
                                     />
                                     <label className="text-sm font-medium text-heading">Score de crédito</label>
                                 </div>
-                                <input value={score} onChange={(e) => setScore(e.target.value)} type="number" placeholder='Score de crédito' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
+                                <input step={1} min={0} max={1000} value={score} onChange={(e) => setScore(e.target.value)} type="number" placeholder='Score de crédito' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
                             </div>
                             <div className="mb-6 sm:col-span-3">
                                 <div className='flex items-center'>
@@ -179,7 +181,7 @@ const Previsao = () => {
                                     <label className="text-sm font-medium text-heading">Idade</label>
                                 </div>
 
-                                <input value={idade} onChange={(e) => setIdade(e.target.value)} type="number" placeholder='Idade' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
+                                <input step={1} min={0} max={92} value={idade} onChange={(e) => setIdade(e.target.value)} type="number" placeholder='Idade' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
                             </div>
                             <div className="mb-6">
                                 <div className='flex items-center'>
@@ -189,7 +191,7 @@ const Previsao = () => {
                                     />
                                     <label htmlFor="trabalho" className="text-sm font-medium text-heading">Tempo de trabalho (meses)</label>
                                 </div>
-                                <input id='trabalho' value={tempoTrabalho} onChange={(e) => setTempoTrabalho(e.target.value)} type="number" placeholder='Tempo de trabalho (meses)' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
+                                <input step={1} min={0} max={10} id='trabalho' value={tempoTrabalho} onChange={(e) => setTempoTrabalho(e.target.value)} type="number" placeholder='Tempo de trabalho (meses)' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
                             </div>
                             <div className="mb-6">
                                 <div className='flex items-center'>
@@ -199,7 +201,7 @@ const Previsao = () => {
                                     />
                                     <label htmlFor="saldo" className="text-sm font-medium text-heading">Saldo</label>
                                 </div>
-                                <input id='saldo' value={saldo} onChange={(e) => setSaldo(e.target.value)} type="number" placeholder='Saldo' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
+                                <input min={0} step={0.01} id='saldo' value={saldo} onChange={(e) => setSaldo(e.target.value)} type="number" placeholder='Saldo' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
                             </div>
                         </div>
                     </div>
@@ -211,7 +213,7 @@ const Previsao = () => {
                             />
                             <label htmlFor="salario" className="text-sm font-medium text-heading">Salário estimado</label>
                         </div>
-                        <input id="salario" value={salarioEstimado} onChange={(e) => setSalarioEstimado(e.target.value)} type="number" placeholder='Salário estimado' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
+                        <input min={0} step={0.01} id="salario" value={salarioEstimado} onChange={(e) => setSalarioEstimado(e.target.value)} type="number" placeholder='Salário estimado' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
                     </div>
                     <div className="flex justify-center">
                         <div>
@@ -236,13 +238,15 @@ const Previsao = () => {
                                             <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                                                 <div className="sm:flex sm:items-start">
                                                     <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                                                        <DialogTitle as="h3" className="text-2xl font-semibold text-black text-center">
-                                                            Resultado
-                                                        </DialogTitle>
                                                         <div className="mt-2 text-xl">
                                                             {erro ? (
                                                                 <div>
-                                                                    <p className='font-4xl'>ERRO</p>
+                                                                    <DialogTitle as="h3" className="text-2xl font-semibold text-black text-center mb-4">
+                                                                        Resultado
+                                                                    </DialogTitle>
+                                                                    <div>
+                                                                        <p className='font-4xl text-center'>ERRO</p>
+                                                                    </div>
                                                                 </div>
                                                             ) :
                                                                 (
@@ -275,18 +279,33 @@ const Previsao = () => {
                                                                                 </p>
                                                                             </div>
                                                                         ) : (
-                                                                            <div className="text-xl">
+                                                                            <div className="text-xl text-center">
+                                                                                {previsao === "Vai continuar" ?
+                                                                                    <p className="text-green-500 text-center text-2xl">
+                                                                                        {previsao}
+                                                                                    </p>
+                                                                                    :
+                                                                                    <p className="text-red-500 text-center text-2xl">
+                                                                                        {previsao}
+                                                                                    </p>
+                                                                                }
+                                                                                <br />
                                                                                 <p className="text-gray-900">
-                                                                                    <span className='font-bold'>Previsão:</span> {previsao}
+                                                                                    <span className='font-bold'>Probabilidade:</span>
+                                                                                    <br />
+                                                                                    {probabilidadeFormatada}
                                                                                 </p>
+                                                                                <br />
                                                                                 <p className="text-gray-900">
-                                                                                    <span className='font-bold'>Probabilidade:</span> {probabilidade}
+                                                                                    <span className='font-bold'>Nível de risco:</span>
+                                                                                    <br />
+                                                                                    {nivelRisco}
                                                                                 </p>
-                                                                                <p className="text-gray-900">
-                                                                                    <span className='font-bold'>Nível de risco:</span> {nivelRisco}
-                                                                                </p>
-                                                                                <p className="text-gray-900">
-                                                                                    <span className='font-bold'>Recomendação:</span> {recomendacao}
+                                                                                <br />
+
+                                                                                <p className="text-gray-900 text-center">
+                                                                                    <span className='font-bold'>Recomendação</span> <br />
+                                                                                    {recomendacao}
                                                                                 </p>
                                                                             </div>
                                                                         )}
@@ -311,7 +330,7 @@ const Previsao = () => {
                                                         onClick={() => setOpen(false)}
                                                         className="inline-flex w-full justify-center rounded-md bg-green-500 px-3 py-2 text-sm font-semibold text-white hover:bg-green-400 hover:cursor-pointer sm:w-auto"
                                                     >
-                                                        Certo!
+                                                        Entendi
                                                     </button>
                                                 )}
                                             </div>
