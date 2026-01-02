@@ -7,6 +7,7 @@ const Footer = () => {
                 <div className="md:flex md:justify-between">
                 <div className="mb-6 md:mb-0">
                     <Link to="/" className="flex items-center">
+                        <span className='bg-[#0077FF] text-white font-bold text-2xl px-2 rounded-xl'>C</span>
                         <img src="logo.svg" className="h-6 me-3" alt="FlowBite Logo" />
                     </Link>
                 </div>
