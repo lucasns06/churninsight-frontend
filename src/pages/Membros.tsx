@@ -6,9 +6,9 @@ const Membros = () => {
             <h1 className="text-4xl text-center my-4">Nossa Equipe</h1>
             <div className="flex flex-wrap justify-center gap-4">
                 {cardsBack.map((cards) => (
-                    <div key={cards.id} className="bg-white relative bg-neutral-primary-soft max-w-2xs w-full p-6 rounded-2xl shadow-md border border-white hover:-translate-y-2 hover:border-blue-500/50 hover:shadow-xl transition-all">
+                    <div key={cards.id} className="bg-white group relative bg-neutral-primary-soft max-w-2xs w-full p-6 rounded-2xl shadow-md border border-white hover:-translate-y-2 hover:border-blue-600/80 hover:shadow-xl transition-all">
                         <div className="flex flex-col items-center">
-                            <img className="w-24 h-24 mb-6 rounded-full" src={cards.fotoUrl} alt="person" />
+                            <img className="w-24 h-24 mb-6 rounded-full border border-white group-hover:border-blue-600/80" src={cards.fotoUrl} alt="person" />
                             <h5 className="mb-0.5 text-xl font-semibold tracking-tight text-heading">{cards.nome}</h5>
                             <span className="text-md">{cards.cargo}</span>
                             <div className="flex items-center mt-4 md:mt-6 gap-4">
@@ -39,9 +39,9 @@ const Membros = () => {
             </div>
             <div className="flex flex-wrap justify-center gap-4">
                 {cardsData.map((cards) => (
-                    <div key={cards.id} className="bg-white relative bg-neutral-primary-soft max-w-2xs w-full p-6 rounded-2xl shadow-md border border-white hover:-translate-y-2 hover:border-blue-500/50 hover:shadow-xl transition-all">
+                    <div key={cards.id} className="bg-white group relative bg-neutral-primary-soft max-w-2xs w-full p-6 rounded-2xl shadow-md border border-white hover:-translate-y-2 hover:border-blue-600/80 hover:shadow-xl transition-all">
                         <div className="flex flex-col items-center">
-                            <img className="w-24 h-24 mb-6 rounded-full" src={cards.fotoUrl} alt="person" />
+                            <img className="w-24 h-24 mb-6 rounded-full border border-white group-hover:border-blue-600/80" src={cards.fotoUrl} alt="person" />
                             <h5 className="mb-0.5 text-xl font-semibold tracking-tight text-heading">{cards.nome}</h5>
                             <span className="text-md">{cards.cargo}</span>
                             <div className="flex items-center mt-4 md:mt-6 gap-4">
