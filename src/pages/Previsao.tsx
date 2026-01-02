@@ -181,7 +181,7 @@ const Previsao = () => {
                                     <label className="text-sm font-medium text-heading">Idade</label>
                                 </div>
 
-                                <input step={1} min={0} max={92} value={idade} onChange={(e) => setIdade(e.target.value)} type="number" placeholder='Idade' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
+                                <input step={1} min={18} max={92} value={idade} onChange={(e) => setIdade(e.target.value)} type="number" placeholder='Idade' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
                             </div>
                             <div className="mb-6">
                                 <div className='flex items-center'>
