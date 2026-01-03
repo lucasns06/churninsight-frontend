@@ -324,7 +324,7 @@ const Previsao = () => {
                                                     >
                                                         Voltar
                                                     </button>
-                                                ) : (
+                                                ) : loading ? null : (
                                                     <button
                                                         type="button"
                                                         onClick={() => setOpen(false)}
