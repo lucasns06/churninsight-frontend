@@ -4,7 +4,7 @@ import CustomContentOfTooltip from "../components/CustomContentOfTooltip";
 import { useEffect, useState } from "react";
 import api from "../services/Api";
 
-type NivelRisco = "BAIXO" | "MÉDIO" | "ALTO";
+type NivelRiscoType = "BAIXO" | "MÉDIO" | "ALTO";
 
 const Dashboard = () => {
     const [loading, setLoading] = useState(true);
@@ -27,7 +27,7 @@ const Dashboard = () => {
         { name: "Alto Risco", value: risco.ALTO, color: "#f06262" }
     ]
     interface GraficoItem {
-        nivel_risco: NivelRisco;
+        nivelRisco: NivelRiscoType;
         quantidade: number;
     }
 
@@ -43,11 +43,10 @@ const Dashboard = () => {
 
                 setTotal(totalRes.data);
 
-                const novo: Record<NivelRisco, number> = { BAIXO: 0, MÉDIO: 0, ALTO: 0 };
+                const novo: Record<NivelRiscoType, number> = { BAIXO: 0, MÉDIO: 0, ALTO: 0 };
                 graficoRes.data.forEach(item => {
-                    novo[item.nivel_risco] = item.quantidade;
+                    novo[item.nivelRisco] = item.quantidade;
                 });
-
                 setRisco(novo);
 
             } catch (error) {
