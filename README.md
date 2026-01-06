@@ -41,15 +41,14 @@ Este repositório corresponde ao **Front-End da aplicação**, desenvolvido como
 <h2 id="tecnologias" align="center">Tecnologias Utilizadas e Versões</h2>
 
 ### Front End
-- ⚛️ React - V19
+- ⚛️ React - v19.2.0
 - 🟨 JavaScript
-- 🎞️ GSAP
-- 🎨 Tailwind CSS - V4
-- 🎨 Headlessui - V2
-- 🎨 Heroicons - V2
-- 🎨 Tsparticles - V3
-- 🔌 Axios
-- ⚡ Vite
+- 🎨 Tailwind CSS - v4.1.18
+- 🎨 Headlessui - v2.2.9
+- 🎨 Heroicons - v2.2.0
+- 🎨 Tsparticles - v3.0.0
+- 🔌 Axios v1.13.2
+- ⚡ Vite - v7.2.4
 
 <p align="right"><a href="#inicio">⬆️ Voltar ao início</a></p>
 
