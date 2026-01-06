@@ -10,21 +10,6 @@ import {
   TooltipIndex,
 } from 'recharts';
 
-const data = [
-  {
-    name: 'Alemanha',
-    quantidade: 80
-  },
-  {
-    name: 'Saldo',
-    quantidade: 120
-  },
-  {
-    name: 'Idade',
-    quantidade: 60
-  }
-];
-
 const CustomTooltip = ({ active, payload, label }: TooltipContentProps<string | number, string>) => {
   const isVisible = active && payload && payload.length;
   return (
@@ -38,10 +23,17 @@ const CustomTooltip = ({ active, payload, label }: TooltipContentProps<string | 
   );
 };
 
+interface ChartData {
+  fator: string;
+  total: number;
+}
+
 const CustomContentOfTooltip = ({
+  data,
   isAnimationActive = true,
   defaultIndex,
 }: {
+  data: ChartData[];
   isAnimationActive?: boolean;
   defaultIndex?: TooltipIndex;
 }) => {
@@ -58,11 +50,11 @@ const CustomContentOfTooltip = ({
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
+      <XAxis dataKey="fator" />
       <YAxis width="auto" />
       <Tooltip content={CustomTooltip} isAnimationActive={isAnimationActive} defaultIndex={defaultIndex} />
       <Legend />
-      <Bar dataKey="quantidade" barSize={20} fill="#4160df" isAnimationActive={isAnimationActive} />
+      <Bar dataKey="total" barSize={20} fill="#4160df" isAnimationActive={isAnimationActive} />
     </BarChart>
   );
 };

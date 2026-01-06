@@ -10,44 +10,58 @@ const Dashboard = () => {
     const [loading, setLoading] = useState(true);
     const [erro, setErro] = useState(false);
     const [total, setTotal] = useState(0);
+    const [taxaChurn, setTaxaChurn] = useState(0);
     const [risco, setRisco] = useState({
         BAIXO: 0,
         MÉDIO: 0,
         ALTO: 0
     });
-    const taxaRisco = total > 0 ? ((risco.ALTO / total) * 100).toFixed(1) + "%" : "0%";
+    const [fatores, setFatores] = useState<Topfatores[]>([]);
     const estatisticaCard = [
         { id: 1, titulo: "Total avaliados", metrica: total, icone: UserCircleIcon, corIcone: "bg-blue-500/30 text-blue-500" },
-        { id: 2, titulo: "Taxa Risco de Churn", metrica: taxaRisco, icone: ArrowTrendingDownIcon, corIcone: "bg-red-500/30 text-red-500" },
+        { id: 2, titulo: "Taxa Risco de Churn", metrica: taxaChurn, icone: ArrowTrendingDownIcon, corIcone: "bg-red-500/30 text-red-500" },
         { id: 3, titulo: "Clientes em Risco", metrica: risco.ALTO, icone: ExclamationTriangleIcon, corIcone: "bg-red-500/30 text-red-500" }
     ]
     const riskDistribution = [
-        { name: "Baixo Risco", value: risco.BAIXO, color: "#628ff0" },
-        { name: "Médio Risco", value: risco.MÉDIO, color: "gray" },
-        { name: "Alto Risco", value: risco.ALTO, color: "#f06262" }
+        { name: "Vai continuar", value: risco.BAIXO, color: "#628ff0" },
+        { name: "Vai cancelar", value: risco.ALTO, color: "#f06262" }
     ]
     interface GraficoItem {
         nivelRisco: NivelRiscoType;
         quantidade: number;
     }
+    interface Topfatores {
+        fator: string;
+        total: number;
+    }
+    interface Estatistica {
+        total: number;
+        taxa_churn: number;
+    }
+
 
     useEffect(() => {
         const carregarDashboard = async () => {
             try {
                 setLoading(true);
 
-                const [totalRes, graficoRes] = await Promise.all([
-                    api.get<number>('/total'),
+                const [totalRes, graficoRes, fatoresRes] = await Promise.all([
+                    api.get<Estatistica>('/estatisticas'),
                     api.get<GraficoItem[]>('/obterGrafico'),
+                    api.get<Topfatores[]>('/top3Fatores')
                 ]);
 
-                setTotal(totalRes.data);
+                setTotal(totalRes.data.total);
+                setTaxaChurn(totalRes.data.taxa_churn);
+                setFatores(fatoresRes.data);
 
                 const novo: Record<NivelRiscoType, number> = { BAIXO: 0, MÉDIO: 0, ALTO: 0 };
                 graficoRes.data.forEach(item => {
                     novo[item.nivelRisco] = item.quantidade;
                 });
                 setRisco(novo);
+
+                console.log(fatores)
 
             } catch (error) {
                 console.error("Erro ao carregar dashboard:", error);
@@ -115,11 +129,11 @@ const Dashboard = () => {
                 <div className="bg-white p-4 w-2xl rounded-md border border-gray-400/50 shadow-md">
                     <h1 className="text-4xl font-bold">Explicabilidade</h1>
                     <h2 className="text-2xl">As 3 features mais impactantes</h2>
-                    <CustomContentOfTooltip />
+                    <CustomContentOfTooltip data={fatores} />
                 </div>
                 <div className="bg-white p-4 w-2xl rounded-md border border-gray-400/50 shadow-md">
-                    <h1 className="text-4xl font-bold">Distribuição por Risco</h1>
-                    <h2 className="text-2xl">Quantidade de clientes por nivel de risco</h2>
+                    <h1 className="text-4xl font-bold">Distribuição por Churn</h1>
+                    <h2 className="text-2xl">Quantidade de clientes por churn</h2>
                     <div className="h-75">
                         <ResponsiveContainer width="100%" height="100%">
                             <RechartsPie>
