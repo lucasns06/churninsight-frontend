@@ -3,10 +3,10 @@ import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/re
 import { ArrowTrendingUpIcon, ChevronDownIcon, ClockIcon, CreditCardIcon, CurrencyDollarIcon, GlobeAltIcon, UserIcon } from '@heroicons/react/16/solid'
 import api from '../services/Api';
 import { CalendarDateRangeIcon } from '@heroicons/react/16/solid';
+
 const Previsao = () => {
     const [loading, setLoading] = useState(false);
     const [erro, setErro] = useState(false);
-    //entrada
     const [open, setOpen] = useState(false);
     const [score, setScore] = useState('');
     const [pais, setPais] = useState('');
@@ -16,13 +16,11 @@ const Previsao = () => {
     const [tempoTrabalho, setTempoTrabalho] = useState('');
     const [saldo, setSaldo] = useState('');
     const [salarioEstimado, setSalarioEstimado] = useState('');
-    //saida
     const [previsao, setPrevisao] = useState('');
     const [probabilidade, setProbabilidade] = useState('');
     const [nivelRisco, setNivelRisco] = useState('');
-    const [recomendacao, setRecomendacao] = useState('');
 
-    const probabilidadeFormatada = (parseFloat(probabilidade) * 100) + '%';
+    const probabilidadeFormatada = (parseFloat(probabilidade) * 100).toFixed(2) + '%';
 
     const paisMap: Record<string, string> = {
         França: "France",
@@ -38,25 +36,14 @@ const Previsao = () => {
     useEffect(() => {
         api.get('/dominios/paises')
             .then(response => {
-                const paises = response.data.dados; 
-                console.log(paises); 
+                const fetchedPaises = response.data.dados; 
+                setPaises(fetchedPaises);
+                
             })
             .catch(error => {
                 console.error('Erro na requisição:', error);
             });
     }, [])
-
-    function testar() {
-        console.log({
-            "score": score,
-            "pais": paisMap[pais],
-            "sexo": sexoMap[sexo],
-            "idade": idade,
-            "tempo de trabalho": tempoTrabalho,
-            "saldo": saldo,
-            "salario estimado": salarioEstimado
-        })
-    }
 
     async function prever() {
         setLoading(true);
@@ -70,11 +57,9 @@ const Previsao = () => {
             EstimatedSalary: salarioEstimado
         })
             .then(function (response) {
-                console.log(response.data);
                 setPrevisao(response.data.previsao);
                 setNivelRisco(response.data.nivel_risco);
                 setProbabilidade(response.data.probabilidade);
-                setRecomendacao(response.data.recomendacao);
             })
             .catch(function (error) {
                 console.log(error.response?.data);
@@ -105,7 +90,6 @@ const Previsao = () => {
                     onSubmit={(e) => {
                         e.preventDefault()
                         setOpen(true)
-                        testar()
                         prever()
                     }}
                 >
@@ -142,9 +126,11 @@ const Previsao = () => {
                                         className="border border-default-medium col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-black outline-1 -outline-offset-1 outline-white/10 *:bg-white focus:outline-2 focus:-outline-offset-2 focus:outline-green-400 shadow-sm sm:text-sm/6"
                                     >
                                         <option value="" disabled hidden></option>
-                                        <option>França</option>
-                                        <option>Alemanha</option>
-                                        <option>Espanha</option>
+                                        {paises.map((p) => (
+                                            <option key={p.id} value={p.label}>
+                                                {p.label}
+                                            </option>
+                                        ))}
                                     </select>
                                     <ChevronDownIcon
                                         aria-hidden="true"
@@ -312,12 +298,6 @@ const Previsao = () => {
                                                                                     <span className='font-bold'>Nível de risco:</span>
                                                                                     <br />
                                                                                     {nivelRisco}
-                                                                                </p>
-                                                                                <br />
-
-                                                                                <p className="text-gray-900 text-center">
-                                                                                    <span className='font-bold'>Recomendação</span> <br />
-                                                                                    {recomendacao}
                                                                                 </p>
                                                                             </div>
                                                                         )}
