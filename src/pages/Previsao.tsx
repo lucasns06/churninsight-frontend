@@ -10,7 +10,7 @@ const Previsao = () => {
     const [open, setOpen] = useState(false);
     const [score, setScore] = useState('');
     const [pais, setPais] = useState('');
-    const [paises, setPaises] = useState([]);
+    const [paises, setPaises] = useState<Pais[]>([]);
     const [sexo, setSexo] = useState('');
     const [idade, setIdade] = useState('');
     const [tempoTrabalho, setTempoTrabalho] = useState('');
@@ -33,12 +33,19 @@ const Previsao = () => {
         Masculino: "Male"
     };
 
+    interface Pais {
+        id: number;
+        value: string;
+        label: string;
+    }
+
+
     useEffect(() => {
         api.get('/dominios/paises')
             .then(response => {
-                const fetchedPaises = response.data.dados; 
+                const fetchedPaises = response.data.dados;
                 setPaises(fetchedPaises);
-                
+
             })
             .catch(error => {
                 console.error('Erro na requisição:', error);
