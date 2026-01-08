@@ -61,8 +61,6 @@ const Dashboard = () => {
                 });
                 setRisco(novo);
 
-                console.log(fatores)
-
             } catch (error) {
                 console.error("Erro ao carregar dashboard:", error);
                 setErro(true);
