@@ -36,7 +36,7 @@ const Dashboard = () => {
     }
     interface Estatistica {
         total: number;
-        taxa_churn: number;
+        taxaChurn: number;
     }
 
 
@@ -46,13 +46,13 @@ const Dashboard = () => {
                 setLoading(true);
 
                 const [totalRes, graficoRes, fatoresRes] = await Promise.all([
-                    api.get<Estatistica>('/estatisticas'),
-                    api.get<GraficoItem[]>('/obterGrafico'),
-                    api.get<Topfatores[]>('/top3Fatores')
+                    api.get<Estatistica>('/api/previsao/estatisticas'),
+                    api.get<GraficoItem[]>('/api/previsao/obterGrafico'),
+                    api.get<Topfatores[]>('/api/previsao/top3Fatores')
                 ]);
 
                 setTotal(totalRes.data.total);
-                setTaxaChurn(totalRes.data.taxa_churn);
+                setTaxaChurn(totalRes.data.taxaChurn);
                 setFatores(fatoresRes.data);
 
                 const novo: Record<NivelRiscoType, number> = { BAIXO: 0, MÉDIO: 0, ALTO: 0 };

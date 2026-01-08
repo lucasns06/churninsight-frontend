@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
 import { ArrowTrendingUpIcon, ChevronDownIcon, ClockIcon, CreditCardIcon, CurrencyDollarIcon, GlobeAltIcon, UserIcon } from '@heroicons/react/16/solid'
 import api from '../services/Api';
@@ -10,6 +10,7 @@ const Previsao = () => {
     const [open, setOpen] = useState(false);
     const [score, setScore] = useState('');
     const [pais, setPais] = useState('');
+    const [paises, setPaises] = useState([]);
     const [sexo, setSexo] = useState('');
     const [idade, setIdade] = useState('');
     const [tempoTrabalho, setTempoTrabalho] = useState('');
@@ -34,6 +35,17 @@ const Previsao = () => {
         Masculino: "Male"
     };
 
+    useEffect(() => {
+        api.get('/dominios/paises')
+            .then(response => {
+                const paises = response.data.dados; 
+                console.log(paises); 
+            })
+            .catch(error => {
+                console.error('Erro na requisição:', error);
+            });
+    }, [])
+
     function testar() {
         console.log({
             "score": score,
@@ -48,7 +60,7 @@ const Previsao = () => {
 
     async function prever() {
         setLoading(true);
-        api.post('', {
+        api.post('/api/previsao', {
             CreditScore: score,
             Geography: paisMap[pais],
             Gender: sexoMap[sexo],
