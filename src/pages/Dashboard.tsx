@@ -19,7 +19,7 @@ const Dashboard = () => {
     const [fatores, setFatores] = useState<Topfatores[]>([]);
     const estatisticaCard = [
         { id: 1, titulo: "Total avaliados", metrica: total, icone: UserCircleIcon, corIcone: "bg-blue-500/30 text-blue-500" },
-        { id: 2, titulo: "Taxa Risco de Churn", metrica: taxaChurn, icone: ArrowTrendingDownIcon, corIcone: "bg-red-500/30 text-red-500" },
+        { id: 2, titulo: "Taxa Risco de Churn", metrica: taxaChurn + "%", icone: ArrowTrendingDownIcon, corIcone: "bg-red-500/30 text-red-500" },
         { id: 3, titulo: "Clientes em Risco", metrica: risco.ALTO, icone: ExclamationTriangleIcon, corIcone: "bg-red-500/30 text-red-500" }
     ]
     const riskDistribution = [
@@ -52,7 +52,9 @@ const Dashboard = () => {
                 ]);
 
                 setTotal(totalRes.data.total);
-                setTaxaChurn(totalRes.data.taxaChurn);
+                const taxaChurnAntes = totalRes.data.taxaChurn;
+                const taxaChurnFormatada = taxaChurnAntes*100;
+                setTaxaChurn(taxaChurnFormatada);
                 setFatores(fatoresRes.data);
 
                 const novo: Record<NivelRiscoType, number> = { BAIXO: 0, MÉDIO: 0, ALTO: 0 };
