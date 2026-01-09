@@ -9,6 +9,7 @@ import Footer from './components/layout/footer/Footer';
 import Previsao from './pages/Previsao';
 import Dashboard from './pages/Dashboard';
 import NotFound from './pages/NotFound';
+import PrevisaoLote from './pages/PrevisaoLote';
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -18,6 +19,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/membros" element={<><Navbar /><Membros /><Footer /></>} />
         <Route path="/previsao" element={<><Navbar /><Previsao /><Footer /></>} />
         <Route path="/dashboard" element={<><Navbar /><Dashboard /><Footer /></>} />
+        <Route path="/previsao-lote" element={<><Navbar /><PrevisaoLote /><Footer /></>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

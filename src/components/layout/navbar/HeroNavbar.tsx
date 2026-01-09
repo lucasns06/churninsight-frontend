@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 const navigation = [
   { name: 'Previsão', href: '/previsao', icon: ArrowTrendingUpIcon },
+  { name: 'Previsão Em Lote', href: '/previsao-lote', icon: ArrowTrendingUpIcon },
   { name: 'Dashboard', href: '/dashboard', icon: ChartBarIcon },
   { name: 'Equipe', href: '/membros', icon: UserCircleIcon }
 ]

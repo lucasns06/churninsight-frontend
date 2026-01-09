@@ -10,7 +10,8 @@ const Previsao = () => {
     const [open, setOpen] = useState(false);
     const [score, setScore] = useState('');
     const [pais, setPais] = useState('');
-    const [paises, setPaises] = useState<Pais[]>([]);
+    const [paises, setPaises] = useState<Dominio[]>([]);
+    const [generos, setGeneros] = useState<Dominio[]>([]);
     const [sexo, setSexo] = useState('');
     const [idade, setIdade] = useState('');
     const [tempoTrabalho, setTempoTrabalho] = useState('');
@@ -22,23 +23,11 @@ const Previsao = () => {
 
     const probabilidadeFormatada = (parseFloat(probabilidade) * 100).toFixed(2) + '%';
 
-    const paisMap: Record<string, string> = {
-        França: "France",
-        Alemanha: "Germany",
-        Espanha: "Spain"
-    };
-
-    const sexoMap: Record<string, string> = {
-        Feminino: "Female",
-        Masculino: "Male"
-    };
-
-    interface Pais {
+    interface Dominio {
         id: number;
         value: string;
         label: string;
     }
-
 
     useEffect(() => {
         api.get('/dominios/paises')
@@ -50,14 +39,23 @@ const Previsao = () => {
             .catch(error => {
                 console.error('Erro na requisição:', error);
             });
+        api.get('/dominios/generos')
+            .then(response => {
+                const fetchedGeneros = response.data.dados;
+                setGeneros(fetchedGeneros);
+
+            })
+            .catch(error => {
+                console.error('Erro na requisição:', error);
+            });
     }, [])
 
     async function prever() {
         setLoading(true);
         api.post('/api/previsao', {
             CreditScore: score,
-            Geography: paisMap[pais],
-            Gender: sexoMap[sexo],
+            Geography: pais,
+            Gender: sexo,
             Age: idade,
             Tenure: tempoTrabalho,
             Balance: saldo,
@@ -134,7 +132,7 @@ const Previsao = () => {
                                     >
                                         <option value="" disabled hidden></option>
                                         {paises.map((p) => (
-                                            <option key={p.id} value={p.label}>
+                                            <option key={p.id} value={p.value}>
                                                 {p.label}
                                             </option>
                                         ))}
@@ -166,8 +164,11 @@ const Previsao = () => {
                                         className="border border-default-medium col-start-1 row-start-1 w-full appearance-none rounded-md bg-white/5 py-1.5 pr-8 pl-3 text-base text-black outline-1 -outline-offset-1 outline-white/10 *:bg-white focus:outline-2 focus:-outline-offset-2 focus:outline-green-400 shadow-sm sm:text-sm/6"
                                     >
                                         <option value="" disabled hidden></option>
-                                        <option>Feminino</option>
-                                        <option>Masculino</option>
+                                        {generos.map((p) => (
+                                            <option key={p.id} value={p.value}>
+                                                {p.label}
+                                            </option>
+                                        ))}
                                     </select>
                                     <ChevronDownIcon
                                         aria-hidden="true"
@@ -242,7 +243,7 @@ const Previsao = () => {
                                         >
                                             <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                                                 <div className="sm:flex sm:items-start">
-                                                    <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                                                    <div className="mt-3 text-center sm:mt-0 sm:text-left">
                                                         <div className="mt-2 text-xl">
                                                             {erro ? (
                                                                 <div>
