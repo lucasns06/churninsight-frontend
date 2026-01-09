@@ -1,5 +1,6 @@
 import { DocumentArrowUpIcon } from "@heroicons/react/24/outline";
 import { useRef, useState } from "react";
+import api, { enviarBatch } from "../services/Api";
 
 const PrevisaoLote = () => {
     const [file, setFile] = useState<File | null>(null);
@@ -44,7 +45,7 @@ const PrevisaoLote = () => {
     const pollStatus = (id: string) => {
         const interval = setInterval(async () => {
             try {
-                const res = await consultarStatus(id);
+                const res = (await api.get(`/previsao-lote/status/${id}`)).data;
                 setStatus(res.status);
                 if (res.status === 'FINALIZADO') {
                     clearInterval(interval);
@@ -87,7 +88,7 @@ const PrevisaoLote = () => {
     }
     return (
         <div className="tela">
-            <div className="flex flex-col justify-center items-center gap-4">
+            <div className="tela flex flex-col justify-center items-center gap-8">
                 <h1 className="text-center font-bold text-4xl">Previsão em Lote</h1>
                 <div
                     onDragOver={handleDragOver}
@@ -121,9 +122,10 @@ const PrevisaoLote = () => {
                         Deletar Batch
                     </button>
                     <button className="hidden enabled:block border-2 px-2 cursor-pointer bg-green-300" onClick={handleUpload} disabled={!file || loading}>
-                        {loading ? 'Enviando...' : 'Enviar Batch'}
+                        Enviar Batch
                     </button>
                 </div>
+                {loading && <p>Enviando...</p>}
                 {jobId && <p>Job ID: {jobId}</p>}
                 {status && <p>Status: {status}</p>}
             </div>
