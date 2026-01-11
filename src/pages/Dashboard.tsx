@@ -13,7 +13,6 @@ const Dashboard = () => {
     const [taxaChurn, setTaxaChurn] = useState(0);
     const [risco, setRisco] = useState({
         BAIXO: 0,
-        MÉDIO: 0,
         ALTO: 0
     });
     const [fatores, setFatores] = useState<Topfatores[]>([]);
