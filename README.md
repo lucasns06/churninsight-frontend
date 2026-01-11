@@ -60,6 +60,7 @@ Este repositório corresponde ao **Front-End da aplicação**, desenvolvido como
 ```plaintext
 churninsight-frontend/
  └── src/
+      ├── @types/         # Interfaces
       ├── assets/         # Imagens e ícones
       ├── components/     # Componentes reutilizáveis (UI)
       |     ├── effects/  # Particulas
