@@ -3,8 +3,7 @@ import { Tooltip, ResponsiveContainer, PieChart as RechartsPie, Pie, Cell } from
 import CustomContentOfTooltip from "../components/CustomContentOfTooltip";
 import { useEffect, useState } from "react";
 import api from "../services/Api";
-
-type NivelRiscoType = "BAIXO" | "ALTO";
+import { Estatistica, GraficoItem, NivelRiscoType, Topfatores } from "../@types/dashboard";
 
 const Dashboard = () => {
     const [loading, setLoading] = useState(true);
@@ -25,19 +24,6 @@ const Dashboard = () => {
         { name: "Vai continuar", value: risco.BAIXO, color: "#628ff0" },
         { name: "Vai cancelar", value: risco.ALTO, color: "#f06262" }
     ]
-    interface GraficoItem {
-        nivelRisco: NivelRiscoType;
-        quantidade: number;
-    }
-    interface Topfatores {
-        fator: string;
-        total: number;
-    }
-    interface Estatistica {
-        total: number;
-        taxaChurn: number;
-    }
-
 
     useEffect(() => {
         const carregarDashboard = async () => {
