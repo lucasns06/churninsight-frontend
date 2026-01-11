@@ -5,15 +5,7 @@ import vitor from "/src/assets/membros/vitor.jpg";
 import josemar from "/src/assets/membros/josemar.jpg";
 import mauricio from "/src/assets/membros/mauricio.png";
 import leticia from "/src/assets/membros/leticia.png";
-
-interface Membro {
-  id: number;
-  fotoUrl: string;  
-  nome: string;
-  cargo: string;
-  github: string;
-  linkedin: string;
-}
+import { Membro } from "../@types/membro";
 
 export const cardsBack: Membro[] = [
     {

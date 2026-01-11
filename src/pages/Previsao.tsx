@@ -3,6 +3,7 @@ import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/re
 import { ArrowTrendingUpIcon, ChevronDownIcon, ClockIcon, CreditCardIcon, CurrencyDollarIcon, GlobeAltIcon, UserIcon } from '@heroicons/react/16/solid'
 import api from '../services/Api';
 import { CalendarDateRangeIcon } from '@heroicons/react/16/solid';
+import { Dominio } from '../@types/previsao';
 
 const Previsao = () => {
     const [loading, setLoading] = useState(false);
@@ -25,11 +26,7 @@ const Previsao = () => {
 
     const probabilidadeFormatada = (parseFloat(probabilidade) * 100).toFixed(2) + '%';
 
-    interface Dominio {
-        id: number;
-        value: string;
-        label: string;
-    }
+
     useEffect(() => {
         const carregarDominios = async () => {
             try {
