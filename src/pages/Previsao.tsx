@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
 import { ArrowTrendingUpIcon, ChevronDownIcon, ClockIcon, CreditCardIcon, CurrencyDollarIcon, GlobeAltIcon, UserIcon } from '@heroicons/react/16/solid'
-import api from '../services/Api';
+import api from '../services/api';
 import { CalendarDateRangeIcon } from '@heroicons/react/16/solid';
 import { Dominio } from '../@types/previsao';
 

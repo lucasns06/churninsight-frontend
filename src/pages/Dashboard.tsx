@@ -2,7 +2,7 @@ import { ChartBarIcon, ArrowTrendingDownIcon, ExclamationTriangleIcon, UserCircl
 import { Tooltip, ResponsiveContainer, PieChart as RechartsPie, Pie, Cell } from "recharts";
 import CustomContentOfTooltip from "../components/CustomContentOfTooltip";
 import { useEffect, useState } from "react";
-import api from "../services/Api";
+import api from "../services/api";
 import { Estatistica, GraficoItem, NivelRiscoType, Topfatores } from "../@types/dashboard";
 
 const Dashboard = () => {

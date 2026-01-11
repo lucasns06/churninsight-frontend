@@ -1,6 +1,6 @@
 import { ArrowTrendingUpIcon, DocumentArrowUpIcon } from "@heroicons/react/24/outline";
 import { useRef, useState } from "react";
-import api, { enviarBatch } from "../services/Api";
+import api, { enviarBatch } from "../services/api";
 
 const PrevisaoLote = () => {
     const [file, setFile] = useState<File | null>(null);
