@@ -4,7 +4,7 @@ import CustomContentOfTooltip from "../components/CustomContentOfTooltip";
 import { useEffect, useState } from "react";
 import api from "../services/Api";
 
-type NivelRiscoType = "BAIXO" | "MÉDIO" | "ALTO";
+type NivelRiscoType = "BAIXO" | "ALTO";
 
 const Dashboard = () => {
     const [loading, setLoading] = useState(true);
@@ -56,7 +56,7 @@ const Dashboard = () => {
                 setTaxaChurn(taxaChurnFormatada);
                 setFatores(fatoresRes.data);
 
-                const novo: Record<NivelRiscoType, number> = { BAIXO: 0, MÉDIO: 0, ALTO: 0 };
+                const novo: Record<NivelRiscoType, number> = { BAIXO: 0, ALTO: 0 };
                 graficoRes.data.forEach(item => {
                     novo[item.nivelRisco] = item.quantidade;
                 });
