@@ -10,16 +10,21 @@ import Previsao from './pages/Previsao';
 import Dashboard from './pages/Dashboard';
 import NotFound from './pages/NotFound';
 import PrevisaoLote from './pages/PrevisaoLote';
+import MainLayout from './components/layout/MainLayout';
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/membros" element={<><Navbar /><Membros /><Footer /></>} />
-        <Route path="/previsao" element={<><Navbar /><Previsao /><Footer /></>} />
-        <Route path="/dashboard" element={<><Navbar /><Dashboard /><Footer /></>} />
-        <Route path="/previsao-lote" element={<><Navbar /><PrevisaoLote /><Footer /></>} />
+
+        <Route element={<MainLayout />}>
+          <Route path="/membros" element={<Membros />} />
+          <Route path="/previsao" element={<Previsao />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/previsao-lote" element={<PrevisaoLote />} />
+        </Route>
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
