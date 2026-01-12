@@ -4,26 +4,62 @@ import { ArrowTrendingUpIcon, ChevronDownIcon, ClockIcon, CreditCardIcon, Curren
 import api from '../services/api';
 import { CalendarDateRangeIcon } from '@heroicons/react/16/solid';
 import { Dominio } from '../@types/previsao';
+import { SubmitHandler, useForm } from 'react-hook-form';
+
+type Inputs = {
+    CreditScore: number;
+    Geography: string;
+    Gender: string;
+    Age: number;
+    Tenure: number;
+    Balance: number;
+    EstimatedSalary: number;
+}
 
 const Previsao = () => {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<Inputs>()
+
+    const onSubmit: SubmitHandler<Inputs> = (data) => {
+        setOpen(true)
+        setLoading(true);
+        api.post('/api/previsao', data)
+            .then(function (response) {
+                setPrevisao(response.data.previsao);
+                setNivelRisco(response.data.nivel_risco);
+                setProbabilidade(response.data.probabilidade);
+            })
+            .catch(function (error) {
+                console.log(error.response?.data);
+                setErro(true);
+
+                if (error.response && error.response.data && error.response.data.length > 0) {
+                    const textoErro = error.response.data[0].mensagem;
+                    setErroMensagem(textoErro);
+                } else {
+                    setErroMensagem("Ocorreu um erro inesperado.");
+                }
+            })
+            .finally(function () {
+                setLoading(false);
+            });
+    };
+
     const [loading, setLoading] = useState(false);
     const [erro, setErro] = useState(false);
     const [loadingPage, setLoadingPage] = useState(true);
     const [erroPage, setErroPage] = useState(false);
     const [open, setOpen] = useState(false);
-    const [score, setScore] = useState('');
-    const [pais, setPais] = useState('');
     const [paises, setPaises] = useState<Dominio[]>([]);
     const [generos, setGeneros] = useState<Dominio[]>([]);
-    const [sexo, setSexo] = useState('');
-    const [idade, setIdade] = useState('');
-    const [tempoTrabalho, setTempoTrabalho] = useState('');
-    const [saldo, setSaldo] = useState('');
-    const [salarioEstimado, setSalarioEstimado] = useState('');
     const [previsao, setPrevisao] = useState('');
     const [probabilidade, setProbabilidade] = useState('');
     const [nivelRisco, setNivelRisco] = useState('');
-
+    const [erroMensagem, setErroMensagem] = useState('');
+    const classeInput = `w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-blue-500 shadow-sm sm:text-sm/6 mt-2`;
     const probabilidadeFormatada = (parseFloat(probabilidade) * 100).toFixed(2) + '%';
 
 
@@ -52,32 +88,6 @@ const Previsao = () => {
     }, []);
 
 
-    async function prever() {
-        setLoading(true);
-        api.post('/api/previsao', {
-            CreditScore: score,
-            Geography: pais,
-            Gender: sexo,
-            Age: idade,
-            Tenure: tempoTrabalho,
-            Balance: saldo,
-            EstimatedSalary: salarioEstimado
-        })
-            .then(function (response) {
-                setPrevisao(response.data.previsao);
-                setNivelRisco(response.data.nivel_risco);
-                setProbabilidade(response.data.probabilidade);
-            })
-            .catch(function (error) {
-                console.log(error.response?.data);
-                console.log(error.response?.status);
-                setErro(true);
-            })
-            .finally(function () {
-                setLoading(false);
-            });
-
-    }
     async function voltar() {
         setOpen(false);
         setTimeout(() => {
@@ -115,19 +125,15 @@ const Previsao = () => {
                 <ArrowTrendingUpIcon className="w-4 h-4 text-blue-700" />
                 <span className="text-sm font-medium text-blue-700">Previsão de Churn</span>
             </div>
-            <div className="bg-white rounded-2xl p-4 shadow-2xl max-w-xl">
-                <h1 className='text-3xl'>Dados do Cliente</h1>
-                <h1 className='text-base mb-4'>Insira as informações para realizar a análise preditiva</h1>
+            <div className="bg-white rounded-xl p-4 shadow-md max-w-xl border border-gray-200">
+                <h1 className='text-3xl text-center'>Dados do Cliente</h1>
+                <h1 className='text-base text-gray-800 mb-4 text-center'>Insira as informações para realizar a análise preditiva</h1>
                 <form
-                    onSubmit={(e) => {
-                        e.preventDefault()
-                        setOpen(true)
-                        prever()
-                    }}
+                    onSubmit={handleSubmit(onSubmit)}
                 >
                     <div className='grid grid-cols-1 md:grid-cols-2 md:gap-4 w-full'>
                         <div className='w-full'>
-                            <div className="mb-6">
+                            <div className="h-22 relative">
                                 <div className='flex items-center'>
                                     <CreditCardIcon
                                         aria-hidden="true"
@@ -135,9 +141,19 @@ const Previsao = () => {
                                     />
                                     <label className="text-sm font-medium text-heading">Score de crédito</label>
                                 </div>
-                                <input step={1} min={350} max={1000} value={score} onChange={(e) => setScore(e.target.value)} type="number" placeholder='Score de crédito' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-blue-500 shadow-sm sm:text-sm/6 mt-2" required />
+                                <input
+                                    type="number"
+                                    placeholder='Score de crédito'
+                                    {...register("CreditScore", { required: "Campo Obrigatório", min: { value: 350, message: "O valor mínimo é 350!" }, max: { value: 1000, message: "O valor máximo é 1000" }, valueAsNumber: true })}
+                                    className={`${classeInput} ${errors.CreditScore ? 'border-red-500 focus:outline-red-500' : 'border-gray-900'}`}
+                                />
+                                {errors.CreditScore && (
+                                    <span className="absolute left-0 bottom-2 text-red-500 text-xs leading-none">
+                                        {errors.CreditScore.message}
+                                    </span>
+                                )}
                             </div>
-                            <div className="mb-6 sm:col-span-3">
+                            <div className="h-22 relative sm:col-span-3">
                                 <div className='flex items-center'>
                                     <GlobeAltIcon
                                         aria-hidden="true"
@@ -149,15 +165,11 @@ const Previsao = () => {
                                 </div>
                                 <div className="mt-2 grid grid-cols-1">
                                     <select
-                                        id="pais"
-                                        name="pais"
-                                        value={pais}
-                                        onChange={(e) => setPais(e.target.value)}
-                                        autoComplete="pais-name"
-                                        required
+                                        {...register("Geography", { required: "Campo Obrigatório" })}
+                                        defaultValue=""
                                         className="border border-default-medium col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-black outline-1 -outline-offset-1 outline-white/10 *:bg-white focus:outline-2 focus:-outline-offset-2 focus:outline-blue-500 shadow-sm sm:text-sm/6"
                                     >
-                                        <option value="" disabled hidden></option>
+                                        <option value="" disabled hidden ></option>
                                         {paises.map((p) => (
                                             <option key={p.id} value={p.value}>
                                                 {p.label}
@@ -169,8 +181,13 @@ const Previsao = () => {
                                         className="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-black sm:size-4"
                                     />
                                 </div>
+                                {errors.Geography && (
+                                    <span className="absolute left-0 bottom-2 text-red-500 text-xs leading-none">
+                                        {errors.Geography.message}
+                                    </span>
+                                )}
                             </div>
-                            <div className="mb-6 sm:col-span-3">
+                            <div className="h-22 relative sm:col-span-3">
                                 <div className='flex items-center'>
                                     <UserIcon
                                         aria-hidden="true"
@@ -182,12 +199,8 @@ const Previsao = () => {
                                 </div>
                                 <div className="mt-2 grid grid-cols-1">
                                     <select
-                                        id="sexo"
-                                        name="sexo"
-                                        value={sexo}
-                                        onChange={(e) => setSexo(e.target.value)}
-                                        autoComplete="sexo-name"
-                                        required
+                                        {...register("Gender", { required: "Campo Obrigatório" })}
+                                        defaultValue=""
                                         className="border border-default-medium col-start-1 row-start-1 w-full appearance-none rounded-md bg-white/5 py-1.5 pr-8 pl-3 text-base text-black outline-1 -outline-offset-1 outline-white/10 *:bg-white focus:outline-2 focus:-outline-offset-2 focus:outline-blue-500 shadow-sm sm:text-sm/6"
                                     >
                                         <option value="" disabled hidden></option>
@@ -202,10 +215,15 @@ const Previsao = () => {
                                         className="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-black sm:size-4"
                                     />
                                 </div>
+                                {errors.Gender && (
+                                    <span className="absolute left-0 bottom-2 text-red-500 text-xs leading-none">
+                                        {errors.Gender.message}
+                                    </span>
+                                )}
                             </div>
                         </div>
                         <div className='w-full'>
-                            <div className="mb-6">
+                            <div className="h-22 relative">
                                 <div className='flex items-center'>
                                     <CalendarDateRangeIcon
                                         aria-hidden="true"
@@ -213,20 +231,38 @@ const Previsao = () => {
                                     />
                                     <label className="text-sm font-medium text-heading">Idade</label>
                                 </div>
-
-                                <input step={1} min={18} max={92} value={idade} onChange={(e) => setIdade(e.target.value)} type="number" placeholder='Idade' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-blue-500 shadow-sm sm:text-sm/6 mt-2" required />
+                                <input
+                                    type='number'
+                                    placeholder='Idade' {
+                                    ...register("Age", { required: "Campo Obrigatório", min: { value: 18, message: "O valor minimo é 18" }, max: { value: 92, message: "O valor maximo é 92" }, valueAsNumber: true })}
+                                    className={`${classeInput} ${errors.Age ? 'border-red-500 focus:outline-red-500' : 'border-gray-900'}`} />
+                                {errors.Age && (
+                                    <span className="absolute left-0 bottom-2 text-red-500 text-xs leading-none">
+                                        {errors.Age.message}
+                                    </span>
+                                )}
                             </div>
-                            <div className="mb-6">
+                            <div className="h-22 relative">
                                 <div className='flex items-center'>
                                     <ClockIcon
                                         aria-hidden="true"
                                         className="pointer-events-none mr-1 col-start-1 row-start-1 size-5 self-center justify-self-end text-blue-600 sm:size-4"
                                     />
-                                    <label htmlFor="trabalho" className="text-sm font-medium text-heading">Tempo de trabalho (meses)</label>
+                                    <label htmlFor="Tenure" className="text-sm font-medium text-heading">Tempo de trabalho (meses)</label>
                                 </div>
-                                <input step={1} min={0} max={10} id='trabalho' value={tempoTrabalho} onChange={(e) => setTempoTrabalho(e.target.value)} type="number" placeholder='Tempo de trabalho (meses)' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-blue-500 shadow-sm sm:text-sm/6 mt-2" required />
+                                <input
+                                    type='number'
+                                    placeholder='Tempo de trabalho'
+                                    {...register("Tenure", { required: "Campo Obrigatório", min: { value: 0, message: "O valor minimo é 0" }, max: { value: 10, message: "O valor maximo é 10" }, valueAsNumber: true })}
+                                    className={`${classeInput} ${errors.Tenure ? 'border-red-500 focus:outline-red-500' : 'border-gray-900'}`}
+                                />
+                                {errors.Tenure && (
+                                    <span className="absolute left-0 bottom-2 text-red-500 text-xs leading-none">
+                                        {errors.Tenure.message}
+                                    </span>
+                                )}
                             </div>
-                            <div className="mb-6">
+                            <div className="h-22 relative">
                                 <div className='flex items-center'>
                                     <CurrencyDollarIcon
                                         aria-hidden="true"
@@ -234,11 +270,21 @@ const Previsao = () => {
                                     />
                                     <label htmlFor="saldo" className="text-sm font-medium text-heading">Saldo</label>
                                 </div>
-                                <input min={0} step={0.01} id='saldo' value={saldo} onChange={(e) => setSaldo(e.target.value)} type="number" placeholder='Saldo' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-blue-500 shadow-sm sm:text-sm/6 mt-2" required />
+                                <input
+                                    type='number'
+                                    placeholder='Saldo'
+                                    {...register("Balance", { required: "Campo Obrigatório", min: { value: 0, message: "O valor mínimo é 0" }, valueAsNumber: true })}
+                                    className={`${classeInput} ${errors.Balance ? 'border-red-500 focus:outline-red-500' : 'border-gray-900'}`}
+                                />
+                                {errors.Balance && (
+                                    <span className="absolute left-0 bottom-2 text-red-500 text-xs leading-none">
+                                        {errors.Balance.message}
+                                    </span>
+                                )}
                             </div>
                         </div>
                     </div>
-                    <div className="mb-6">
+                    <div className="h-22 relative">
                         <div className='flex items-center'>
                             <CurrencyDollarIcon
                                 aria-hidden="true"
@@ -246,16 +292,23 @@ const Previsao = () => {
                             />
                             <label htmlFor="salario" className="text-sm font-medium text-heading">Salário estimado</label>
                         </div>
-                        <input min={0} step={0.01} id="salario" value={salarioEstimado} onChange={(e) => setSalarioEstimado(e.target.value)} type="number" placeholder='Salário estimado' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-blue-500 shadow-sm sm:text-sm/6 mt-2" required />
+                        <input type='number' placeholder='Salário' {...register("EstimatedSalary", { required: "Campo Obrigatório", min: { value: 0, message: "Valor minimo é 0" }, valueAsNumber: true })}
+                            className={`${classeInput} ${errors.EstimatedSalary ? 'border-red-500 focus:outline-red-500' : 'border-gray-900'}`}
+                        />
+
+                        {errors.EstimatedSalary && (
+                            <span className="absolute left-0 bottom-2 text-red-500 text-xs leading-none">
+                                {errors.EstimatedSalary.message}
+                            </span>
+                        )}
                     </div>
                     <div className="flex justify-center">
                         <div>
-                            <button
+                            <input
                                 type="submit"
+                                value='Analisar Risco de churn'
                                 className="text-white hover:cursor-pointer hover:scale-105 bg-linear-to-r from-[#0077FF] to-[#2242aa] shadow-sm hover:shadow-xl font-medium leading-5 rounded-xl text-ms px-4 py-2.5 focus:outline-none"
-                            >
-                                Analisar Risco de churn
-                            </button>
+                            />
                             <Dialog open={open} onClose={setOpen} className="relative z-10">
                                 <DialogBackdrop
                                     transition
@@ -278,7 +331,8 @@ const Previsao = () => {
                                                                         Resultado
                                                                     </DialogTitle>
                                                                     <div>
-                                                                        <p className='font-4xl text-center'>ERRO</p>
+                                                                        {/* <p className='font-4xl text-center'>ERRO</p> */}
+                                                                        <p className='font-2xl text-center text-red-500'>{erroMensagem}</p>
                                                                     </div>
                                                                 </div>
                                                             ) :
