@@ -135,7 +135,7 @@ const Previsao = () => {
                                     />
                                     <label className="text-sm font-medium text-heading">Score de crédito</label>
                                 </div>
-                                <input step={1} min={350} max={1000} value={score} onChange={(e) => setScore(e.target.value)} type="number" placeholder='Score de crédito' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
+                                <input step={1} min={350} max={1000} value={score} onChange={(e) => setScore(e.target.value)} type="number" placeholder='Score de crédito' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-blue-500 shadow-sm sm:text-sm/6 mt-2" required />
                             </div>
                             <div className="mb-6 sm:col-span-3">
                                 <div className='flex items-center'>
@@ -155,7 +155,7 @@ const Previsao = () => {
                                         onChange={(e) => setPais(e.target.value)}
                                         autoComplete="pais-name"
                                         required
-                                        className="border border-default-medium col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-black outline-1 -outline-offset-1 outline-white/10 *:bg-white focus:outline-2 focus:-outline-offset-2 focus:outline-green-400 shadow-sm sm:text-sm/6"
+                                        className="border border-default-medium col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-black outline-1 -outline-offset-1 outline-white/10 *:bg-white focus:outline-2 focus:-outline-offset-2 focus:outline-blue-500 shadow-sm sm:text-sm/6"
                                     >
                                         <option value="" disabled hidden></option>
                                         {paises.map((p) => (
@@ -188,7 +188,7 @@ const Previsao = () => {
                                         onChange={(e) => setSexo(e.target.value)}
                                         autoComplete="sexo-name"
                                         required
-                                        className="border border-default-medium col-start-1 row-start-1 w-full appearance-none rounded-md bg-white/5 py-1.5 pr-8 pl-3 text-base text-black outline-1 -outline-offset-1 outline-white/10 *:bg-white focus:outline-2 focus:-outline-offset-2 focus:outline-green-400 shadow-sm sm:text-sm/6"
+                                        className="border border-default-medium col-start-1 row-start-1 w-full appearance-none rounded-md bg-white/5 py-1.5 pr-8 pl-3 text-base text-black outline-1 -outline-offset-1 outline-white/10 *:bg-white focus:outline-2 focus:-outline-offset-2 focus:outline-blue-500 shadow-sm sm:text-sm/6"
                                     >
                                         <option value="" disabled hidden></option>
                                         {generos.map((p) => (
@@ -214,7 +214,7 @@ const Previsao = () => {
                                     <label className="text-sm font-medium text-heading">Idade</label>
                                 </div>
 
-                                <input step={1} min={18} max={92} value={idade} onChange={(e) => setIdade(e.target.value)} type="number" placeholder='Idade' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
+                                <input step={1} min={18} max={92} value={idade} onChange={(e) => setIdade(e.target.value)} type="number" placeholder='Idade' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-blue-500 shadow-sm sm:text-sm/6 mt-2" required />
                             </div>
                             <div className="mb-6">
                                 <div className='flex items-center'>
@@ -224,7 +224,7 @@ const Previsao = () => {
                                     />
                                     <label htmlFor="trabalho" className="text-sm font-medium text-heading">Tempo de trabalho (meses)</label>
                                 </div>
-                                <input step={1} min={0} max={10} id='trabalho' value={tempoTrabalho} onChange={(e) => setTempoTrabalho(e.target.value)} type="number" placeholder='Tempo de trabalho (meses)' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
+                                <input step={1} min={0} max={10} id='trabalho' value={tempoTrabalho} onChange={(e) => setTempoTrabalho(e.target.value)} type="number" placeholder='Tempo de trabalho (meses)' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-blue-500 shadow-sm sm:text-sm/6 mt-2" required />
                             </div>
                             <div className="mb-6">
                                 <div className='flex items-center'>
@@ -234,7 +234,7 @@ const Previsao = () => {
                                     />
                                     <label htmlFor="saldo" className="text-sm font-medium text-heading">Saldo</label>
                                 </div>
-                                <input min={0} step={0.01} id='saldo' value={saldo} onChange={(e) => setSaldo(e.target.value)} type="number" placeholder='Saldo' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
+                                <input min={0} step={0.01} id='saldo' value={saldo} onChange={(e) => setSaldo(e.target.value)} type="number" placeholder='Saldo' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-blue-500 shadow-sm sm:text-sm/6 mt-2" required />
                             </div>
                         </div>
                     </div>
@@ -246,13 +246,13 @@ const Previsao = () => {
                             />
                             <label htmlFor="salario" className="text-sm font-medium text-heading">Salário estimado</label>
                         </div>
-                        <input min={0} step={0.01} id="salario" value={salarioEstimado} onChange={(e) => setSalarioEstimado(e.target.value)} type="number" placeholder='Salário estimado' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-green-400 shadow-sm sm:text-sm/6 mt-2" required />
+                        <input min={0} step={0.01} id="salario" value={salarioEstimado} onChange={(e) => setSalarioEstimado(e.target.value)} type="number" placeholder='Salário estimado' className="w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-blue-500 shadow-sm sm:text-sm/6 mt-2" required />
                     </div>
                     <div className="flex justify-center">
                         <div>
                             <button
                                 type="submit"
-                                className="text-white hover:cursor-pointer hover:scale-105 bg-linear-to-r from-[#0077FF] to-[#39EA29] shadow-sm font-medium leading-5 rounded-sm text-ms px-4 py-2.5 focus:outline-none"
+                                className="text-white hover:cursor-pointer hover:scale-105 bg-linear-to-r from-[#0077FF] to-[#2242aa] shadow-sm hover:shadow-xl font-medium leading-5 rounded-xl text-ms px-4 py-2.5 focus:outline-none"
                             >
                                 Analisar Risco de churn
                             </button>
