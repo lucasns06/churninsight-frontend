@@ -87,7 +87,7 @@ const Dashboard = () => {
     }
 
     return (
-        <div className="min-h-[calc(100vh-64px)] bg-[#eef1fd] px-6 py-8 text-center ">
+        <div className="min-h-[calc(100dvh-64px)] bg-[#eef1fd] px-6 py-8 text-center ">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/30 text-primary-foreground mb-6 border border-blue-500/40">
                 <ChartBarIcon className="w-4 h-4 text-blue-700" />
                 <span className="text-sm font-medium text-blue-700">Dashboard Analítico</span>
@@ -100,7 +100,7 @@ const Dashboard = () => {
                     return (
                         <div key={card.id} className="bg-white p-4 m-4 flex rounded-md border border-gray-400/50 items-center text-2xl shadow-md">
                             <div>
-                                {card.titulo}
+                                <p className="text-gray-600">{card.titulo}</p>
                                 <p className="font-bold text-4xl">{card.metrica}</p>
                             </div>
                             <card.icone className={`w-12 ml-8 rounded-full ${card.corIcone}`} />

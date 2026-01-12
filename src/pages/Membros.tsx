@@ -4,7 +4,7 @@ import { cardsBack, cardsData } from '../constants/dadosMembros';
 
 const Membros = () => {
     return (
-        <div className="tela sm:h-auto  pb-4 py-2">
+        <div className="min-h-[calc(100dvh-64px)] bg-[#eef1fd] sm:h-auto  pb-4 py-2">
             <div className="flex justify-center">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/30 text-primary-foreground border border-blue-500/40">
                     <UserCircleIcon className="w-4 h-4 text-blue-700" />
