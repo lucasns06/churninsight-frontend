@@ -87,14 +87,13 @@ const Dashboard = () => {
     }
 
     return (
-        <div className="tela px-6 py-8 text-center ">
-
+        <div className="min-h-[calc(100vh-64px)] bg-[#eef1fd] px-6 py-8 text-center ">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/30 text-primary-foreground mb-6 border border-blue-500/40">
                 <ChartBarIcon className="w-4 h-4 text-blue-700" />
                 <span className="text-sm font-medium text-blue-700">Dashboard Analítico</span>
             </div>
             <h1 className="text-4xl font-bold mb-2">Visão Geral do Churn</h1>
-            <h2 className="text-3xl">Acompanhe metricas em tempo real</h2>
+            <h2 className="text-3xl">Acompanhe métricas em tempo real</h2>
 
             <div className="flex flex-wrap justify-center mt-4">
                 {estatisticaCard.map((card) => {
