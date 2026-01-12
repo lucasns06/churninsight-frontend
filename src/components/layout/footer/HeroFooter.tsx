@@ -44,7 +44,7 @@ const HeroFooter = () => {
                 </div>
                 <hr className="my-6 border-default sm:mx-auto lg:my-8" />
                 <div className="sm:flex sm:items-center sm:justify-between">
-                    <span className="text-sm text-body sm:text-center">HACKATON - NO COUNTRY - Oracle Next One - ALURA
+                    <span className="text-sm text-body sm:text-center">HACKATON - NO COUNTRY - Oracle Next One - ALURA | <span className="font-bold">H12-25-B-Equipo 25-Data Science</span> 
                     </span>
                     <div className="flex mt-4 sm:justify-center sm:mt-0">
                         <a href="https://github.com/lucasns06/churninsight-frontend" className="text-body hover:text-heading ms-5" target="_blank" rel="noopener noreferrer">
