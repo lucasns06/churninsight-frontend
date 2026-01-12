@@ -1,4 +1,4 @@
-import { ArrowTrendingUpIcon, DocumentArrowUpIcon } from "@heroicons/react/24/outline";
+import { ArrowTrendingUpIcon, DocumentArrowDownIcon, DocumentArrowUpIcon } from "@heroicons/react/24/outline";
 import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react'
 import { useEffect, useRef, useState } from "react";
 import { downloadBatch, enviarBatch, statusBatch } from "../services/api";
@@ -197,7 +197,7 @@ const PrevisaoLote = () => {
                                         <button type="button"
                                             onClick={() => handleDownload()}
                                             className="inline-flex w-full justify-center rounded-md bg-green-500 px-3 py-2 text-sm font-semibold text-white hover:bg-green-400 hover:cursor-pointer sm:w-auto">
-                                            Download
+                                           <DocumentArrowDownIcon className="w-4 text-white"/> Download
                                         </button>
                                     </div>
                                 </div>
