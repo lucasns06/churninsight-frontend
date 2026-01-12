@@ -137,11 +137,11 @@ const PrevisaoLote = () => {
                 </div>
                 <div className="flex flex-wrap gap-2">
                     {file && !loading && (
-                        <button className="border-2 px-2 cursor-pointer bg-red-300" onClick={confirmarDeletar}>
+                        <button className="hidden enabled:block w-full justify-center rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white hover:bg-red-400 hover:cursor-pointer sm:w-auto" onClick={confirmarDeletar}>
                             Deletar Batch
                         </button>
                     )}
-                    <button className="hidden enabled:block border-2 px-2 cursor-pointer bg-green-300" onClick={handleUpload} disabled={!file || loading}>
+                    <button className="hidden enabled:block w-full justify-center rounded-md bg-green-500 px-3 py-2 text-sm font-semibold text-white hover:bg-green-400 hover:cursor-pointer sm:w-auto" onClick={handleUpload} disabled={!file || loading}>
                         Enviar Batch
                     </button>
                 </div>
