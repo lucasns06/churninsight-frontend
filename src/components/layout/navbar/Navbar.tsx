@@ -21,9 +21,9 @@ export default function Navbar(): React.ReactNode {
       as="nav"
       className="relative bg-[#F5F6FF] after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10 shadow-md"
     >
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-2  md:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
-          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+          <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
             {/* Botao de menu mobile*/}
             <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-white/5 hover:text-green-400 focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
               <span className="absolute -inset-0.5" />
@@ -32,7 +32,7 @@ export default function Navbar(): React.ReactNode {
               <XMarkIcon aria-hidden="true" className="hidden size-6 group-data-open:block" />
             </DisclosureButton>
           </div>
-          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+          <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
             <Link to='/' className="flex gap-2 shrink-0 items-center">
             <span className='bg-[#0077FF] text-white font-bold text-2xl px-2 rounded-xl'>C</span>
               <img
@@ -42,9 +42,9 @@ export default function Navbar(): React.ReactNode {
               />
             </Link>
           </div>
-          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            <div className="hidden sm:ml-6 sm:block">
-              <div className="flex space-x-4">
+          <div className="absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0">
+            <div className="hidden md:ml-6 md:block">
+              <div className="flex lg:space-x-4">
                 {navigation.map((item) => {
                   const isActive = location.pathname === item.href
                   return (
@@ -71,7 +71,7 @@ export default function Navbar(): React.ReactNode {
         </div>
       </div>
 
-      <DisclosurePanel className="sm:hidden">
+      <DisclosurePanel className="md:hidden">
         <div className="space-y-1 px-2 pt-2 pb-3">
           {navigation.map((item) => {
             const isActive = location.pathname === item.href
