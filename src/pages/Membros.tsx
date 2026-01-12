@@ -1,9 +1,16 @@
+import { UserCircleIcon } from '@heroicons/react/24/outline';
 import { cardsBack, cardsData } from '../constants/dadosMembros';
 
 
 const Membros = () => {
     return (
         <div className="tela sm:h-auto  pb-4 py-2">
+            <div className="flex justify-center">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/30 text-primary-foreground border border-blue-500/40">
+                    <UserCircleIcon className="w-4 h-4 text-blue-700" />
+                    <span className="text-sm font-medium text-blue-700">Membros</span>
+                </div>
+            </div>
             <h1 className="text-4xl text-center my-4">Nossa Equipe</h1>
             <div className="flex flex-wrap justify-center gap-4">
                 {cardsBack.map((membro) => (
