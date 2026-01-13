@@ -3,21 +3,24 @@ import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/re
 import { ArrowTrendingUpIcon, ChevronDownIcon, ClockIcon, CreditCardIcon, CurrencyDollarIcon, GlobeAltIcon, UserIcon } from '@heroicons/react/16/solid'
 import api from '../services/api';
 import { CalendarDateRangeIcon } from '@heroicons/react/16/solid';
-import { Dominio } from '../@types/previsao';
+import { Dominio, Inputs } from '../@types/previsao';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import Loading from '../components/layout/Loading';
 
-type Inputs = {
-    CreditScore: number;
-    Geography: string;
-    Gender: string;
-    Age: number;
-    Tenure: number;
-    Balance: number;
-    EstimatedSalary: number;
-}
-
 const Previsao = () => {
+    const [loading, setLoading] = useState(false);
+    const [erro, setErro] = useState(false);
+    const [loadingPage, setLoadingPage] = useState(true);
+    const [erroPage, setErroPage] = useState(false);
+    const [open, setOpen] = useState(false);
+    const [paises, setPaises] = useState<Dominio[]>([]);
+    const [generos, setGeneros] = useState<Dominio[]>([]);
+    const [previsao, setPrevisao] = useState('');
+    const [probabilidade, setProbabilidade] = useState('');
+    const [nivelRisco, setNivelRisco] = useState('');
+    const [erroMensagem, setErroMensagem] = useState('');
+    const classeInput = `w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-blue-500 shadow-sm sm:text-sm/6 mt-2`;
+    const probabilidadeFormatada = (parseFloat(probabilidade) * 100).toFixed(2) + '%';
     const {
         register,
         handleSubmit,
@@ -48,21 +51,6 @@ const Previsao = () => {
                 setLoading(false);
             });
     };
-
-    const [loading, setLoading] = useState(false);
-    const [erro, setErro] = useState(false);
-    const [loadingPage, setLoadingPage] = useState(true);
-    const [erroPage, setErroPage] = useState(false);
-    const [open, setOpen] = useState(false);
-    const [paises, setPaises] = useState<Dominio[]>([]);
-    const [generos, setGeneros] = useState<Dominio[]>([]);
-    const [previsao, setPrevisao] = useState('');
-    const [probabilidade, setProbabilidade] = useState('');
-    const [nivelRisco, setNivelRisco] = useState('');
-    const [erroMensagem, setErroMensagem] = useState('');
-    const classeInput = `w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-blue-500 shadow-sm sm:text-sm/6 mt-2`;
-    const probabilidadeFormatada = (parseFloat(probabilidade) * 100).toFixed(2) + '%';
-
 
     useEffect(() => {
         const carregarDominios = async () => {
