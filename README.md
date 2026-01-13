@@ -1,8 +1,9 @@
 <h1 id="inicio" align="center">
-ChurnInsight — Previsão de Churn<br>Front End<br>
+  ChurnInsight — Previsão de Churn<br>Front End<br>
+</h1>
 
 <p align="center">
-  <img src="./src/assets/gifDemo.gif" alt="Pagina inicial do ChurnInsight" width="100%">
+  <img src="./src/assets/gifs/gif-demo.gif" alt="Pagina inicial do ChurnInsight" width="100%">
 </p>
 
 <h2 align="center">📑 Sumário</h2>
@@ -24,6 +25,8 @@ A plataforma integra **Data Science** e **Backend** para transformar dados de cl
 Este repositório corresponde ao **Front-End da aplicação**, desenvolvido como um **MVP funcional**, com foco em clareza, usabilidade e integração com a API de previsão.
 
 [Acesse o site aqui!](https://churninsight-frontend.vercel.app/)
+
+[Veja demonstrações das funcionalidades aqui!]()
 
 #### Repositórios relacionados
 
