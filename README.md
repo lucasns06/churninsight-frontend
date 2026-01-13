@@ -24,14 +24,14 @@ A plataforma integra **Data Science** e **Backend** para transformar dados de cl
 
 Este repositório corresponde ao **Front-End da aplicação**, desenvolvido como um **MVP funcional**, com foco em clareza, usabilidade e integração com a API de previsão.
 
-[Acesse o site aqui!](https://churninsight-frontend.vercel.app/)
+👉[Acesse o site aqui!](https://churninsight-frontend.vercel.app/)
 
-[Veja demonstrações das funcionalidades aqui!](/src/docs/funcionalidades.md)
+👉[Guia das funcionalidades](/src/docs/funcionalidades.md)
 
 #### Repositórios relacionados
 
-- [Backend](https://github.com/renancvitor/churninsight-backend-h12-25b)
-- [Data-Science](https://github.com/LeticiaPaesano/Churn_Hackathon)
+- 👉[Backend](https://github.com/renancvitor/churninsight-backend-h12-25b)
+- 👉[Data-Science](https://github.com/LeticiaPaesano/Churn_Hackathon)
 
 <p align="right"><a href="#inicio">⬆️ Voltar ao início</a></p>
 
