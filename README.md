@@ -1,6 +1,10 @@
 <h1 id="inicio" align="center">
 ChurnInsight — Previsão de Churn<br>Front End<br>
 
+<p align="center">
+  <img src="./src/assets/gifDemo.gif" alt="Pagina inicial do ChurnInsight" width="100%">
+</p>
+
 <h2 align="center">📑 Sumário</h2>
 
 - [Visão Geral do Projeto](#visao-geral)
