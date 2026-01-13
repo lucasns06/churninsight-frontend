@@ -1,10 +1,10 @@
-import lucas from "/src/assets/membros/lucas.jpg";
-import renan from "/src/assets/membros/renan.jpg";
-import gabriel from "/src/assets/membros/gabriel.jpg";
-import vitor from "/src/assets/membros/vitor.jpg";
-import josemar from "/src/assets/membros/josemar.jpg";
-import mauricio from "/src/assets/membros/mauricio.png";
-import leticia from "/src/assets/membros/leticia.png";
+import lucas from "/src/assets/membros/webp/lucas.webp";
+import renan from "/src/assets/membros/webp/renan.webp";
+import gabriel from "/src/assets/membros/webp/gabriel.webp";
+import vitor from "/src/assets/membros/webp/vitor.webp";
+import josemar from "/src/assets/membros/webp/josemar.webp";
+import mauricio from "/src/assets/membros/webp/mauricio.webp";
+import leticia from "/src/assets/membros/webp/leticia.webp";
 import { Membro } from "../@types/membro";
 
 export const cardsBack: Membro[] = [
