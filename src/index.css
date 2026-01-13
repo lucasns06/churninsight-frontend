@@ -9,3 +9,15 @@
   min-height: calc(100dvh - 64px);
   background-color: #eef1fd;
 }
+.loading-animation{
+  animation: loadingKey 2s normal infinite;
+  display: block;
+  overflow: hidden;
+}
+@keyframes loadingKey {
+  0%{width: 6px;}
+  25%{width: 16px;}
+  50%{width: 22px;}
+  75%{width: 16px;}
+  100%{width: 6px;}
+}
