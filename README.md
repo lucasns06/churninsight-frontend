@@ -21,7 +21,7 @@ Este repositório corresponde ao **Front-End da aplicação**, desenvolvido como
 
 [Acesse o site aqui!](https://churninsight-frontend.vercel.app/)
 
-#### Repositórios
+#### Repositórios relacionados
 
 - [Backend](https://github.com/renancvitor/churninsight-backend-h12-25b)
 - [Data-Science](https://github.com/LeticiaPaesano/Churn_Hackathon)
