@@ -292,7 +292,7 @@ const Previsao = () => {
                             />
                             <label htmlFor="salario" className="text-sm font-medium text-heading">Salário estimado</label>
                         </div>
-                        <input type='number' placeholder='Salário' {...register("EstimatedSalary", { required: "Campo Obrigatório", min: { value: 0, message: "Valor minimo é 0" }, valueAsNumber: true })}
+                        <input type='number' placeholder='Salário' {...register("EstimatedSalary", { required: "Campo Obrigatório", min: { value: 0, message: "Valor minimo é 0" }, max: { value: 200000, message: "Valor máximo é 200.000" }, valueAsNumber: true })}
                             className={`${classeInput} ${errors.EstimatedSalary ? 'border-red-500 focus:outline-red-500' : 'border-gray-900'}`}
                         />
 
