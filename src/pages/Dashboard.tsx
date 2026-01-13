@@ -39,7 +39,7 @@ const Dashboard = () => {
 
                 setTotal(totalRes.data.total);
                 const taxaChurnAntes = totalRes.data.taxaChurn;
-                const taxaChurnFormatada = taxaChurnAntes*100;
+                const taxaChurnFormatada = taxaChurnAntes * 100;
                 setTaxaChurn(taxaChurnFormatada);
                 setFatores(fatoresRes.data);
 
@@ -67,7 +67,18 @@ const Dashboard = () => {
             </div>
         );
     }
-
+    if (total == 0) {
+        return (
+            <div className="tela flex-1 flex flex-col items-center justify-center text-center">
+                <h2 className="text-2xl text-red-500 mb-2">
+                    Não foi possível carregar o dashboard
+                </h2>
+                <p className="text-gray-600">
+                    Não há previões para analisar
+                </p>
+            </div>
+        )
+    }
     if (erro) {
         return (
             <div className="tela flex-1 flex flex-col items-center justify-center text-center">
@@ -107,7 +118,12 @@ const Dashboard = () => {
                 <div className="bg-white p-4 w-2xl rounded-md border border-gray-400/50 shadow-md">
                     <h1 className="text-4xl font-bold">Explicabilidade</h1>
                     <h2 className="text-2xl">As 3 features mais impactantes</h2>
-                    <CustomContentOfTooltip data={fatores} />
+                    {!fatores || fatores.length === 0 ? (
+                        <div className="flex justify-center items-center h-[90%]">Insira clientes em risco para aparecer o gráfico</div>
+                    ) : (
+                        <CustomContentOfTooltip data={fatores} />
+                    )}
+
                 </div>
                 <div className="bg-white p-4 w-2xl rounded-md border border-gray-400/50 shadow-md">
                     <h1 className="text-4xl font-bold">Distribuição por Churn</h1>
