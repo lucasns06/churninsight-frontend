@@ -103,7 +103,11 @@ const PrevisaoLote = () => {
     };
     return (
         <div className="min-h-[calc(100dvh-64px)] bg-[#eef1fd]">
-            <div className="min-h-[calc(100dvh-64px)] bg-[#eef1fd] flex flex-col justify-center items-center gap-8">
+            {loading &&
+                <div className="tela flex-1 flex items-center justify-center">
+                    <Loading nome="previsão em lote" />
+                </div>}
+            <div className={`min-h-[calc(100dvh-64px)] bg-[#eef1fd] flex flex-col justify-center items-center gap-8 ${loading && "hidden!"}`}>
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/30 text-primary-foreground border border-blue-500/40">
                     <ArrowTrendingUpIcon className="w-4 h-4 text-blue-700" />
                     <span className="text-sm font-medium text-blue-700">Previsão em Lote</span>
@@ -146,10 +150,6 @@ const PrevisaoLote = () => {
                         Enviar Batch
                     </button>
                 </div>
-                {loading &&
-                    <div className="text-center">
-                       <Loading nome="previsão em lote" />
-                    </div>}
                 {status && <p>Status: {status}</p>}
             </div>
             <Dialog open={modalAberto} onClose={setModalAberto} className="relative z-10">
@@ -194,7 +194,7 @@ const PrevisaoLote = () => {
                                         <button type="button"
                                             onClick={() => handleDownload()}
                                             className="inline-flex w-full justify-center rounded-md bg-green-500 px-3 py-2 text-sm font-semibold text-white hover:bg-green-400 hover:cursor-pointer sm:w-auto">
-                                           <DocumentArrowDownIcon className="w-4 text-white"/> Download
+                                            <DocumentArrowDownIcon className="w-4 text-white" /> Download
                                         </button>
                                     </div>
                                 </div>
