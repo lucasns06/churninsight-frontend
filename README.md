@@ -1,11 +1,5 @@
 <h1 id="inicio" align="center">
 ChurnInsight — Previsão de Churn<br>Front End<br>
-<img src="https://img.shields.io/badge/Status-Em%20desenvolvimento-yellow" width="180" height="30" />
-</h1>
-
-<!-- <h1 align="center">
-Front End
-</h1> -->
 
 <h2 align="center">📑 Sumário</h2>
 
@@ -25,22 +19,21 @@ A plataforma integra **Data Science** e **Backend** para transformar dados de cl
 
 Este repositório corresponde ao **Front-End da aplicação**, desenvolvido como um **MVP funcional**, com foco em clareza, usabilidade e integração com a API de previsão.
 
+[Acesse o site aqui!](https://churninsight-frontend.vercel.app/)
+
 #### Repositórios
 
 - [Backend](https://github.com/renancvitor/churninsight-backend-h12-25b)
 - [Data-Science](https://github.com/LeticiaPaesano/Churn_Hackathon)
 
-
-
-
 <p align="right"><a href="#inicio">⬆️ Voltar ao início</a></p>
 
 ---
 
-
 <h2 id="tecnologias" align="center">Tecnologias Utilizadas e Versões</h2>
 
 ### Front End
+
 - ⚛️ React - v19.2.0
 - 🟨 JavaScript
 - 🎨 Tailwind CSS - v4.1.18
@@ -56,7 +49,6 @@ Este repositório corresponde ao **Front-End da aplicação**, desenvolvido como
 
 <h2 id="estrutura" align="center">📁 Estrutura do Projeto</h2>
 
-
 ```plaintext
 churninsight-frontend/
  └── src/
@@ -64,7 +56,7 @@ churninsight-frontend/
       ├── assets/         # Imagens e ícones
       ├── components/     # Componentes reutilizáveis (UI)
       |     ├── effects/  # Particulas
-      |     ├──  layout/  # Navbar, Footer    
+      |     ├──  layout/  # Navbar, Footer
       ├── constants/      # Dados estáticos
       ├── pages/          # Páginas
       ├── services/       # Comunicação com a API
@@ -89,10 +81,13 @@ Versão recomendada: LTS
 <h2 id="como-executar" align="center">Como Executar o Projeto</h2>
 
 Instalar as dependências
+
 ```bash
 npm install
 ```
+
 Rodar
+
 ```bash
 npx vite
 ```
@@ -100,4 +95,3 @@ npx vite
 <p align="right"><a href="#inicio">⬆️ Voltar ao início</a></p>
 
 ---
-
