@@ -26,7 +26,7 @@ Este repositório corresponde ao **Front-End da aplicação**, desenvolvido como
 
 [Acesse o site aqui!](https://churninsight-frontend.vercel.app/)
 
-[Veja demonstrações das funcionalidades aqui!]()
+[Veja demonstrações das funcionalidades aqui!]("/src/docs/funcionalidades.md)
 
 #### Repositórios relacionados
 
