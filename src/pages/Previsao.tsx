@@ -130,7 +130,7 @@ const Previsao = () => {
                                     type="number"
                                     placeholder='Score de crédito'
                                     {...register("CreditScore", { required: "Campo Obrigatório", min: { value: 350, message: "O valor mínimo é 350!" }, max: { value: 1000, message: "O valor máximo é 1000" }, valueAsNumber: true })}
-                                    className={`${classeInput} ${errors.Geography ? 'border-red-500 focus:outline-red-500' : 'border-gray-300'} `}
+                                    className={`${classeInput} ${errors.CreditScore ? 'border-red-500 focus:outline-red-500' : 'border-gray-300'} `}
                                 />
                                 {errors.CreditScore && (
                                     <span className="absolute left-0 bottom-2 text-red-500 text-xs leading-none">
