@@ -99,23 +99,23 @@ const Dashboard = () => {
                 <span className="text-sm font-medium text-blue-700">Dashboard Analítico</span>
             </div>
             <h1 className="text-4xl font-bold mb-2">Visão Geral do Churn</h1>
-            <h2 className="text-3xl">Acompanhe métricas em tempo real</h2>
+            <h2 className="text-3xl">Acompanhe <span className="text-blue-500">métricas</span> em tempo real</h2>
 
             <div className="flex flex-wrap justify-center mt-4">
                 {estatisticaCard.map((card) => {
                     return (
-                        <div key={card.id} className="bg-white p-4 m-4 flex rounded-md border border-gray-400/50 items-center text-2xl shadow-md">
+                        <div key={card.id} className="bg-white p-4 m-4 flex rounded-xl border border-gray-200/80 items-center text-2xl shadow-sm hover:shadow-md transition-all">
                             <div>
-                                <p className="text-gray-600">{card.titulo}</p>
+                                <p className="text-gray-600 text-xl">{card.titulo}</p>
                                 <p className="font-bold text-4xl">{card.metrica}</p>
                             </div>
-                            <card.icone className={`w-12 ml-8 rounded-full ${card.corIcone}`} />
+                            <card.icone className={`w-12 ml-8 rounded-full p-2 ${card.corIcone}`} />
                         </div>
                     )
                 })}
             </div>
             <div className="flex flex-wrap-reverse justify-center gap-4 mt-4">
-                <div className="bg-white p-4 w-2xl rounded-md border border-gray-400/50 shadow-md">
+                <div className="bg-white p-4 w-2xl rounded-xl border border-gray-200/80 shadow-sm hover:shadow-md transition-all">
                     <h1 className="text-4xl font-bold">Explicabilidade</h1>
                     <h2 className="text-2xl">As 3 features mais impactantes</h2>
                     {!fatores || fatores.length === 0 ? (
@@ -125,7 +125,7 @@ const Dashboard = () => {
                     )}
 
                 </div>
-                <div className="bg-white p-4 w-2xl rounded-md border border-gray-400/50 shadow-md">
+                <div className="bg-white p-4 w-2xl rounded-xl border border-gray-200/80 shadow-sm hover:shadow-md transition-all">
                     <h1 className="text-4xl font-bold">Distribuição por Churn</h1>
                     <h2 className="text-2xl">Quantidade de clientes por churn</h2>
                     <div className="h-75">
