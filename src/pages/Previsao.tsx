@@ -130,7 +130,7 @@ const Previsao = () => {
                                     type="number"
                                     placeholder='Score de crédito'
                                     {...register("CreditScore", { required: "Campo Obrigatório", min: { value: 350, message: "O valor mínimo é 350!" }, max: { value: 1000, message: "O valor máximo é 1000" }, valueAsNumber: true })}
-                                    className={`${classeInput} ${errors.CreditScore ? 'border-red-500 focus:outline-red-500' : 'border-gray-900'}`}
+                                    className={`${classeInput} ${errors.Geography ? 'border-red-500 focus:outline-red-500' : 'border-gray-300'} `}
                                 />
                                 {errors.CreditScore && (
                                     <span className="absolute left-0 bottom-2 text-red-500 text-xs leading-none">
@@ -152,7 +152,7 @@ const Previsao = () => {
                                     <select
                                         {...register("Geography", { required: "Campo Obrigatório" })}
                                         defaultValue=""
-                                        className="border border-default-medium col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-black outline-1 -outline-offset-1 outline-white/10 *:bg-white focus:outline-2 focus:-outline-offset-2 focus:outline-blue-500 shadow-sm sm:text-sm/6"
+                                        className={`border border-default-medium col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-black outline-1 -outline-offset-1 outline-white/10 *:bg-white focus:outline-2 focus:-outline-offset-2 focus:outline-blue-500 shadow-sm sm:text-sm/6 ${errors.Geography ? 'border-red-500 focus:outline-red-500' : 'border-gray-300'}`}
                                     >
                                         <option value="" disabled hidden ></option>
                                         {paises.map((p) => (
@@ -186,7 +186,7 @@ const Previsao = () => {
                                     <select
                                         {...register("Gender", { required: "Campo Obrigatório" })}
                                         defaultValue=""
-                                        className="border border-default-medium col-start-1 row-start-1 w-full appearance-none rounded-md bg-white/5 py-1.5 pr-8 pl-3 text-base text-black outline-1 -outline-offset-1 outline-white/10 *:bg-white focus:outline-2 focus:-outline-offset-2 focus:outline-blue-500 shadow-sm sm:text-sm/6"
+                                        className={`border border-default-medium col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-black outline-1 -outline-offset-1 outline-white/10 *:bg-white focus:outline-2 focus:-outline-offset-2 focus:outline-blue-500 shadow-sm sm:text-sm/6 ${errors.Gender ? 'border-red-500 focus:outline-red-500' : 'border-gray-300'}`}
                                     >
                                         <option value="" disabled hidden></option>
                                         {generos.map((p) => (
@@ -220,7 +220,7 @@ const Previsao = () => {
                                     type='number'
                                     placeholder='Idade' {
                                     ...register("Age", { required: "Campo Obrigatório", min: { value: 18, message: "O valor minimo é 18" }, max: { value: 92, message: "O valor maximo é 92" }, valueAsNumber: true })}
-                                    className={`${classeInput} ${errors.Age ? 'border-red-500 focus:outline-red-500' : 'border-gray-900'}`} />
+                                    className={`${classeInput} ${errors.Age ? 'border-red-500 focus:outline-red-500' : 'border-gray-300'}`} />
                                 {errors.Age && (
                                     <span className="absolute left-0 bottom-2 text-red-500 text-xs leading-none">
                                         {errors.Age.message}
@@ -239,7 +239,7 @@ const Previsao = () => {
                                     type='number'
                                     placeholder='Tempo de trabalho'
                                     {...register("Tenure", { required: "Campo Obrigatório", min: { value: 0, message: "O valor minimo é 0" }, max: { value: 10, message: "O valor maximo é 10" }, valueAsNumber: true })}
-                                    className={`${classeInput} ${errors.Tenure ? 'border-red-500 focus:outline-red-500' : 'border-gray-900'}`}
+                                    className={`${classeInput} ${errors.Tenure ? 'border-red-500 focus:outline-red-500' : 'border-gray-300'}`}
                                 />
                                 {errors.Tenure && (
                                     <span className="absolute left-0 bottom-2 text-red-500 text-xs leading-none">
@@ -259,7 +259,7 @@ const Previsao = () => {
                                     type='number'
                                     placeholder='Saldo'
                                     {...register("Balance", { required: "Campo Obrigatório", min: { value: 0, message: "O valor mínimo é 0" }, valueAsNumber: true })}
-                                    className={`${classeInput} ${errors.Balance ? 'border-red-500 focus:outline-red-500' : 'border-gray-900'}`}
+                                    className={`${classeInput} ${errors.Balance ? 'border-red-500 focus:outline-red-500' : 'border-gray-300'}`}
                                 />
                                 {errors.Balance && (
                                     <span className="absolute left-0 bottom-2 text-red-500 text-xs leading-none">
@@ -278,7 +278,7 @@ const Previsao = () => {
                             <label htmlFor="salario" className="text-sm font-medium text-heading">Salário estimado</label>
                         </div>
                         <input type='number' placeholder='Salário' {...register("EstimatedSalary", { required: "Campo Obrigatório", min: { value: 0, message: "Valor minimo é 0" }, max: { value: 200000, message: "Valor máximo é 200.000" }, valueAsNumber: true })}
-                            className={`${classeInput} ${errors.EstimatedSalary ? 'border-red-500 focus:outline-red-500' : 'border-gray-900'}`}
+                            className={`${classeInput} ${errors.EstimatedSalary ? 'border-red-500 focus:outline-red-500' : 'border-gray-300'}`}
                         />
 
                         {errors.EstimatedSalary && (
