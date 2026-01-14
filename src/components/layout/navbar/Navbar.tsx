@@ -21,11 +21,11 @@ export default function Navbar(): React.ReactNode {
       as="nav"
       className="relative bg-[#fafaff] after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10 shadow-md"
     >
-      <div className="mx-auto max-w-7xl px-2  md:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-2 md:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
             {/* Botao de menu mobile*/}
-            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-white/5 hover:text-green-400 focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
+            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-white/5 hover:text-blue-500 focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
               <span className="absolute -inset-0.5" />
               <span className="sr-only">Open main menu</span>
               <Bars3Icon aria-hidden="true" className="block size-6 group-data-open:hidden" />
@@ -35,11 +35,6 @@ export default function Navbar(): React.ReactNode {
           <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
             <Link to='/' className="flex gap-2 shrink-0 items-center font-bold text-2xl">
             <span className='bg-[#0077FF] text-white px-2 rounded-xl'>C</span>
-              {/* <img
-                alt="logo"
-                src="logo.svg"
-                className="h-4 w-auto"
-              /> */}
               CHURN <span className='text-blue-500'>INSIGHT</span>
             </Link>
           </div>

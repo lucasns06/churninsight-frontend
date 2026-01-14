@@ -112,7 +112,7 @@ const Previsao = () => {
             <h1 className='text-3xl text-center font-bold'>Dados do Cliente</h1>
             <h1 className='text-base text-gray-800 mb-4 text-center'>Insira as informações para realizar a análise <span className='text-blue-500'>preditiva</span></h1>
 
-            <div className="bg-white rounded-xl p-4 shadow-md max-w-xl border border-gray-200">
+            <div className="bg-white rounded-xl p-4 shadow-md border border-gray-200 w-full md:w-max">
                 <form
                     onSubmit={handleSubmit(onSubmit)}
                 >
