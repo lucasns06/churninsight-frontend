@@ -1,10 +1,10 @@
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
-import { ArrowTrendingUpIcon, Bars3Icon, ChartBarIcon, UserCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { ArrowTrendingUpIcon, Bars3Icon, ChartBarIcon, RectangleStackIcon, UserCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 
 const navigation = [
   { name: 'Previsão', href: '/previsao', icon: ArrowTrendingUpIcon },
-  { name: 'Previsão Em Lote', href: '/previsao-lote', icon: ArrowTrendingUpIcon },
+  { name: 'Previsão Em Lote', href: '/previsao-lote', icon: RectangleStackIcon },
   { name: 'Dashboard', href: '/dashboard', icon: ChartBarIcon },
   { name: 'Equipe', href: '/membros', icon: UserCircleIcon }
 ]
