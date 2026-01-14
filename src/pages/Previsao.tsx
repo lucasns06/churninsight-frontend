@@ -108,9 +108,11 @@ const Previsao = () => {
                 <ArrowTrendingUpIcon className="w-4 h-4 text-blue-700" />
                 <span className="text-sm font-medium text-blue-700">Previsão de Churn</span>
             </div>
+
+            <h1 className='text-3xl text-center font-bold'>Dados do Cliente</h1>
+            <h1 className='text-base text-gray-800 mb-4 text-center'>Insira as informações para realizar a análise <span className='text-blue-500'>preditiva</span></h1>
+
             <div className="bg-white rounded-xl p-4 shadow-md max-w-xl border border-gray-200">
-                <h1 className='text-3xl text-center'>Dados do Cliente</h1>
-                <h1 className='text-base text-gray-800 mb-4 text-center'>Insira as informações para realizar a análise preditiva</h1>
                 <form
                     onSubmit={handleSubmit(onSubmit)}
                 >
