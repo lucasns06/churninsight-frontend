@@ -30,7 +30,7 @@ Este repositório corresponde ao **Front-End da aplicação**, desenvolvido como
 
 #### Repositórios relacionados
 
-- 👉[Backend](https://github.com/renancvitor/churninsight-backend-h12-25b)
+- 👉[Back-End](https://github.com/renancvitor/churninsight-backend-h12-25b)
 - 👉[Data-Science](https://github.com/LeticiaPaesano/Churn_Hackathon)
 
 <p align="right"><a href="#inicio">⬆️ Voltar ao início</a></p>
