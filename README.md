@@ -87,6 +87,8 @@ Versão recomendada: LTS
 
 <h2 id="como-executar" align="center">Como Executar o Projeto</h2>
 
+⚠️Para o front end funcionar, é necessario consumir a api do [back end](https://github.com/renancvitor/churninsight-backend-h12-25b) e do [data science](https://github.com/LeticiaPaesano/Churn_Hackathon)
+
 Instalar as dependências
 
 ```bash
