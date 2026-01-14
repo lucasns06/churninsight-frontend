@@ -8,7 +8,12 @@ import {
   Legend,
   TooltipContentProps,
   TooltipIndex,
+  Cell,
+  ResponsiveContainer,
+  PieChart as RechartsPie,
+  Pie,
 } from 'recharts';
+import { ChartData, DistribuicaoRisco } from '../@types/dashboard';
 
 const CustomTooltip = ({ active, payload, label }: TooltipContentProps<string | number, string>) => {
   const isVisible = active && payload && payload.length;
@@ -23,12 +28,8 @@ const CustomTooltip = ({ active, payload, label }: TooltipContentProps<string | 
   );
 };
 
-interface ChartData {
-  fator: string;
-  total: number;
-}
 
-const CustomContentOfTooltip = ({
+export const GraficoBarra = ({
   data,
   isAnimationActive = true,
   defaultIndex,
@@ -54,9 +55,41 @@ const CustomContentOfTooltip = ({
       <YAxis width="auto" />
       <Tooltip content={CustomTooltip} isAnimationActive={isAnimationActive} defaultIndex={defaultIndex} />
       <Legend />
-      <Bar dataKey="total" barSize={20} fill="#4160df" isAnimationActive={isAnimationActive} />
+      <Bar dataKey="total" radius={[10, 10, 0, 0]} barSize={20} fill="#3b82f6" isAnimationActive={isAnimationActive} />
     </BarChart>
   );
 };
 
-export default CustomContentOfTooltip;
+export const GraficoPizza = ({
+  data,
+}: {
+  data: DistribuicaoRisco[];
+}) => {
+  return (
+    <ResponsiveContainer width="100%" height="100%">
+      <RechartsPie>
+        <Pie
+          data={data}
+          cx="50%"
+          cy="50%"
+          innerRadius={60}
+          outerRadius={100}
+          paddingAngle={5}
+          dataKey="value"
+          label={{ fontSize: 22 }}
+        >
+          {data.map((entry: DistribuicaoRisco, index: number) => (
+            <Cell key={`cell-${index}`} fill={entry.color} />
+          ))}
+        </Pie>
+        <Tooltip
+          contentStyle={{
+            backgroundColor: "#FFFFFF",
+            border: "1px solid gray",
+            borderRadius: "8px",
+          }}
+        />
+      </RechartsPie>
+    </ResponsiveContainer>
+  )
+}
