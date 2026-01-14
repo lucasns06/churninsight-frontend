@@ -15,7 +15,7 @@ export default function Hero() {
                         <span className="text-sm font-medium text-white">Previsão de Churn</span>
                     </div>
                     <h1 className="w-fit font-bold text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xlfont-semibold tracking-tight text-white">
-                        Preveja Cancelamentos e <span className="bg-linear-to-r from-[#0077FF] to-[#39EA29] bg-clip-text text-transparent">Retenha Mais Clientes</span>
+                        Preveja Cancelamentos e <span className="bg-linear-to-r from-[#0077FF] to-[#87b9ff] bg-clip-text text-transparent">Retenha Mais Clientes</span>
                     </h1>
 
                     <p className="mt-6 text-lg sm:text-lg md:text-lg lg:text-xl xl:text-xl text-gray-300">
@@ -25,9 +25,15 @@ export default function Hero() {
                     <div className="mt-10 flex items-center justify-center gap-x-6">
                         <Link
                             to="/previsao"
-                            className="rounded-md bg-linear-to-r from-[#0077FF] to-[#39EA29] px-4 py-2.5 text-xl font-semibold text-white hover:scale-110 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                            className="rounded-xl bg-linear-to-r from-[#0077FF] to-[#0662cb] px-4 py-2.5 text-xl font-semibold text-white hover:scale-110 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                         >
                             Fazer previsão
+                        </Link>
+                        <Link
+                            to="/dashboard"
+                            className="rounded-xl bg-gray-900 backdrop-blur-2xl border border-gray-700 px-4 py-2.5 text-xl font-semibold text-white hover:scale-110 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                        >
+                            Dashboard
                         </Link>
                     </div>
                 </div>
