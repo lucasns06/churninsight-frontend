@@ -1,6 +1,17 @@
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+    const navegacao = [
+        { link: "/previsao", nome: "Previsão" },
+        { link: "/previsao-lote", nome: "Previsão em Lote" },
+        { link: "/dashboard", nome: "Dashboard" },
+        { link: "/membros", nome: "Nossa Equipe" }
+    ]
+    const repositorios = [
+        { link: "https://github.com/lucasns06/churninsight-frontend", nome: "Front End" },
+        { link: "https://github.com/renancvitor/churninsight-backend-h12-25b", nome: "Back End" },
+        { link: "https://github.com/LeticiaPaesano/Churn_Hackathon", nome: "Data Science" }
+    ]
     return (
         <footer className="bg-[#F5F6FF]">
             <div className="mx-auto w-full max-w-7xl p-4 py-6 lg:py-8">
@@ -13,34 +24,27 @@ const Footer = () => {
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2">
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold text-heading uppercase">Repositórios</h2>
+                            <h2 className="mb-6 text-sm font-semibold text-heading uppercase tracking-[0.2em]">Repositórios</h2>
                             <ul className="text-body font-medium text-gray-600">
-                                <li className="mb-4">
-                                    <a href="https://github.com/lucasns06/churninsight-frontend" className="hover:underline" target="_blank" rel="noopener noreferrer">Front end</a>
-                                </li>
-                                <li className="mb-4">
-                                    <a href="https://github.com/renancvitor/churninsight-backend-h12-25b" className="hover:underline" target="_blank" rel="noopener noreferrer">Back end</a>
-                                </li>
-                                <li>
-                                    <a href="https://github.com/LeticiaPaesano/Churn_Hackathon" className="hover:underline" target="_blank" rel="noopener noreferrer">Data science</a>
-                                </li>
+                                {repositorios.map((item) => {
+                                    return (
+                                        <li className="mb-4" key={item.nome}>
+                                            <a href={item.link} className="hover:underline" target="_blank" rel="noopener noreferrer">{item.nome}</a>
+                                        </li>
+                                    )
+                                })}
                             </ul>
                         </div>
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold text-heading uppercase">Navegação</h2>
+                            <h2 className="mb-6 text-sm font-semibold text-heading uppercase tracking-[0.2em]">Navegação</h2>
                             <ul className="text-body font-medium text-gray-600">
-                                <li className="mb-4">
-                                    <Link to="/previsao" className="hover:underline">Previsão</Link>
-                                </li>
-                                <li className="mb-4">
-                                    <Link to="/previsao" className="hover:underline">Previsão em Lote</Link>
-                                </li>
-                                <li className="mb-4">
-                                    <Link to="/dashboard" className="hover:underline">Dashboard</Link>
-                                </li>
-                                <li>
-                                    <Link to="/membros" className="hover:underline">Nossa Equipe</Link>
-                                </li>
+                                {navegacao.map((item) => {
+                                    return (
+                                        <li className="mb-4" key={item.nome}>
+                                            <Link to={item.link} className="hover:underline">{item.nome}</Link>
+                                        </li>
+                                    )
+                                })}
                             </ul>
                         </div>
                     </div>
