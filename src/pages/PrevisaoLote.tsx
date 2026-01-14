@@ -1,4 +1,4 @@
-import { ArrowTrendingUpIcon, DocumentArrowDownIcon, DocumentArrowUpIcon, CheckCircleIcon } from "@heroicons/react/24/outline";
+import { ArrowTrendingUpIcon, DocumentArrowDownIcon, DocumentArrowUpIcon, CheckCircleIcon, CloudArrowUpIcon } from "@heroicons/react/24/outline";
 import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react';
 import { useEffect, useRef, useState } from "react";
 import { downloadBatch, enviarBatch, statusBatch } from "../services/api";
@@ -159,18 +159,19 @@ const PrevisaoLote = () => {
                             <span className="text-sm font-medium text-blue-700">Previsão em Lote</span>
                         </div>
                         <h1 className="text-center font-bold text-4xl">Previsão em Lote</h1>
+                        <h2 className="text-center text-xl">Analise múltiplos perfis simultaneamente e obtenha insights de <span className="text-blue-500">retenção</span> em escala.</h2>
                         <div
                             onDragOver={handleDragOver}
                             onDragLeave={handleDragLeave}
                             onDrop={handleDrop}
                             onClick={handleClick}
-                            className={`border-dashed w-max border-2 text-center cursor-pointer p-4 ${dragOver ? 'border-green-200' : 'border-gray-500'} ${dragOver ? 'bg-green-300/50' : 'bg-none'}`}
+                            className={`border-dashed group w-max border-2 text-center cursor-pointer p-4 ${dragOver ? 'border-green-200' : 'border-gray-500'} ${dragOver ? 'bg-green-300/50' : 'bg-none'}`}
                         >
                             {file ? (
                                 <p>Arquivo selecionado: {file.name}</p>
                             ) : (
                                 <div>
-                                    <DocumentArrowUpIcon className="w-full max-w-40 m-auto text-gray-500" />
+                                    <CloudArrowUpIcon className="w-full max-w-40 m-auto text-gray-600 group-hover:scale-105 transition" />
                                     <p>
                                         Arraste e solte o arquivo CSV
                                         <br />
