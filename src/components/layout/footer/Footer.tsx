@@ -13,7 +13,7 @@ const Footer = () => {
         { link: "https://github.com/LeticiaPaesano/Churn_Hackathon", nome: "Data Science" }
     ]
     return (
-        <footer className="bg-[#F5F6FF]">
+        <footer className="bg-[#fafaff]">
             <div className="mx-auto w-full max-w-7xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">

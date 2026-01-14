@@ -19,7 +19,7 @@ export default function Navbar(): React.ReactNode {
   return (
     <Disclosure
       as="nav"
-      className="relative bg-[#F5F6FF] after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10 shadow-md"
+      className="relative bg-[#fafaff] after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10 shadow-md"
     >
       <div className="mx-auto max-w-7xl px-2  md:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
