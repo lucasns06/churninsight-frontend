@@ -233,11 +233,11 @@ const Previsao = () => {
                                         aria-hidden="true"
                                         className="pointer-events-none mr-1 col-start-1 row-start-1 size-5 self-center justify-self-end text-blue-600 sm:size-4"
                                     />
-                                    <label htmlFor="Tenure" className="text-sm font-medium text-heading">Tempo de trabalho (meses)</label>
+                                    <label htmlFor="Tenure" className="text-sm font-medium text-heading">Tempo de relacionamento (meses)</label>
                                 </div>
                                 <input
                                     type='number'
-                                    placeholder='Tempo de trabalho'
+                                    placeholder='Tempo de relacionamento'
                                     {...register("Tenure", { required: "Campo Obrigatório", min: { value: 0, message: "O valor minimo é 0" }, max: { value: 10, message: "O valor maximo é 10" }, valueAsNumber: true })}
                                     className={`${classeInput} ${errors.Tenure ? 'border-red-500 focus:outline-red-500' : 'border-gray-300'}`}
                                 />
