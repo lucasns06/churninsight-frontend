@@ -1,11 +1,11 @@
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
-import { ArrowTrendingUpIcon, Bars3Icon, ChartBarIcon, UserCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { ArrowTrendingUpIcon, Bars3Icon, ChartBarIcon, RectangleStackIcon, UserCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 
 const navigation = [
   { name: 'Previsão', href: '/previsao', icon: ArrowTrendingUpIcon },
-  { name: 'Previsão Em Lote', href: '/previsao-lote', icon: ArrowTrendingUpIcon },
+  { name: 'Previsão Em Lote', href: '/previsao-lote', icon: RectangleStackIcon },
   { name: 'Dashboard', href: '/dashboard', icon: ChartBarIcon },
   { name: 'Equipe', href: '/membros', icon: UserCircleIcon }
 ]
@@ -33,13 +33,14 @@ export default function Navbar(): React.ReactNode {
             </DisclosureButton>
           </div>
           <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
-            <Link to='/' className="flex gap-2 shrink-0 items-center">
-            <span className='bg-[#0077FF] text-white font-bold text-2xl px-2 rounded-xl'>C</span>
-              <img
+            <Link to='/' className="flex gap-2 shrink-0 items-center font-bold text-2xl">
+            <span className='bg-[#0077FF] text-white px-2 rounded-xl'>C</span>
+              {/* <img
                 alt="logo"
                 src="logo.svg"
                 className="h-4 w-auto"
-              />
+              /> */}
+              CHURN <span className='text-blue-500'>INSIGHT</span>
             </Link>
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0">
@@ -54,7 +55,7 @@ export default function Navbar(): React.ReactNode {
                       aria-current={isActive ? 'page' : undefined}
 
                       className={classNames(
-                        isActive ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-black/5 ',
+                        isActive ? 'bg-blue-100 text-blue-600 shadow' : 'text-gray-700 hover:bg-black/5 ',
                         'rounded-md px-3 py-2 text-base font-medium',
                       )}
                     >
