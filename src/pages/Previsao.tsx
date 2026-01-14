@@ -292,7 +292,7 @@ const Previsao = () => {
                             <input
                                 type="submit"
                                 value='Analisar Risco de churn'
-                                className="text-white hover:cursor-pointer hover:scale-105 bg-linear-to-r from-[#0077FF] to-[#2242aa] shadow-sm hover:shadow-xl font-medium leading-5 rounded-xl text-ms px-4 py-2.5 focus:outline-none"
+                                className="text-white hover:cursor-pointer hover:scale-105 bg-linear-to-r from-[#0077FF] to-[#2242aa] shadow-sm hover:shadow-xl font-medium leading-5 rounded-xl text-ms px-4 py-2.5 focus:outline-none transition-all duration-250 ease-in-out"
                             />
                             <Dialog open={open} onClose={setOpen} className="relative z-10">
                                 <DialogBackdrop
