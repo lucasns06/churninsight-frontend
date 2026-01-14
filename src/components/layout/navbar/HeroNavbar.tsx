@@ -27,13 +27,9 @@ export default function HeroNavbar() {
             </DisclosureButton>
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <Link to='/' className="flex gap-2 shrink-0 items-center">
-            <span className='bg-[#0077FF] text-white font-bold text-2xl px-2 rounded-xl'>C</span>
-              <img
-                alt="logo"
-                src="logo.svg"
-                className="h-4 w-auto"
-              />
+            <Link to='/' className="flex gap-2 shrink-0 font-bold items-center text-white text-2xl">
+              <span className='bg-[#0077FF]   px-2 rounded-xl'>C</span>
+              CHURN <span className='text-blue-500'>INSIGHT</span>
             </Link>
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
