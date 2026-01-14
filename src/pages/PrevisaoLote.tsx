@@ -120,14 +120,14 @@ const PrevisaoLote = () => {
     };
 
     return (
-        <div className="min-h-[calc(100dvh-64px)] bg-[#eef1fd]">
+        <div className="min-h-[calc(100dvh-64px)]">
             <ToastContainer />
             {loading &&
                 <div className="tela flex-1 flex items-center justify-center">
                     <Loading nome="previsão em lote" />
                 </div>}
             
-            <div className={`min-h-[calc(100dvh-64px)] bg-[#eef1fd] flex flex-col justify-center items-center gap-8 ${loading && "hidden!"}`}>
+            <div className={`min-h-[calc(100dvh-64px)] flex flex-col justify-center items-center gap-8 ${loading && "hidden!"}`}>
                 
                 {finalJobId ? (
                     <div className="flex flex-col items-center justify-center gap-6 animate-fade-in">
