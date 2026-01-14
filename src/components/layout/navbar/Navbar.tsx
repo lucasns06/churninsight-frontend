@@ -51,7 +51,7 @@ export default function Navbar(): React.ReactNode {
 
                       className={classNames(
                         isActive ? 'bg-blue-100 text-blue-600 shadow' : 'text-gray-700 hover:bg-black/5 ',
-                        'rounded-md px-3 py-2 text-base font-medium',
+                        'rounded-md px-3 py-2 text-base font-medium flex items-center justify-center',
                       )}
                     >
                       <div className='flex gap-2'>
