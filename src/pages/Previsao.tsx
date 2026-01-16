@@ -19,8 +19,20 @@ const Previsao = () => {
     const [probabilidade, setProbabilidade] = useState('');
     const [nivelRisco, setNivelRisco] = useState('');
     const [erroMensagem, setErroMensagem] = useState('');
+    const [explicabilidade, setExplicabilidade] = useState([]);
     const classeInput = `w-full min-w-0 border rounded-md py-1.5 pr-3 pl-3 text-base text-black bg-white focus:outline-blue-500 shadow-sm sm:text-sm/6 mt-2`;
     const probabilidadeFormatada = (parseFloat(probabilidade) * 100).toFixed(2) + '%';
+    const traducoesExplicabilidade = {
+        "Age": "Idade",
+        "CreditScore": "Score de Crédito",
+        "Balance": "Saldo em Conta",
+        "Tenure": "Tempo de Contrato",
+        "Germany": "Alemanha",
+        "France": "França",
+        "Spain": "Espanha",
+        "EstimatedSalary": "Salário Estimado",
+        "Gender": "Gênero"
+    }
     const {
         register,
         handleSubmit,
@@ -35,6 +47,7 @@ const Previsao = () => {
                 setPrevisao(response.data.previsao);
                 setNivelRisco(response.data.nivel_risco);
                 setProbabilidade(response.data.probabilidade);
+                setExplicabilidade(response.data.explicabilidade)
             })
             .catch(function (error) {
                 console.log(error.response?.data);
@@ -372,6 +385,22 @@ const Previsao = () => {
                                                                                     <br />
                                                                                     {nivelRisco}
                                                                                 </p>
+                                                                                {explicabilidade && (
+                                                                                    <div>
+                                                                                        <br />
+                                                                                        <p className="text-gray-900">
+                                                                                            <span className='font-bold'>Explicabilidade:</span>
+                                                                                            <br />
+                                                                                            {explicabilidade.map((item, index) => {
+                                                                                                const termoTraduzido = traducoesExplicabilidade[item] || item;
+
+                                                                                                return (
+                                                                                                    <p key={index}>{termoTraduzido}</p>
+                                                                                                );
+                                                                                            })}
+                                                                                        </p>
+                                                                                    </div>
+                                                                                )}
                                                                             </div>
                                                                         )}
                                                                     </div>
