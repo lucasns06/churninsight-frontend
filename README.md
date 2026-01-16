@@ -42,7 +42,7 @@ Este repositório corresponde ao **Front-End da aplicação**, desenvolvido como
 ### Front End
 
 - ⚛️ React - v19.2.0
-- 🟨 JavaScript
+- #️⃣ TypeScript - v5.9.3
 - 🎨 Tailwind CSS - v4.1.18
 - 🎨 Headlessui - v2.2.9
 - 🎨 Heroicons - v2.2.0
