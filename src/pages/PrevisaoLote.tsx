@@ -173,8 +173,8 @@ const PrevisaoLote = () => {
                                 ) : (
                                     <div>
                                         <CloudArrowUpIcon className="w-full max-w-20 m-auto bg-white p-4 mb-4 rounded-full text-gray-400 group-hover:scale-105 transition" />
-                                        <p>
-                                            <span className="text-blue-500 font-bold">Clique para enviar</span> ou arraste e solte
+                                        <p className="font-bold">
+                                            <span className="text-blue-500">Clique para enviar</span> ou arraste e solte
                                         </p>
                                         <p className="text-gray-600">
                                             Apenas arquivos .CSV
