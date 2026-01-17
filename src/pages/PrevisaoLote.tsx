@@ -126,24 +126,24 @@ const PrevisaoLote = () => {
                 <div className="tela flex-1 flex items-center justify-center">
                     <Loading nome="previsão em lote" />
                 </div>}
-            
+
             <div className={`min-h-[calc(100dvh-64px)] flex flex-col justify-center items-center gap-8 ${loading && "hidden!"}`}>
-                
+
                 {finalJobId ? (
                     <div className="flex flex-col items-center justify-center gap-6 animate-fade-in">
                         <CheckCircleIcon className="w-32 h-32 text-green-500" />
                         <h2 className="text-3xl font-bold text-gray-800">Processamento Concluído!</h2>
-                        
+
                         <div className="flex flex-wrap gap-2 justify-center">
-                            <button 
+                            <button
                                 onClick={handleDownload}
                                 className="inline-flex items-center gap-2 rounded-md bg-green-600 px-6 py-3 text-lg font-semibold text-white hover:bg-green-500 hover:cursor-pointer transition-colors shadow-lg"
                             >
-                                <DocumentArrowDownIcon className="w-6 h-6 text-white" /> 
+                                <DocumentArrowDownIcon className="w-6 h-6 text-white" />
                                 Baixar Arquivo
                             </button>
-                            
-                            <button 
+
+                            <button
                                 onClick={resetarProcesso}
                                 className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-6 py-3 text-lg font-semibold text-white hover:bg-blue-500 hover:cursor-pointer transition-colors shadow-lg"
                             >
@@ -159,44 +159,48 @@ const PrevisaoLote = () => {
                             <span className="text-sm font-medium text-blue-700">Previsão em Lote</span>
                         </div>
                         <h1 className="text-center font-bold text-4xl">Previsão em Lote</h1>
-                        <h2 className="text-center text-xl">Analise múltiplos perfis simultaneamente e obtenha insights de <span className="text-blue-500">retenção</span> em escala.</h2>
-                        <div
-                            onDragOver={handleDragOver}
-                            onDragLeave={handleDragLeave}
-                            onDrop={handleDrop}
-                            onClick={handleClick}
-                            className={`border-dashed group w-max border-2 text-center cursor-pointer p-4 ${dragOver ? 'border-green-200' : 'border-gray-500'} ${dragOver ? 'bg-green-300/50' : 'bg-none'}`}
-                        >
-                            {file ? (
-                                <p>Arquivo selecionado: {file.name}</p>
-                            ) : (
-                                <div>
-                                    <CloudArrowUpIcon className="w-full max-w-40 m-auto text-gray-600 group-hover:scale-105 transition" />
-                                    <p>
-                                        Arraste e solte o arquivo CSV
-                                        <br />
-                                        aqui ou clique para selecionar
-                                    </p>
-                                </div>
-                            )}
-                            <input
-                                type="file"
-                                accept=".csv"
-                                onChange={handleFileChange}
-                                ref={fileInputRef}
-                                style={{ display: 'none' }}
-                            />
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                            {file && !loading && (
-                                <button className="hidden enabled:block w-full justify-center rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white hover:bg-red-400 hover:cursor-pointer sm:w-auto" onClick={confirmarDeletar}>
-                                    Deletar Batch
+                        <h2 className="text-center text-xl">Faça upload de um arquivo CSV para analisar múltiplos perfis de <span className="text-blue-500">clientes</span></h2>
+                        <div className="bg-white p-4 rounded-xl max-w-2xl w-full flex flex-col items-end">
+                            <div
+                                onDragOver={handleDragOver}
+                                onDragLeave={handleDragLeave}
+                                onDrop={handleDrop}
+                                onClick={handleClick}
+                                className={`border-dashed group border-2 rounded-xl bg-gray-100/90 w-full text-center cursor-pointer px-4 py-16 ${dragOver ? 'border-green-200' : 'border-gray-500'} ${dragOver ? 'bg-green-300/50' : 'bg-none'}`}
+                            >
+                                {file ? (
+                                    <p>Arquivo selecionado: {file.name}</p>
+                                ) : (
+                                    <div>
+                                        <CloudArrowUpIcon className="w-full max-w-20 m-auto bg-white p-4 mb-4 rounded-full text-gray-400 group-hover:scale-105 transition" />
+                                        <p>
+                                            <span className="text-blue-500 font-bold">Clique para enviar</span> ou arraste e solte
+                                        </p>
+                                        <p className="text-gray-600">
+                                            Apenas arquivos .CSV
+                                        </p>
+                                    </div>
+                                )}
+                                <input
+                                    type="file"
+                                    accept=".csv"
+                                    onChange={handleFileChange}
+                                    ref={fileInputRef}
+                                    style={{ display: 'none' }}
+                                />
+                            </div>
+                            <div className="mt-2 flex flex-wrap gap-2">
+                                {file && !loading && (
+                                    <button className="hidden enabled:block w-full justify-center rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white hover:bg-red-400 hover:cursor-pointer sm:w-auto" onClick={confirmarDeletar}>
+                                        Deletar
+                                    </button>
+                                )}
+                                <button className="bg-gray-300 w-full justify-center rounded-md enabled:bg-green-500 px-3 py-2 text-sm font-semibold text-white enabled:hover:bg-green-400 enabled:hover:cursor-pointer sm:w-auto" onClick={handleUpload} disabled={!file || loading}>
+                                    Iniciar Análise
                                 </button>
-                            )}
-                            <button className="hidden enabled:block w-full justify-center rounded-md bg-green-500 px-3 py-2 text-sm font-semibold text-white hover:bg-green-400 hover:cursor-pointer sm:w-auto" onClick={handleUpload} disabled={!file || loading}>
-                                Enviar Batch
-                            </button>
+                            </div>
                         </div>
+
                         {status && <p>Status: {status}</p>}
                     </>
                 )}
