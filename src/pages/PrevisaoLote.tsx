@@ -154,7 +154,7 @@ const PrevisaoLote = () => {
                     </div>
                 ) : (
                     <>
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/30 text-primary-foreground border border-blue-500/40">
+                        <div className="md:absolute md:top-22 md:left-6/12 md:-translate-x-6/12 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/30 text-primary-foreground border border-blue-500/40">
                             <ArrowTrendingUpIcon className="w-4 h-4 text-blue-700" />
                             <span className="text-sm font-medium text-blue-700">Previsão em Lote</span>
                         </div>

@@ -127,7 +127,7 @@ const Dashboard = () => {
                     </span>
                 </button>
             </div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/30 text-primary-foreground mb-6 border border-blue-500/40">
+            <div className="hidden md:inline-flex md:absolute md:top-22 md:left-8 items-center gap-2 px-4 py-2 rounded-full bg-blue-500/30 text-primary-foreground mb-6 border border-blue-500/40">
                 <ChartBarIcon className="w-4 h-4 text-blue-700" />
                 <span className="text-sm font-medium text-blue-700">Dashboard Analítico</span>
             </div>
