@@ -23,7 +23,7 @@ const Dashboard = () => {
     ]
 
     const riskDistribution = [
-        { name: "Vai continuar", value: risco.BAIXO, color: "#3b82f6",  },
+        { name: "Vai continuar", value: risco.BAIXO, color: "#3b82f6", },
         { name: "Vai cancelar", value: risco.ALTO, color: "#ef4444", }
     ]
     const [refreshing, setRefreshing] = useState(false);
@@ -134,48 +134,50 @@ const Dashboard = () => {
             <h1 className="text-4xl font-bold mb-2">Visão Geral do Churn</h1>
             <h2 className="text-xl text-gray-700">Acompanhe <span className="text-blue-500">métricas</span> em tempo real</h2>
 
-            <div className="flex flex-wrap justify-center mt-4">
-                {estatisticaCard.map((card) => {
-                    return (
-                        <div key={card.id} className="bg-white p-4 m-4 flex rounded-xl border gap-2 border-gray-200/80 items-start text-2xl shadow-sm hover:shadow-md transition-all">
-                            <div>
-                                <p className="text-gray-600 text-xl">{card.titulo}</p>
-                                <p className="font-bold text-4xl">{card.metrica}</p>
+            <div>
+                <div className="flex flex-wrap justify-center mt-4">
+                    {estatisticaCard.map((card) => {
+                        return (
+                            <div key={card.id} className="bg-white p-4 m-4 flex text-left rounded-xl border gap-6 border-gray-200/80 items-start  text-2xl shadow-sm hover:shadow-md transition-all">
+                                <div>
+                                    <p className="text-gray-600 text-xl">{card.titulo}</p>
+                                    <p className="font-bold text-4xl">{card.metrica}</p>
+                                </div>
+                                <div className={`p-2.5 rounded-xl bg-linear-to-br shadow-md ${card.corIcone}`}>
+                                    <card.icone className="w-6 h-6" />
+                                </div>
                             </div>
-                            <div className={`p-2.5 rounded-xl bg-linear-to-br shadow-md ${card.corIcone}`}>
-                                <card.icone className="w-6 h-6" />
-                            </div>
-                        </div>
-                    )
-                })}
-            </div>
-            <div className="flex flex-wrap-reverse justify-center gap-4 mt-4">
-                <div className="bg-white p-4 w-2xl rounded-xl border border-gray-200/80 shadow-sm hover:shadow-md transition-all">
-                    <h1 className="text-4xl font-bold">Explicabilidade</h1>
-                    <h2 className="text-2xl">As 3 features mais impactantes</h2>
-                    {!fatores || fatores.length === 0 ? (
-                        <div className="flex justify-center items-center h-[90%]">Insira clientes em risco para aparecer o gráfico</div>
-                    ) : (
-                        <GraficoBarra data={fatores} />
-                    )}
-
+                        )
+                    })}
                 </div>
-                <div className="bg-white p-4 w-2xl rounded-xl border border-gray-200/80 shadow-sm hover:shadow-md transition-all">
-                    <h1 className="text-4xl font-bold">Distribuição por Churn</h1>
-                    <h2 className="text-2xl">Quantidade de clientes por churn</h2>
-                    <div className="h-75">
-                        <GraficoPizza data={riskDistribution} />
+                <div className="flex flex-wrap-reverse justify-center gap-4 mt-4">
+                    <div className="bg-white p-4 w-2xl text-left rounded-xl border border-gray-200/80 shadow-sm hover:shadow-md transition-all">
+                        <h1 className="text-2xl font-bold">Explicabilidade</h1>
+                        <h2 className="text-xl text-gray-600 mb-2">Variáveis que mais influenciam o cancelamento</h2>
+                        {!fatores || fatores.length === 0 ? (
+                            <div className="flex justify-center items-center h-[90%]">Insira clientes em risco para aparecer o gráfico</div>
+                        ) : (
+                            <GraficoBarra data={fatores} />
+                        )}
+
                     </div>
-                    <div className="flex justify-center gap-6 mt-4 ">
-                        {riskDistribution.map((item) => (
-                            <div key={item.name} className="flex items-center gap-2">
-                                <div
-                                    className="w-3 h-3 rounded-full"
-                                    style={{ backgroundColor: item.color }}
-                                />
-                                <span className="text-sm text-muted-foreground">{item.name}</span>
-                            </div>
-                        ))}
+                    <div className="bg-white text-left p-4 w-2xl rounded-xl border border-gray-200/80 shadow-sm hover:shadow-md transition-all">
+                        <h1 className="text-2xl font-bold">Distribuição</h1>
+                        <h2 className="text-xl text-gray-600 mb-2">Quantidade de clientes por churn</h2>
+                        <div className="h-75">
+                            <GraficoPizza data={riskDistribution} />
+                        </div>
+                        <div className="flex justify-center gap-6 mt-4 ">
+                            {riskDistribution.map((item) => (
+                                <div key={item.name} className="flex items-center gap-2">
+                                    <div
+                                        className="w-3 h-3 rounded-full"
+                                        style={{ backgroundColor: item.color }}
+                                    />
+                                    <span className="text-sm text-muted-foreground">{item.name}</span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
