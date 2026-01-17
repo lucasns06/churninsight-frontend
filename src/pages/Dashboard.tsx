@@ -138,7 +138,7 @@ const Dashboard = () => {
                 <div className="flex flex-wrap justify-center mt-4">
                     {estatisticaCard.map((card) => {
                         return (
-                            <div key={card.id} className="bg-white p-4 m-4 flex text-left rounded-xl border gap-6 border-gray-200/80 items-start  text-2xl shadow-sm hover:shadow-md transition-all">
+                            <div key={card.id} className="bg-white p-4 my-4 w-full justify-between md:m-4 md:w-max flex text-left rounded-xl border gap-6 border-gray-200/80 items-start text-2xl shadow-sm hover:shadow-md transition-all">
                                 <div>
                                     <p className="text-gray-600 text-xl">{card.titulo}</p>
                                     <p className="font-bold text-4xl">{card.metrica}</p>
