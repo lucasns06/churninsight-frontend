@@ -135,10 +135,10 @@ const Dashboard = () => {
             <h2 className="text-xl text-gray-700">Análise detalhada de indicadores de <span className="text-blue-500">retenção</span></h2>
 
             <div>
-                <div className="flex flex-wrap justify-center mt-4">
+                <div className="flex flex-wrap md:flex-nowrap justify-center mt-4">
                     {estatisticaCard.map((card) => {
                         return (
-                            <div key={card.id} className="bg-white p-4 my-4 w-full justify-between md:m-4 md:w-max flex text-left rounded-xl border gap-6 border-gray-200/80 items-start text-2xl shadow-sm hover:shadow-md transition-all">
+                            <div key={card.id} className="bg-white p-4 my-4 w-full justify-between md:m-4 md:w-max flex text-left rounded-xl border gap-4 lg:gap-25 xl:gap-35 2xl:gap-50 border-gray-200/80 items-start text-2xl shadow-sm hover:shadow-md transition-all">
                                 <div>
                                     <p className="text-gray-600 text-xl">{card.titulo}</p>
                                     <p className="font-bold text-4xl">{card.metrica}</p>
@@ -150,7 +150,7 @@ const Dashboard = () => {
                         )
                     })}
                 </div>
-                <div className="flex flex-wrap-reverse justify-center gap-4 mt-4">
+                <div className="flex flex-wrap-reverse md:flex-nowrap justify-center gap-4 mt-4">
                     <div className="bg-white p-4 w-2xl text-left rounded-xl border border-gray-200/80 shadow-sm hover:shadow-md transition-all">
                         <h1 className="text-2xl font-bold">Explicabilidade</h1>
                         <h2 className="text-xl text-gray-600 mb-2">Variáveis que mais influenciam o cancelamento</h2>
