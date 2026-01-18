@@ -132,7 +132,7 @@ const Dashboard = () => {
                 <span className="text-sm font-medium text-blue-700">Dashboard Analítico</span>
             </div>
             <h1 className="text-4xl font-bold mb-2">Visão Geral do Churn</h1>
-            <h2 className="text-xl text-gray-700">Acompanhe <span className="text-blue-500">métricas</span> em tempo real</h2>
+            <h2 className="text-xl text-gray-700">Análise detalhada de indicadores de <span className="text-blue-500">retenção</span></h2>
 
             <div>
                 <div className="flex flex-wrap justify-center mt-4">
