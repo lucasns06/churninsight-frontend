@@ -31,7 +31,8 @@ const Previsao = () => {
         "France": "França",
         "Spain": "Espanha",
         "EstimatedSalary": "Salário Estimado",
-        "Gender": "Gênero"
+        "Gender": "Gênero",
+        "Age_Tenure": "Idade_Tempo de Relacionamento"
     }
     const {
         register,
