@@ -11,7 +11,7 @@
 - [Visão Geral do Projeto](#visao-geral)
 - [Tecnologias Utilizadas](#tecnologias)
 - [Estrutura do Projeto](#estrutura)
-- [Pré Requisitos](#pre-requisitos)
+- [Pré-requisitos](#pre-requisitos)
 - [Como Executar o Projeto](#como-executar)
 
 ---
