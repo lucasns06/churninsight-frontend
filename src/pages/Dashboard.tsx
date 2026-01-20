@@ -39,7 +39,7 @@ const Dashboard = () => {
             ]);
 
             setTotal(totalRes.data.total);
-            setTaxaChurn(totalRes.data.taxaChurn * 100);
+            setTaxaChurn(Math.round(totalRes.data.taxaChurn * 100));
             setFatores(fatoresRes.data);
 
             const novo: Record<NivelRiscoType, number> = { BAIXO: 0, ALTO: 0 };
